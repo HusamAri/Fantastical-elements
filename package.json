@@ -1,0 +1,12 @@
+{
+  "name": "fantastical-elements",
+  "version": "1.0.0",
+  "description": "An end-to-end interactive guide for visual language building in cinematic universes",
+  "main": "generate-research-doc.js",
+  "scripts": {
+    "generate-doc": "node generate-research-doc.js"
+  },
+  "dependencies": {
+    "docx": "^9.0.0"
+  }
+}
