@@ -143,6 +143,8 @@ Standing guardrails (refuse-and-redirect, every time):
 | "Make the face more intense / add fire near the face." | Distortion & bad-expression risk on the identity. | Cool composed face law; keep magic away from the face plane. |
 | "Do it wider/faster/cheaper to save credits." | Cheapness that costs continuity violates §0. | Credit-thrift only where it doesn't touch the Prime Directive. |
 | "Ship it, it's good enough." (with an open FLAG) | Open flags block advancement (§6). | Resolve or dispose the flag first, then ship. |
+| Name a franchise in a prompt / copy its shape or ability ("make it like <film>", "a Dr-Strange disc"). | Derivative, legally unsafe, and not a signature look. | Original form + ability; references inform look/colour/feeling only (see §11 Prompt Law). |
+| "Generate a batch / several videos / lots of variants at once." | Bulk burns credits before the human read; drift compounds. | One image or one video per step; 4 images only for an explicit concept/variance pick (§8). |
 
 New wrong-asks that recur get appended here. A refusal is always paired with the correct path —
 never a flat "no."
@@ -193,6 +195,12 @@ No Bible entry + no reference asset ⇒ **no generation**. This is the rule whos
 - A regeneration without a completed `FLAGS.md` triage entry is a protocol violation.
 - Episode budget ≤40% of account credits; budget the raw-to-finished funnel (~1:2–1:3s), not
   per-shot optimism.
+- **One generation per step.** Generate a **single** image or a **single** video at a time, then
+  wait for it, QA it, and interpret it *with* the user before the next. **No bulk/batch runs.** The
+  only exception: up to **4 images** in one step for an explicit concept/variance selection. **Video
+  is ALWAYS single** — never batch videos.
+- **Report spend after every generation:** state `this gen · session total · balance` so the user
+  always sees the running cost (mirror it into `LEDGER.md`).
 
 ---
 
@@ -223,6 +231,28 @@ These actually happened on this project. Each maps to the rule that now prevents
 - Treated the playbook as advisory and skipped Stage 1.5 → **§2** (state machine is binding on
   Claude) + this whole document.
 - Would have proceeded on an unresolved A/B choice → **§4** (never proceed on an unmade decision).
+- Wrote "Harry Potter / Marvel / a Dr-Strange disc" into a prompt → **§11** (no franchise names;
+  original form + ability; references inform look/colour/feeling only).
+
+---
+
+## 11. The Prompt Law — original by construction, franchise-free
+
+Prompts are engineered artifacts, run through the prompt-enhancer protocol (Loop 3), never
+free-typed. Binding rules:
+
+1. **No proper nouns of IP.** A prompt may not name a franchise, film, studio, or character
+   ("Marvel", "Doctor Strange", "Half-Blood Prince", etc.), nor request a look "like <that IP>".
+2. **References inform, never replicate.** Real works may guide only **palette, texture, light,
+   and feeling** — expressed in generic photographic language (grain, falloff, haze, grade). They
+   may **never** dictate the **shape** or the **ability** of a fantastical element. No borrowed
+   silhouettes (e.g. a floating rune-disc), no borrowed powers.
+3. **Signature by design.** Every fantastical element (magic, power, creature) must have an
+   **original form and original ability**, documented in the VISUAL-BIBLE so it stays consistent
+   across shots. On failure of originality, redesign — do not fall back to a familiar trope.
+4. **Concrete, photographic, self-contained.** Describe form, material, motion, light, and grain
+   specifically; keep identity/wardrobe in the locked reference (§7), not re-described in motion
+   prompts. Copy-paste-ready and unique — per `prompt-standards.md` and `/forp-prompt-enhancer`.
 
 ---
 
