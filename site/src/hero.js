@@ -1,60 +1,76 @@
 /*
  * FORP HERO — "The Fragments"
- * A scroll-scrubbed cinematic: Husam bends flame, the universe shatters, six fragments reveal,
- * an invitation to create your own. Scene changes happen ONLY through a glass-shard wipe passing
- * in front of the frame — never a hard cut — and everything is scrubbed seamlessly by scroll.
+ * Scroll-driven intro built on five LOCKED keyframes (K1 calm → K2 shatter → K3 action →
+ * K4 Flame Inside → K5 final). The motion's job is to REVEAL the six fragments. Scene changes
+ * happen only through a glass-shard wipe passing in front of the frame — never a hard cut — and
+ * everything is scrubbed by scroll. Text lives in the frame's negative space (integrated
+ * composition), and the finale fades to black and stays before the CTA.
  */
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const FRAG_BASE = "https://curatedchaos.artifactstudio.info/en/works/fragments/";
 const FRAGMENTS = [
-  { roman: "I",  name: "Agustín",    slogan: "A minimalist visual poem about artistic awakening.", slug: "agustin" },
-  { roman: "II", name: "Najoua",     slogan: "Kindness mistaken for weakness — until she spoke.",  slug: "najoua" },
-  { roman: "III",name: "Başak",      slogan: "From protective invisibility to deliberate presence.", slug: "basak" },
-  { roman: "IV", name: "Yaşar Efe",  slogan: "The figure who returns the blade to himself.",       slug: "yasar-efe" },
-  { roman: "V",  name: "Baver",      slogan: "A year of surviving panic without yielding.",        slug: "baver" },
-  { roman: "VI", name: "Federica · Espera", slogan: "Foglia d'Oro — the gold leaf beneath her skin.", slug: "federica" },
+  { roman: "I",   name: "Agustín",           slogan: "A minimalist visual poem about artistic awakening.", slug: "agustin" },
+  { roman: "II",  name: "Najoua",            slogan: "Kindness mistaken for weakness — until she spoke.",   slug: "najoua" },
+  { roman: "III", name: "Başak",             slogan: "From protective invisibility to deliberate presence.", slug: "basak" },
+  { roman: "IV",  name: "Yaşar Efe",         slogan: "The figure who returns the blade to himself.",        slug: "yasar-efe" },
+  { roman: "V",   name: "Baver",             slogan: "A year of surviving panic without yielding.",         slug: "baver" },
+  { roman: "VI",  name: "Federica · Espera", slogan: "Foglia d'Oro — the gold leaf beneath her skin.",      slug: "federica" },
 ];
 
-// Scene order. 'husam' scrubs the video; fragments/note/cta are plates. Boundaries = shard-wipes.
-const SCENES = ["title", "husam", "f0", "f1", "f2", "f3", "f4", "f5", "note", "cta"];
-const N = SCENES.length;
-const WIPE_HALF = 0.03; // half-width (in scroll progress) of a shard-wipe window
+// Each beat: which keyframe is on stage, which plate shows, and its payload.
+// frame 0=K1 calm, 1=K2 shatter, 2=K3 action, 3=K4 flame, 4=K5 final.
+const BEATS = [
+  { frame: 0, plate: "title" },
+  { frame: 1, plate: "note" },
+  { frame: 1, plate: "frag", frag: 0 },
+  { frame: 1, plate: "frag", frag: 1 },
+  { frame: 1, plate: "frag", frag: 2 },
+  { frame: 1, plate: "frag", frag: 3 },
+  { frame: 1, plate: "frag", frag: 4 },
+  { frame: 1, plate: "frag", frag: 5 },
+  { frame: 2, plate: "beat", line: "He fought to keep them whole." },
+  { frame: 3, plate: "beat", line: "The fire he carried turned outward." },
+  { frame: 4, plate: null },                       // final: K5, fades to black
+  { frame: 4, plate: "cta" },                      // CTA over black
+];
+const N = BEATS.length;
+const WIPE_HALF = 0.028; // half-width (scroll progress) of a shard-wipe window
 
 const prefersReduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
 const smooth = (t) => t * t * (3 - 2 * t);
+const inv = (v, a, b) => clamp((v - a) / (b - a), 0, 1);
 
 const els = {
-  video: document.getElementById("hero"),
+  frames: [...document.querySelectorAll(".frame")],
   scrim: document.querySelector(".scrim"),
+  black: document.querySelector(".blackout"),
   wipe: document.querySelector(".wipe"),
   title: document.querySelector('[data-plate="title"]'),
-  frag: document.querySelector('[data-plate="frag"]'),
   note: document.querySelector('[data-plate="note"]'),
+  frag: document.querySelector('[data-plate="frag"]'),
+  beat: document.querySelector('[data-plate="beat"]'),
   cta: document.querySelector('[data-plate="cta"]'),
   tick: document.getElementById("railTick"),
   label: document.getElementById("railLabel"),
 };
 
-// Build shard-wipe elements (a moving curtain of glass that occludes the swap).
 function buildShards() {
   const conf = [
-    { x: 8, s: 1.05, r: -8, delay: 0.0 },
-    { x: 42, s: 1.25, r: 6, delay: 0.08 },
-    { x: 74, s: 1.0, r: -3, delay: 0.04 },
+    { x: 6,  s: 1.08, r: -7, delay: 0.0 },
+    { x: 40, s: 1.28, r: 6,  delay: 0.08 },
+    { x: 73, s: 1.02, r: -3, delay: 0.04 },
   ];
   return conf.map((c) => {
     const img = document.createElement("img");
-    img.className = "shard";
-    img.src = "/shard.png";
-    img.alt = "";
+    img.className = "shard"; img.src = "/shard.png"; img.alt = "";
     img.style.left = c.x + "%";
-    img.dataset.s = c.s;
-    img.dataset.r = c.r;
-    img.dataset.delay = c.delay;
+    img.dataset.s = c.s; img.dataset.r = c.r; img.dataset.delay = c.delay;
     els.wipe.appendChild(img);
     return img;
   });
@@ -69,87 +85,84 @@ function fragHTML(f) {
   </div>`;
 }
 
-let shards, currentScene = -1;
+let shards, curBeat = -1, curFrame = -1;
 
-function setScene(idx) {
-  if (idx === currentScene) return;
-  currentScene = idx;
-  const name = SCENES[idx];
-  // Plate visibility
-  const show = (el, on) => {
-    el.style.opacity = on ? "1" : "0";
-    el.classList.toggle("is-live", on);
-  };
-  show(els.title, name === "title");
-  show(els.note, name === "note");
-  show(els.cta, name === "cta");
-  const isFrag = name[0] === "f";
-  show(els.frag, isFrag);
-  if (isFrag) els.frag.innerHTML = fragHTML(FRAGMENTS[+name.slice(1)]);
-  // Scrim mood
+function show(el, on) { el.style.opacity = on ? "1" : "0"; el.classList.toggle("is-live", on); }
+
+function setBeat(idx) {
+  if (idx === curBeat) return;
+  curBeat = idx;
+  const b = BEATS[idx];
+  // Frame swap (cross-fade)
+  if (b.frame !== curFrame) {
+    curFrame = b.frame;
+    els.frames.forEach((f, i) => f.classList.toggle("is-active", i === b.frame));
+  }
+  // Plates
+  show(els.title, b.plate === "title");
+  show(els.note, b.plate === "note");
+  show(els.frag, b.plate === "frag");
+  show(els.beat, b.plate === "beat");
+  show(els.cta, b.plate === "cta");
+  if (b.plate === "frag") els.frag.innerHTML = fragHTML(FRAGMENTS[b.frag]);
+  if (b.plate === "beat") els.beat.innerHTML = `<p class="beat__line">${b.line}</p>`;
+  // Mood: darken slightly on fragment/beat plates so text reads
   els.scrim.style.opacity =
-    name === "title" ? "0.55" : name === "cta" ? "0.82" : name === "note" ? "0.35" : "0";
+    b.plate === "frag" || b.plate === "beat" ? "0.34" : b.plate === "note" ? "0.28" : "0.12";
 }
 
-function updateVideoTarget(p) {
-  const d = els.video.duration || 5;
-  const a = 1 / N, b = 2 / N; // husam slice
-  let target;
-  if (p <= a) target = 0;
-  else if (p >= b) target = d - 0.05;
-  else target = ((p - a) / (b - a)) * d;
-  els._vt = target;
+function parallax(localT) {
+  // Subtle Ken-Burns within a beat on the active frame.
+  const f = els.frames[curFrame];
+  if (!f) return;
+  const s = 1.06 + localT * 0.06;
+  const x = (localT - 0.5) * 3.2;
+  f.style.transform = `scale(${s}) translateX(${x}%)`;
 }
 
 function updateWipe(p) {
-  // Nearest interior boundary
   const k = Math.round(p * N);
-  els.wipe.style.opacity = "1";
-  if (k <= 0 || k >= N) {
-    shards.forEach((s) => (s.style.opacity = "0"));
-    return;
-  }
-  const b = k / N;
-  if (Math.abs(p - b) > WIPE_HALF) {
-    shards.forEach((s) => (s.style.opacity = "0"));
-    return;
-  }
-  const t = clamp((p - (b - WIPE_HALF)) / (2 * WIPE_HALF), 0, 1);
+  if (k <= 0 || k >= N) { shards.forEach((s) => (s.style.opacity = "0")); return; }
+  const boundary = k / N;
+  if (Math.abs(p - boundary) > WIPE_HALF) { shards.forEach((s) => (s.style.opacity = "0")); return; }
+  const t = inv(p, boundary - WIPE_HALF, boundary + WIPE_HALF);
   shards.forEach((s) => {
     const d = +s.dataset.delay;
     const lt = clamp((t - d) / (1 - d), 0, 1);
-    const x = -170 + smooth(lt) * 340; // sweep left→right across the frame
-    s.style.opacity = "1";
+    const x = -175 + smooth(lt) * 350; // sweep across
+    s.style.opacity = lt > 0 && lt < 1 ? "1" : "0";
     s.style.transform = `translateX(${x}%) scale(${s.dataset.s}) rotate(${s.dataset.r}deg)`;
   });
-  // Swap scene exactly when the curtain covers center
-  setScene(t < 0.5 ? k - 1 : k);
+  setBeat(t < 0.5 ? k - 1 : k); // swap under cover of the curtain
 }
 
 function onScroll(p) {
-  const seg = clamp(Math.floor(p * N), 0, N - 1);
-  setScene(seg);
-  updateVideoTarget(p);
+  const fp = p * N;
+  const seg = clamp(Math.floor(fp), 0, N - 1);
+  setBeat(seg);
+  parallax(fp - seg);
   updateWipe(p);
+  // Final fade-to-black: ramp in during the final beat, hold through CTA.
+  els.black.style.opacity = String(inv(p, (N - 2) / N + 0.006, (N - 1.35) / N));
   const pc = Math.round(p * 100);
   els.tick.style.top = els.label.style.top = `${p * 100}%`;
-  const roman = ["I", "II", "III", "IV", "V"][Math.min(Math.floor(p * 5), 4)];
-  els.label.textContent = `${roman} — ${String(pc).padStart(3, "0")}%`;
+  els.label.textContent = String(pc).padStart(2, "0");
 }
 
 function initStatic() {
   document.body.classList.add("is-static");
-  els.frag.style.opacity = "1";
-  els.frag.innerHTML = FRAGMENTS.map(fragHTML).join("");
   els.title.style.opacity = els.note.style.opacity = els.cta.style.opacity = "1";
+  els.frag.style.opacity = els.beat.style.opacity = "1";
+  els.frag.innerHTML = FRAGMENTS.map(fragHTML).join("");
+  els.beat.innerHTML = BEATS.filter((b) => b.plate === "beat").map((b) => `<p class="beat__line">${b.line}</p>`).join("");
 }
 
 function boot() {
   if (prefersReduced) return initStatic();
   shards = buildShards();
-  els.video.play?.().catch(() => {});
+  els.frames[0].classList.add("is-active");
 
-  const lenis = new Lenis({ lerp: 0.09 });
+  const lenis = new Lenis({ lerp: 0.085 });
   lenis.on("scroll", ScrollTrigger.update);
   gsap.ticker.add((time) => lenis.raf(time * 1000));
   gsap.ticker.lagSmoothing(0);
@@ -160,24 +173,10 @@ function boot() {
     onUpdate: (self) => onScroll(self.progress),
   });
 
-  // Seamless video scrub: lerp currentTime toward target every frame.
-  els._vt = 0;
-  const raf = () => {
-    if (els.video.readyState >= 2 && els._vt != null) {
-      const cur = els.video.currentTime;
-      const next = cur + (els._vt - cur) * 0.18;
-      if (Math.abs(next - cur) > 0.001) {
-        try { els.video.currentTime = next; } catch (e) {}
-      }
-    }
-    requestAnimationFrame(raf);
-  };
-  raf();
-
   onScroll(0);
   const refresh = () => ScrollTrigger.refresh();
   if (document.fonts?.ready) document.fonts.ready.then(refresh);
-  els.video.addEventListener("loadedmetadata", refresh);
+  addEventListener("load", refresh);
 }
 
 boot();
