@@ -1,0 +1,189 @@
+/* Curated Chaos — Living Archive. Tokens from Brand Codex 2027 (DESIGN.md). */
+:root {
+  --bg-deep: #171d2d;
+  --bg-plum: #2b2139;
+  --bg-ivory: #f4f1ed;
+  --accent-blush: #dcc7cd;
+  --neutral-gray: #8a8f98;
+  --neutral-mauve: #a79baa;
+
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Montserrat", system-ui, sans-serif;
+
+  --radius-soft: 28px;
+  --hairline: 1px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto !important; /* Lenis owns scroll */
+}
+
+body {
+  background: var(--bg-deep); /* flat fill — no gradients anywhere */
+  color: var(--bg-ivory);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Singleton canvas: fixed behind everything */
+#stage {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  z-index: 0;
+}
+
+/* Film grain — felt, not seen. Flat noise, low opacity. No gradient, no glow. */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.09;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+}
+
+/* Registrar's Rail — the one persistent UI element. Hairline + sliding tick + gray micro. */
+.rail {
+  position: fixed;
+  top: 0;
+  right: 22px;
+  bottom: 0;
+  width: 1px;
+  z-index: 5;
+  background: rgba(138, 143, 152, 0.28); /* cool gray hairline */
+  pointer-events: none;
+}
+.rail__tick {
+  position: absolute;
+  right: -3px;
+  top: 0;
+  width: 7px;
+  height: 1px;
+  background: var(--neutral-gray);
+}
+.rail__label {
+  position: absolute;
+  right: 14px;
+  top: 0;
+  transform: translateY(-50%);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--neutral-gray); /* gray on deep indigo = 5.17:1, approved */
+  white-space: nowrap;
+}
+
+/* Content stage */
+#app {
+  position: relative;
+  z-index: 3;
+}
+
+.hall {
+  position: relative;
+  width: 100%;
+}
+#vestibule {
+  height: 500vh;
+}
+.hall__pin {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+/* Display type — Cormorant. One thought, centered, ≥60% negative space. */
+.display {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 8vw, 6.5rem);
+  line-height: 1.02;
+  letter-spacing: 0.01em;
+  color: var(--bg-ivory);
+  will-change: opacity, transform;
+}
+.display__sub {
+  display: block;
+  margin-top: 1.1rem;
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: clamp(0.62rem, 1.4vw, 0.82rem);
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--neutral-gray);
+}
+
+/* Caption — Montserrat, on a flat scrim, 15/70/15 window (opacity driven by scroll). */
+.caption {
+  position: absolute;
+  left: 50%;
+  bottom: 12vh;
+  transform: translateX(-50%);
+  max-width: min(46ch, 82vw);
+  padding: 20px 26px;
+  border-radius: var(--radius-soft);
+  border: var(--hairline) solid rgba(244, 241, 237, 0.14);
+  background: var(--bg-plum); /* flat single-color scrim */
+  color: var(--bg-ivory);
+  font-size: clamp(0.82rem, 1.5vw, 1rem);
+  line-height: 1.55;
+  letter-spacing: 0.02em;
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+.fallback {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+.fallback h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 7vw, 5rem);
+  font-weight: 400;
+}
+
+/* Reduced motion / no-WebGL: static composed frame, text in flow, no pins. */
+body.is-static #vestibule {
+  height: auto;
+}
+body.is-static .hall__pin {
+  height: auto;
+  min-height: 100vh;
+  padding: 18vh 6vw;
+  place-items: center;
+}
+body.is-static .caption {
+  position: static;
+  transform: none;
+  opacity: 1;
+  margin: 8vh auto 0;
+}
+body.is-static .display__sub {
+  margin-top: 1.4rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grain {
+    opacity: 0.06;
+  }
+}

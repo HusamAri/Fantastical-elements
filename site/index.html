@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curated Chaos — The Living Archive</title>
+    <meta
+      name="description"
+      content="An archive of a cinematic universe, visited after hours. Fragments of Real People, Curated Chaos."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Montserrat:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <!-- Singleton WebGL canvas: fixed, behind all DOM, never inside a resizing container -->
+    <canvas id="stage" aria-hidden="true"></canvas>
+
+    <!-- Film grain compose layer (placeholder: CSS; GL compose pass at build hardening) -->
+    <div class="grain" aria-hidden="true"></div>
+
+    <!-- Registrar's Rail: the one persistent UI element -->
+    <aside class="rail" aria-hidden="true">
+      <span class="rail__tick" id="railTick"></span>
+      <span class="rail__label" id="railLabel">I — 000%</span>
+    </aside>
+
+    <main id="app">
+      <!-- S0 VESTIBULE — pinned 500vh -->
+      <section class="hall" id="vestibule" data-hall="vestibule">
+        <div class="hall__pin">
+          <h1 class="display" data-beat="v-title">
+            Curated&nbsp;Chaos
+            <span class="display__sub">Beauty in Contrast</span>
+          </h1>
+          <p class="caption" data-beat="v-cap1"></p>
+        </div>
+      </section>
+
+      <!-- Reduced-motion / no-WebGL fallback content lives in the same DOM; JS reveals it -->
+      <noscript>
+        <div class="fallback">
+          <h1>Curated Chaos</h1>
+          <p>The Living Archive requires JavaScript. Fragments of Real People.</p>
+        </div>
+      </noscript>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

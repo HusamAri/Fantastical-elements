@@ -1,0 +1,35 @@
+{
+  "hall": "vestibule",
+  "runwayVh": 500,
+  "mode": "free-scrub",
+  "note": "S0 Vestibule per STYLE-CONCEPT §4. Fractions are of the hall's pinned timeline. Consumed by BOTH the build (main.js) and QA (Loop B static subset).",
+  "beats": [
+    {
+      "label": "v-title",
+      "timelineFraction": 0.0,
+      "kind": "display",
+      "copy": "Curated Chaos",
+      "sub": "Beauty in Contrast",
+      "contrastPairing": "ivory-on-deep",
+      "settleAnchor": "title-rest",
+      "enter": 0.02,
+      "exit": 0.30,
+      "snapFlag": false
+    },
+    {
+      "label": "v-cap1",
+      "timelineFraction": 0.38,
+      "kind": "caption",
+      "copy": "An archive of a cinematic universe, visited after hours. Scroll, and the light arrives.",
+      "contrastPairing": "ivory-on-deep",
+      "settleAnchor": "keystone-rest",
+      "enter": 0.38,
+      "rest": 0.55,
+      "exit": 0.60,
+      "snapFlag": true
+    }
+  ],
+  "light": { "riseFrom": 0.10, "riseTo": 0.35, "sweepFrom": 0.60, "sweepTo": 0.85 },
+  "camera": { "orbitFrom": 0.35, "orbitTo": 0.60 },
+  "transition": { "fogSwallowFrom": 0.85, "fogSwallowTo": 1.0 }
+}
