@@ -18,7 +18,9 @@ Every paid generation, per GOVERNANCE §8. Model `cinematic_studio_2_5` @2k = 2 
 | a02cbc15 | **K3 action** — disc throw + attacker | cinematic_studio_2_5 | 2.00 | ✅ keep |
 | 264b0f19 | **K2 shatter** — world fractures | cinematic_studio_2_5 | 2.00 | ✅ keep |
 | 95354518 | **K4 Flame Inside** — transformation | cinematic_studio_2_5 | 2.00 | ✅ keep |
-| c1b64585 | **K5 final** — centered, calm, fades to black | cinematic_studio_2_5 | 2.00 | ✅ keep |
+| c1b64585 | **K5 settle** — centered, calm (now optional pre-close beat) | cinematic_studio_2_5 | 2.00 | ✅ keep |
+| 402506da | **K6 dodge** — jump-back, two discs both hands | cinematic_studio_2_5 | 2.00 | ✅ keep |
+| b37a91bb | **K7 ultimate** — "Ancient Sunlight" sun-pillar + blinder | cinematic_studio_2_5 | 2.00 | ✅ keep |
 
 **Session spend: 16.84 cr** (balance 5966.9 as of the K-set completion). Zero video credits yet
 (cheap-truth-first — video is gated on keyframe approval).

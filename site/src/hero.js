@@ -33,10 +33,12 @@ const BEATS = [
   { frame: 1, plate: "frag", frag: 3 },
   { frame: 1, plate: "frag", frag: 4 },
   { frame: 1, plate: "frag", frag: 5 },
-  { frame: 2, plate: "beat", line: "He fought to keep them whole." },
-  { frame: 3, plate: "beat", line: "The fire he carried turned outward." },
-  { frame: 4, plate: null },                       // final: K5, fades to black
-  { frame: 4, plate: "cta" },                      // CTA over black
+  { frame: 2, plate: "beat", line: "He fought to keep them whole." },   // K3 action
+  { frame: 5, plate: "beat", line: "Every strike, he turned aside." },  // K6 dodge (mid-scene)
+  { frame: 3, plate: "beat", line: "The fire he carried turned outward." }, // K4 Flame Inside
+  { frame: 6, plate: "beat", line: "Then he called down the sun." },    // K7 ultimate
+  { frame: 6, plate: null },                       // eye-blinder flash → fade to black
+  { frame: 6, plate: "cta" },                      // CTA over black
 ];
 const N = BEATS.length;
 const WIPE_HALF = 0.028; // half-width (scroll progress) of a shard-wipe window
@@ -49,6 +51,7 @@ const inv = (v, a, b) => clamp((v - a) / (b - a), 0, 1);
 const els = {
   frames: [...document.querySelectorAll(".frame")],
   scrim: document.querySelector(".scrim"),
+  flash: document.querySelector(".flash"),
   black: document.querySelector(".blackout"),
   wipe: document.querySelector(".wipe"),
   title: document.querySelector('[data-plate="title"]'),
@@ -142,8 +145,14 @@ function onScroll(p) {
   setBeat(seg);
   parallax(fp - seg);
   updateWipe(p);
-  // Final fade-to-black: ramp in during the final beat, hold through CTA.
-  els.black.style.opacity = String(inv(p, (N - 2) / N + 0.006, (N - 1.35) / N));
+  // Ultimate → eye-blinder sun flash → fade to black → CTA.
+  const fpk = (N - 2) / N;                          // boundary: ultimate → close
+  const flash = p <= fpk
+    ? smooth(inv(p, fpk - 0.5 / N, fpk))            // rise into the blinder
+    : 1 - smooth(inv(p, fpk, fpk + 0.5 / N));       // fall out of the flash
+  els.flash.style.opacity = String(clamp(flash, 0, 1));
+  // Black rises as the white flash falls, so the whiteout resolves straight to black (no bright gap).
+  els.black.style.opacity = String(inv(p, fpk, fpk + 0.5 / N));
   const pc = Math.round(p * 100);
   els.tick.style.top = els.label.style.top = `${p * 100}%`;
   els.label.textContent = String(pc).padStart(2, "0");

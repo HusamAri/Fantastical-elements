@@ -37,6 +37,8 @@ body {
 .scrim { position: fixed; inset: 0; z-index: 1; background: var(--deep); opacity: 0; pointer-events: none; }
 /* Full blackout for the final fade-to-black */
 .blackout { position: fixed; inset: 0; z-index: 2; background: #000; opacity: 0; pointer-events: none; }
+/* Eye-blinder sun flash (whites out the whole frame at the ultimate, then falls to black) */
+.flash { position: fixed; inset: 0; z-index: 7; background: #fff; opacity: 0; pointer-events: none; will-change: opacity; }
 .grain {
   position: fixed; inset: 0; z-index: 4; pointer-events: none;
   opacity: 0.09; mix-blend-mode: soft-light;
@@ -60,7 +62,7 @@ body {
 
 /* ---- Scroll frame ---- */
 #app { position: relative; z-index: 3; }
-.hero { height: 1200vh; }
+.hero { height: 1450vh; }
 .hero__pin { position: relative; height: 100vh; width: 100%; overflow: hidden; }
 
 /* ---- Plates (integrated composition — text lives in the frame's negative space) ---- */
