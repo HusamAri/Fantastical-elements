@@ -7,6 +7,7 @@ every session resumes from them, never from chat memory.
 |---|---|---|---|
 | `BLUEPRINT.md` | Phase 0 | Loop 1 clean ×2 + director | Loop 1 (structure) |
 | `ASSET-PLAN.md` | Phase 1 | director | Loop 4 (continuity-guard) |
+| `BUDGET.md` | Phase 1 | director (episode cap + funnel allowance) | generation protocol (updated from the ledger) |
 | `DNA-<character>.md` | Phase 1.5 | director (one per character: DNA card, verbatim wardrobe string, anchor-pack element_ids) | Loop 4 + Loop 5 (drift reference) |
 | `VISUAL-BIBLE.md` | Phase 2 | director (Phase 2 LOCK) | director; conformance checked by Loop 4 (palette/forbidden-list/camera preset) |
 | `PROMPT-BLOCKS.md` | Phase 2 | director (with visual bible) | Loop 3 (prompt-enhancer) |

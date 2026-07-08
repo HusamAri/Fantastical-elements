@@ -67,12 +67,17 @@ episode causes rubber-stamping — validated finding). The mechanics:
    Kling Motion Control (`motion_control`) / Seedance `video_references` — so the model paints
    over locked geometry instead of inventing blocking. Appears in the ledger like any take.
 7. **Video draft ladder by risk class.** LOW risk → ONE final at the locked spec, directly.
-   MED/HIGH risk (complex action, multi-character, new environment) → one 720p no-audio draft,
-   lock the prompt, then ONE final at 1080p. **Draft and final stay in the same model family**
-   (`seedance_2_0_mini` → `seedance_2_0`); if the final runs on a different family (e.g. Kling),
-   the locked prompt goes back through Loop 3 for the dialect transform (negatives support,
-   Seedance header) before submission. Never iterate on the premium model — premium retake rates
-   are what burn accounts. Drafts are planned rungs, not re-rolls; they appear in the ledger.
+   MED/HIGH risk (complex action, multi-character, new environment) → one cheap no-audio draft,
+   lock the prompt, then ONE final at the locked spec. **Draft and final stay in the same model
+   family**, and the rungs are family-specific (verified parameter surfaces):
+   - Seedance finals: draft on `seedance_2_0_mini` or `seedance_2_0` mode `fast` (≤720p),
+     final on `seedance_2_0` mode `std` 1080p.
+   - Kling finals: Kling has no resolution tiers — draft on `kling3_0` mode `std` sound off,
+     final on mode `pro`.
+   If the final runs on a different family, the locked prompt goes back through Loop 3 for the
+   dialect transform (negatives support, Seedance header) before submission. Never iterate on
+   the premium tier — premium retake rates are what burn accounts. Drafts are planned rungs,
+   not re-rolls; they appear in the ledger.
 8. **Dual-keyframe chaining** where a cut must be invisible: extract the outgoing take's final
    clean frame (trim glitchy boundary frames first), present it for approval like any keyframe,
    record its media id in the incoming row's Start/End frame field (this counts as that row's
@@ -138,7 +143,7 @@ The ledger is the project's own empirical database: takes-per-kept ratios, real 
 recurring failure classes. It replaces third-party credit tables and generic industry ratios —
 those were researched and explicitly rejected as unreliable (see RESEARCH-SOURCES.md §4).
 
-## Budget sheet (per episode, lives next to the shotlist)
+## Budget sheet (`BUDGET.md`, per episode — created at Phase 1, updated from the ledger)
 
 | Field | Rule |
 |---|---|

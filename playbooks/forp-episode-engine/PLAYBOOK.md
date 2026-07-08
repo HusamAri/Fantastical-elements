@@ -176,10 +176,12 @@ the shotlist row. Gate 2: director approves keyframes + animatic → video gener
   final frame = incoming shot's `start_image` (id recorded in the row); never pair start/end
   frames that differ in color/style/light; start frame's AR governs the clip. Motion plausible
   for duration: one simple action ≈ 5s; multiple movements = split clips.
-- Draft ladder by risk class: LOW-risk → single final at locked spec. MED/HIGH-risk → one 720p
-  no-audio draft in the SAME model family, lock the prompt, ONE final at 1080p (cross-family
-  finals re-pass Loop 3 for dialect transform). Audio only on locked finals that need it
-  (audio adds ~50–100% cost). Never iterate on the premium model.
+- Draft ladder by risk class: LOW-risk → single final at locked spec. MED/HIGH-risk → one cheap
+  no-audio draft in the SAME model family (Seedance finals: `seedance_2_0_mini` or mode `fast`
+  ≤720p; Kling finals: mode `std` sound off — Kling has no resolution tiers), lock the prompt,
+  ONE final at the locked spec (Seedance `std` 1080p / Kling `pro`). Cross-family finals re-pass
+  Loop 3 for dialect transform. Audio only on locked finals that need it (audio adds ~50–100%
+  cost). Never iterate on the premium tier.
 - `get_cost:true` preflight + toggle audit (cinema mode / camera motion / upscale / sound) on
   EVERY submission; ledger row per take (shot, model, mode, prompt version, expected vs actual
   credits, verdict, failure cause).
@@ -202,8 +204,11 @@ the shotlist row. Gate 2: director approves keyframes + animatic → video gener
 
 - **Sound first:** map the arc to ~4 music beats, lay music/VO, cut visuals to the beat. Room
   tone + ambience is the seam-hider between AI clips; key action SFX from libraries, not AI.
+  A beat (or a whole fight) may deliberately run production-audio-only — no score — as a
+  high-tension option; note it in the sound map like any other beat.
 - Assembly: trim each take to its row's edit duration per its ASL class (action peaks 1.3–2.7s,
-  connective 3–6s, holds 8–13s; expect only ~2–5s usable from longer takes); trim glitchy
+  connective 3–6s, holds 8–13s; expect ~2–5s usable from motion-heavy action takes, while static
+  holds can run near full take length); trim glitchy
   first/last frames (re-verify handoff frames on chained cuts); transition shots (prop CUs,
   silhouettes, OTS) between character-heavy sequences; cut on motion; ONE shared grade/LUT first.
 - Impact emphasis lives in POST, never in the generator: impact flash 1–3 frames, hit-stop 2–4

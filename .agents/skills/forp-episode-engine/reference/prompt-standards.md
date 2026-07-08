@@ -36,11 +36,11 @@ lines. Blocks are copied character-for-character — never paraphrased.
 Field order is fixed:
 
 1. **Subject** — `[CHAR:*]` block(s); pose and expression in observable terms.
-   For `soul_2` identity passes (minting anchor-pack stills): pass the character's `soul_id` as
-   the model parameter; the Subject field then carries NO facial description (the Soul owns the
-   face) — only the DNA card's verbatim wardrobe string + pose/expression. Example:
-   *"Wearing [wardrobe string]. Standing square to camera, arms relaxed, neutral expression,
-   full body visible."*
+   For `soul_2` identity passes (minting anchor-pack stills): set `model: soul_2` and pass the
+   character's `soul_id` as its own parameter alongside the prompt; the Subject field then
+   carries NO facial description (the Soul owns the face) — only the DNA card's verbatim
+   wardrobe string + pose/expression. Example: *"Wearing [wardrobe string]. Standing square to
+   camera, arms relaxed, neutral expression, full body visible."*
 2. **Environment** — `[ENV:*]` block; weather, time of day
 3. **Lighting** — `[LIGHT:*]` block
 4. **Fantastical element behavior** — only if in shot; per the world's `[PHYSICS]` rules, described
@@ -114,7 +114,8 @@ must be hit for a match cut).
 
 | Model | Notes |
 |---|---|
-| `nano_banana_pro` | All ARs; 1k for drafts is false economy only if the shot is risky — default 2k; 4k reserved for hero frames / poster stills |
+| `nano_banana_pro` | Non-Element keyframes only (NOT Element-compatible). All ARs; default 2k; 4k reserved for hero frames / poster stills |
+| `nano_banana_2` | The Element-compatible "Nano Banana Pro" — REQUIRED for any keyframe carrying `<<<element_id>>>` placeholders |
 | `soul_2` | One `soul_id` only; used to mint identity-true stills that then become Elements |
 | `kling3_0` | `start_image`+`end_image`; `sound off` by default; mode `pro` for finals, `4k` only via upscale decision; AR 16:9 default for episodes |
 | `seedance_2_0` | Use when a shot needs image/video/audio references or multi-reference identity; `genre: action` for fight shots; `generate_audio: false` by default |
@@ -132,7 +133,9 @@ A prompt ships only when all are true:
 - [ ] Every `<<<element_id>>>` exists in the Asset Registry
 - [ ] Every motion has a timing; total action fits the declared duration
 - [ ] No banned adjectives; no unresolved pronouns ("she" with no antecedent in THIS prompt)
-- [ ] VIDEO prompts only: zero appearance / wardrobe / environment-description / palette words —
-      motion-only law (binary judge: any such word = fail)
+- [ ] VIDEO prompts only: zero appearance / wardrobe / palette words and no STATIC scene
+      re-description — motion-only law (binary judge). The environmental-response field is
+      exempt for physical REACTIONS only (dust lifts, cloth whips, debris scatters): it
+      describes what the action does to the set, never what the set looks like
 - [ ] Gen duration / AR / model match the shotlist row (video duration = row's Gen duration)
 - [ ] Every FLAGS.md rule (all episodes — flag rules are permanent and global) checked

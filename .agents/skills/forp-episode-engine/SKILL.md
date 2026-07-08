@@ -25,7 +25,8 @@ episode, at Phase 0. After that, load ONLY the reference file the current phase 
 ## Session protocol
 
 1. Locate the episode folder `episodes/E<nn>-<slug>/`; its artifacts ARE the state
-   (BLUEPRINT, ASSET-PLAN, VISUAL-BIBLE, PROMPT-BLOCKS, SHOTLIST, QA-LOG, FLAGS, LEDGER).
+   (BLUEPRINT, ASSET-PLAN, BUDGET, DNA-<character> cards, VISUAL-BIBLE, PROMPT-BLOCKS,
+   SHOTLIST, QA-LOG, FLAGS, LEDGER).
    Resume from files — never from memory. New episode → scaffold the folder from
    `episodes/_TEMPLATE/`.
 2. Identify the current phase from artifact status fields; announce it; do only that phase.
