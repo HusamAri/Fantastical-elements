@@ -22,8 +22,18 @@ K4 Flame Inside → **K7 ultimate (sun burst + blinder flash)** → close to bla
 is the closer** (supersedes the earlier calm-silhouette ending; K5 kept only as a brief settle beat).
 The eye-blinder flash is a white full-screen bloom in the site, resolving to black.
 
-Fragment plates (I–VI) reveal with the **real FORP objects** (from Drive) + slogan + link — those
-are composited in-site, not generated. CTA "dark & fantastical elements / create your own fragment"
+## Fragment motifs woven into the fight (each fragment's signature, per director)
+| Fragment | Motif | Keyframe / status |
+|----------|-------|-------------------|
+| I Agustín | (tbd) | — |
+| II Najoua | lotus / lotus petals | K11 pending |
+| III Başak | blue evil-eye (nazar) in blue smoke — the damage beat before Flame Inside | K9 `142f2014` generating |
+| IV Yaşar Efe | sun-pattern in the night sky, after the ultimate | K10 pending |
+| V Baver | (tbd) | — |
+| VI Federica | lapis-leaf pendant, recalled to his hand | K8 `0bafe92b` ✅ |
+
+Each fragment's reveal beat uses its motif keyframe (stacked @Husam + @HusamHero + the fragment's
+object element where one exists). CTA "dark & fantastical elements / create your own fragment"
 → launches playbook Phase 0.
 
 Generation discipline: one image at a time, `get_cost` preflight, report spend after each, QA

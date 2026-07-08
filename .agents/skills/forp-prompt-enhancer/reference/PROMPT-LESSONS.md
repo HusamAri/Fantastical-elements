@@ -79,5 +79,21 @@ Format per lesson: **MISTAKE → FIX** (+ a NEG token to add when relevant).
   brief and solve the risk within it (a couture matte-wool cape, not a satin hero cape); FLAG the
   tension to the user (GOVERNANCE §12) — never silently drop.
 
+## Identity verification (the miss that shipped drift, 2026-07-08)
+- **L22 — Never judge a generated face in isolation; drift ships silently.** MISTAKE: approving a
+  keyframe by looking at its face alone → the identity had quietly become "not him" (fuller/thicker
+  hair, younger or older, different nose) especially in extreme poses, 3-element stacks, and heavy
+  back-light. FIX (mandatory face-audit): after EVERY character generation, crop the face and place
+  it **side-by-side** with the locked reference (a real photo + the approved anchor) and judge
+  strictly; REJECT + regenerate on drift. Objective face-embedding (insightface) is preferred when
+  the model is reachable; the side-by-side visual is the always-available fallback.
+- **L23 — Anchor the DISTINCTIVE features, not just "dark hair."** Husam's identity = **short dark
+  hair receding at a high forehead/temples (NOT thick full hair), a lean angular olive face,
+  prominent straight nose, deep-set dark eyes, groomed dark beard, late 30s–40s.** Put these in every
+  prompt; "dark hair" alone lets the model give him full young hair.
+- **L24 — Framing & element budget protect identity.** Prefer medium/frontal framing (holds identity
+  far better than extreme up-angles or airborne twists). Keep to **2 identity elements**; a 3rd prop
+  element dilutes the face — describe props in text instead.
+
 ---
 *Append new lessons below as they are learned. Never delete a lesson.*
