@@ -8,9 +8,15 @@ user-invocable: true
 # FORP Prompt Enhancer — Loop 3 (Prompts)
 
 Run the prompt loop from `../forp-episode-engine/reference/qa-loops.md` (§Loop 3). Load that file
-plus `../forp-episode-engine/reference/prompt-standards.md` and the episode's `PROMPT-BLOCKS.md`
+plus `../forp-episode-engine/reference/prompt-standards.md`, **`reference/PROMPT-LESSONS.md` (the
+permanent global prompting-lessons loop — read it EVERY run)**, and the episode's `PROMPT-BLOCKS.md`
 and `FLAGS.md` (all episodes' FLAGS.md files if present — flag rules are permanent and global).
 Do NOT load other reference files.
+
+**The learning loop (mandatory):** before authoring, apply every lesson in `PROMPT-LESSONS.md`.
+After ANY prompt failure — caught in QA or reported by the user — **append a new
+`MISTAKE → FIX` lesson** to `PROMPT-LESSONS.md` (never delete one). No franchise names ever appear
+in a prompt (GOVERNANCE §11); references inform palette/texture/light/feeling only.
 
 ## Procedure — per prompt, in shotlist order
 

@@ -253,6 +253,26 @@ free-typed. Binding rules:
 4. **Concrete, photographic, self-contained.** Describe form, material, motion, light, and grain
    specifically; keep identity/wardrobe in the locked reference (§7), not re-described in motion
    prompts. Copy-paste-ready and unique — per `prompt-standards.md` and `/forp-prompt-enhancer`.
+5. **The prompting learning loop.** `/forp-prompt-enhancer` reads
+   `.agents/skills/forp-prompt-enhancer/reference/PROMPT-LESSONS.md` every run and **appends a new
+   `MISTAKE → FIX` lesson after every prompt failure** (user-reported or QA-caught). Mistakes are
+   learned once, never repeated.
+
+---
+
+## 12. The Brief Register — never silently drop a request
+
+Every standing creative brief the user gives is recorded in a **Brief Register** (for the current
+hero/site: `site/HERO-BRIEFS.md`) and checked against the work every step. Binding rules:
+
+1. **Nothing is silently dropped or deprioritised.** If two briefs conflict, or one must be deferred
+   to do another first, Claude **flags the conflict and gets explicit approval** before setting
+   anything aside (§4 decision protocol). "I focused on X so I skipped your Y" without a prior flag
+   is a violation.
+2. **The register is live.** New briefs are appended immediately; honored briefs are marked; open
+   conflicts sit in an "Open flags" section until the user resolves them.
+3. **Accumulation, not replacement.** A new instruction adds to the briefs unless the user says it
+   replaces one. When unsure whether a new ask overrides an old one, ask (§4) — do not assume.
 
 ---
 
