@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An interactive guide to fantasy filmmaking — build your cinematic visual language from ancient magic to futuristic worlds.">
+  <title>Fantastical Elements - Visual Language Builder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cinzel+Decorative:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/slot-matcher.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+
+  <nav class="main-nav" id="main-nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">Fantastical Elements</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#magic-systems" class="nav-tab active" data-section="magic-systems">Magic Systems</a></li>
+        <li><a href="#camera-cinema" class="nav-tab" data-section="camera-cinema">Camera &amp; Cinema</a></li>
+        <li><a href="#lighting" class="nav-tab" data-section="lighting">Lighting</a></li>
+        <li><a href="#body-motion" class="nav-tab" data-section="body-motion">Body &amp; Motion</a></li>
+        <li><a href="#creatures" class="nav-tab" data-section="creatures">Creatures</a></li>
+        <li><a href="#sound-design" class="nav-tab" data-section="sound-design">Sound Design</a></li>
+        <li><a href="#color-grading" class="nav-tab" data-section="color-grading">Color Grading</a></li>
+        <li><a href="#recipe-builder" class="nav-tab" data-section="recipe-builder">Recipe Builder</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Build Your Cinematic Visual Language</h1>
+      <p class="hero-subtitle">An interactive guide to fantasy filmmaking &mdash; from ancient magic to futuristic worlds</p>
+      <p class="hero-description">Explore the building blocks of fantasy cinema: magic systems, camera techniques, lighting patterns, creature design, and more. Combine them in the Visual Recipe Builder to craft a unique cinematic DNA for your next project.</p>
+      <a href="#magic-systems" class="btn btn-primary hero-cta">Start Building</a>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="content-section" id="magic-systems">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Magic Systems</h2>
+          <p class="section-description">The foundation of any fantasy world. Each magic system carries its own visual vocabulary.</p>
+        </div>
+        <div class="card-grid" id="magic-grid"></div>
+        <div id="magic-detail" class="detail-panel hidden"></div>
+      </div>
+    </section>
+
+    <section class="content-section" id="camera-cinema">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Camera &amp; Cinematography</h2>
+          <p class="section-description">How the camera moves and what it sees shapes the audience's emotional experience.</p>
+        </div>
+        <div class="sub-tabs" id="camera-sub-tabs">
+          <button class="sub-tab active" data-target="camera-movements">Movements</button>
+          <button class="sub-tab" data-target="camera-lenses">Lenses</button>
+          <button class="sub-tab" data-target="camera-systems">Camera Systems</button>
+          <button class="sub-tab" data-target="camera-dof">Depth of Field</button>
+        </div>
+        <div class="sub-tab-content active" id="camera-movements"><div class="card-grid" id="movements-grid"></div></div>
+        <div class="sub-tab-content" id="camera-lenses"><div class="card-grid" id="lenses-grid"></div></div>
+        <div class="sub-tab-content" id="camera-systems"><div class="card-grid" id="systems-grid"></div></div>
+        <div class="sub-tab-content" id="camera-dof"><div class="card-grid" id="dof-grid"></div></div>
+        <h3 class="subsection-title">Emotion Matrix</h3>
+        <p class="section-description">How camera movements map to emotional responses.</p>
+        <div id="emotion-matrix" class="emotion-matrix"></div>
+      </div>
+    </section>
+
+    <section class="content-section" id="lighting">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Lighting</h2>
+          <p class="section-description">Light defines mood, reveals character, and conjures the supernatural.</p>
+        </div>
+        <div class="sub-tabs" id="lighting-sub-tabs">
+          <button class="sub-tab active" data-target="lighting-patterns">Patterns</button>
+          <button class="sub-tab" data-target="lighting-qualities">Qualities</button>
+          <button class="sub-tab" data-target="lighting-color-temp">Color Temperature</button>
+          <button class="sub-tab" data-target="lighting-magic-presets">Magic Presets</button>
+        </div>
+        <div class="sub-tab-content active" id="lighting-patterns"><div class="card-grid" id="patterns-grid"></div></div>
+        <div class="sub-tab-content" id="lighting-qualities"><div class="card-grid" id="qualities-grid"></div></div>
+        <div class="sub-tab-content" id="lighting-color-temp"><div class="card-grid" id="color-temp-grid"></div></div>
+        <div class="sub-tab-content" id="lighting-magic-presets"><div class="card-grid" id="magic-presets-grid"></div></div>
+        <h3 class="subsection-title">Lighting Configurator</h3>
+        <p class="section-description">Combine lighting elements to preview a complete setup.</p>
+        <div id="lighting-configurator" class="lighting-configurator">
+          <div class="configurator-inputs">
+            <div class="configurator-slot"><label for="config-pattern">Pattern</label><select id="config-pattern" class="styled-select"><option value="">Select pattern...</option></select></div>
+            <span class="configurator-plus">+</span>
+            <div class="configurator-slot"><label for="config-quality">Quality</label><select id="config-quality" class="styled-select"><option value="">Select quality...</option></select></div>
+            <span class="configurator-plus">+</span>
+            <div class="configurator-slot"><label for="config-color-temp">Color Temp</label><select id="config-color-temp" class="styled-select"><option value="">Select temperature...</option></select></div>
+            <span class="configurator-plus">+</span>
+            <div class="configurator-slot"><label for="config-magic-type">Magic Type</label><select id="config-magic-type" class="styled-select"><option value="">Select magic...</option></select></div>
+          </div>
+          <div id="configurator-output" class="configurator-output"><p class="placeholder-text">Select options above to generate a lighting setup.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="body-motion">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Body &amp; Motion</h2>
+          <p class="section-description">A spellcaster's physicality tells the story of their power.</p>
+        </div>
+        <div class="card-grid" id="body-grid"></div>
+        <h3 class="subsection-title">Movement &amp; Magic Connections</h3>
+        <div id="body-magic-connections" class="connection-visualizer"></div>
+      </div>
+    </section>
+
+    <section class="content-section" id="creatures">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Magical Creatures</h2>
+          <p class="section-description">Design fantastical beings by combining shapes, materials, and behaviors.</p>
+        </div>
+        <div class="creature-builder">
+          <h3 class="subsection-title">Creature Builder</h3>
+          <div class="creature-selectors">
+            <div class="creature-selector-col"><label for="creature-shape">Shape</label><select id="creature-shape" class="styled-select"><option value="">Select shape...</option></select></div>
+            <div class="creature-selector-col"><label for="creature-material">Material</label><select id="creature-material" class="styled-select"><option value="">Select material...</option></select></div>
+            <div class="creature-selector-col"><label for="creature-behavior">Behavior</label><select id="creature-behavior" class="styled-select"><option value="">Select behavior...</option></select></div>
+          </div>
+          <div class="creature-builder-action"><button class="btn btn-primary" id="generate-creature">Generate Creature</button></div>
+          <div id="creature-profile" class="creature-profile"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="sound-design">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Sound Design</h2>
+          <p class="section-description">Sound completes the illusion. Layer base tones, textures, and sweeteners.</p>
+        </div>
+        <div class="card-grid" id="sound-grid"></div>
+        <h3 class="subsection-title">Sound Layering Builder</h3>
+        <div class="sound-layer-builder">
+          <div class="sound-layer-inputs">
+            <div class="sound-layer-slot"><label for="sound-base">Base Layer</label><select id="sound-base" class="styled-select"><option value="">Select base...</option></select></div>
+            <span class="configurator-plus">+</span>
+            <div class="sound-layer-slot"><label for="sound-texture">Texture Layer</label><select id="sound-texture" class="styled-select"><option value="">Select texture...</option></select></div>
+            <span class="configurator-plus">+</span>
+            <div class="sound-layer-slot"><label for="sound-sweetener">Sweetener</label><select id="sound-sweetener" class="styled-select"><option value="">Select sweetener...</option></select></div>
+          </div>
+          <div id="sound-layer-output" class="configurator-output"><p class="placeholder-text">Select sound layers above to preview a combined sound design.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="color-grading">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Color Grading</h2>
+          <p class="section-description">Color tells the emotional truth of a scene.</p>
+        </div>
+        <div class="card-grid" id="color-grid"></div>
+      </div>
+    </section>
+
+    <section class="content-section recipe-section" id="recipe-builder">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Visual Recipe Builder</h2>
+          <p class="section-subtitle">Create Your Cinematic DNA</p>
+          <p class="section-description">Combine elements from every category to forge a complete visual language. The builder analyzes synergies, flags conflicts, and generates a cinematic recipe.</p>
+        </div>
+        <div class="recipe-slots">
+          <div class="recipe-slot"><div class="recipe-slot-icon">&#9733;</div><label for="slot-magic">Magic System</label><select id="slot-magic" class="styled-select"><option value="">Choose magic...</option></select></div>
+          <div class="recipe-slot"><div class="recipe-slot-icon">&#127909;</div><label for="slot-camera">Camera Movement</label><select id="slot-camera" class="styled-select"><option value="">Choose movement...</option></select></div>
+          <div class="recipe-slot"><div class="recipe-slot-icon">&#128270;</div><label for="slot-lens">Lens</label><select id="slot-lens" class="styled-select"><option value="">Choose lens...</option></select></div>
+          <div class="recipe-slot"><div class="recipe-slot-icon">&#9728;</div><label for="slot-lighting">Lighting Pattern</label><select id="slot-lighting" class="styled-select"><option value="">Choose lighting...</option></select></div>
+          <div class="recipe-slot"><div class="recipe-slot-icon">&#9997;</div><label for="slot-body">Body Movement</label><select id="slot-body" class="styled-select"><option value="">Choose movement...</option></select></div>
+          <div class="recipe-slot"><div class="recipe-slot-icon">&#128009;</div><label for="slot-creature">Creature <span class="optional-label">(optional)</span></label><select id="slot-creature" class="styled-select"><option value="">Choose creature...</option></select></div>
+        </div>
+        <div class="recipe-action"><button class="btn btn-primary btn-large" id="generate-recipe">Generate Recipe</button></div>
+        <div id="recipe-output" class="recipe-output hidden">
+          <div class="recipe-output-header">
+            <h3 class="recipe-mood-label" id="recipe-mood-label"></h3>
+            <div class="recipe-synergy-score" id="recipe-synergy-score"></div>
+          </div>
+          <div class="recipe-output-body">
+            <div class="recipe-description" id="recipe-description"></div>
+            <div class="recipe-conflicts" id="recipe-conflicts"></div>
+            <div class="recipe-details-grid">
+              <div class="recipe-detail-card"><h4>AI Prompt Snippet</h4><div id="recipe-prompt"></div></div>
+              <div class="recipe-detail-card"><h4>Sound Suggestion</h4><div id="recipe-sound"></div></div>
+              <div class="recipe-detail-card"><h4>Color Grade</h4><div id="recipe-color-grade"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-logo">Fantastical Elements</p>
+      <p class="footer-tagline">An interactive guide to the visual language of fantasy cinema.</p>
+      <p class="footer-credits">Built for filmmakers, world-builders, and dreamers. &copy; 2026</p>
+    </div>
+  </footer>
+
+</body>
+</html>
