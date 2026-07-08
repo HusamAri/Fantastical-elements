@@ -22,19 +22,33 @@ K4 Flame Inside → **K7 ultimate (sun burst + blinder flash)** → close to bla
 is the closer** (supersedes the earlier calm-silhouette ending; K5 kept only as a brief settle beat).
 The eye-blinder flash is a white full-screen bloom in the site, resolving to black.
 
+## These keyframes ARE the video's scene frames (director directive)
+The keyframes are not standalone stills — each is a **frame from the hero VIDEO's scenes**. Next
+phase: animate each locked keyframe into a video clip (image→video, Kling/Cinema Studio Video), and
+the **site shows the video scenes**, not static images. Keyframe-first → video (the playbook).
+
 ## Fragment motifs woven into the fight (each fragment's signature, per director)
 | Fragment | Motif | Keyframe / status |
 |----------|-------|-------------------|
-| I Agustín | (tbd) | — |
-| II Najoua | lotus / lotus petals | K11 pending |
-| III Başak | blue evil-eye (nazar) in blue smoke — the damage beat before Flame Inside | K9 `142f2014` generating |
-| IV Yaşar Efe | sun-pattern in the night sky, after the ultimate | K10 pending |
-| V Baver | (tbd) | — |
-| VI Federica | lapis-leaf pendant, recalled to his hand | K8 `0bafe92b` ✅ |
+| I Agustín | **the disc itself** — vinyl-record shape + colour (already his disc-magic) | ✅ inherent in disc-magic |
+| II Najoua | **lotus / lotus petals** — serene grace-note, petals settle on his palm | K11 `64b1226c` (audit) |
+| III Başak | **blue evil-eye (nazar)** in blue smoke — the damage beat before Flame Inside | ✅ K9 (redo, locked) |
+| IV Yaşar Efe | **star-constellation** (Ursa Major / Ursa Minor — Büyük/Küçük Ayı) glowing in the SKY beside the SUN, seen while he **charges up an attack**, low heroic angle from below | K10 REDO (sun-mandala was wrong) |
+| V Baver | **purple neon smoke + green neon digital-data pattern** (math-professor / data) | pending |
+| VI Federica | **lapis-leaf pendant** recalled through TWO disc-gates (falls from near gate to hand; far gate shows only the chain); he **lunges forward** to catch it | ✅ K8 (motion disc-gate, locked) |
 
-Each fragment's reveal beat uses its motif keyframe (stacked @Husam + @HusamHero + the fragment's
-object element where one exists). CTA "dark & fantastical elements / create your own fragment"
-→ launches playbook Phase 0.
+## Motif delivery in the edit
+- Fragment motifs appear as **close-ups during the glass-shard scene transitions** (the shard-wipes),
+  and **reflected in the tumbling glass shards** as they turn in the air (shards = mirrors carrying
+  each fragment's motif).
+- Each fragment's reveal beat uses its motif keyframe (stacked @Husam + @HusamHero + the fragment's
+  object element where one exists). Identity face-audit mandatory on every character frame.
+- CTA "dark & fantastical elements / create your own fragment" → launches playbook Phase 0.
+
+## Locked keyframes (user-approved)
+K1 title, K2 shatter, K3 action, K4 Flame Inside, K5 settle, K6 dodge, K7 ultimate, K8 pendant
+(motion disc-gate), K9 Başak evil-eye. Pending: K10 (Yaşar constellation redo), K11 (Najoua lotus),
+Baver (purple smoke + green data). Then: animate to video → site from video scenes.
 
 Generation discipline: one image at a time, `get_cost` preflight, report spend after each, QA
 (face/hands/wardrobe/continuity) before it's accepted. No video until the full set is approved
