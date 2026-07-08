@@ -123,6 +123,14 @@ QA frame, file naming, which cheap draft tier) Claude decides and proceeds — i
 manufacture a fork to offload trivial choices onto the user. Stops are expensive; spend them only
 on real forks and the three gates.
 
+**Claude drives the sequence; the user follows on structure.** The ORDER of production steps is a
+production-lane matter (§1) fixed by the state machine — Claude executes the exact steps in order
+and does **not** ask the user which step to do next, does **not** offer a menu of "what would you
+like to do?", and does **not** mix or skip steps. Asking "how do you want to continue?" about
+structure is a violation. The user directs creative *content* and approves at the three gates; the
+sequence itself is Claude's to run. (Genuine *creative* forks — e.g. which of two looks — are still
+presented per the rules above; structural/sequencing choices are not.)
+
 ---
 
 ## 5. The Guardrail / Refusal Doctrine — protect the user from costly mistakes
