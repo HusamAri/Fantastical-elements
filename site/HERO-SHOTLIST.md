@@ -37,10 +37,17 @@ the **site shows the video scenes**, not static images. Keyframe-first → video
 | V Baver | **purple neon smoke + green neon digital-data pattern** (math-professor / data) | pending |
 | VI Federica | **lapis-leaf pendant** recalled through TWO disc-gates (falls from near gate to hand; far gate shows only the chain); he **lunges forward** to catch it | ✅ K8 (motion disc-gate, locked) |
 
-## Motif delivery in the edit
-- Fragment motifs appear as **close-ups during the glass-shard scene transitions** (the shard-wipes),
-  and **reflected in the tumbling glass shards** as they turn in the air (shards = mirrors carrying
-  each fragment's motif).
+## Motif delivery in the edit — TEMPO RULE
+The delicate fragment motifs (lotus, green data, evil-eye, sun-constellation) must NOT become slow
+standalone calm scenes — that breaks the high-tempo action flow (director note: "lotus scene not
+logical with the video's motion tempo"). Instead they are delivered **in-tempo, fast**:
+- as **split-second close-ups on the glass-shard scene transitions** (the shard-wipes), and
+- **reflected in the tumbling glass shards** as they turn in the air (shards = mirrors carrying each
+  fragment's motif) — quick, rhythmic glimpses.
+The **action beats** (shatter, dodge, action, flame, ultimate, pendant-catch) carry the momentum; the
+motif keyframes (K10 constellation, K11 lotus, Baver data, etc.) are the **reflection/close-up
+source art**, not full slow scenes. Only Federica's pendant-catch and Başak's damage beat are
+full action scenes (they're dynamic).
 - Each fragment's reveal beat uses its motif keyframe (stacked @Husam + @HusamHero + the fragment's
   object element where one exists). Identity face-audit mandatory on every character frame.
 - CTA "dark & fantastical elements / create your own fragment" → launches playbook Phase 0.
