@@ -53,5 +53,31 @@ Format per lesson: **MISTAKE → FIX** (+ a NEG token to add when relevant).
   reuse the reference. Never explore identity/costume by burning generations. (§8)
 - **L14 — No preflight.** `get_cost:true` before every job; report spend after each. (§8)
 
+## Costume credibility (from the costume-design workflow, 2026-07-08)
+- **L15 — Trope nouns drift to cosplay.** MISTAKE: "robe / cape / armour / monastic / stand-collar
+  full-length wrap" pulls the render toward cassock/fantasy. FIX: replace every trope noun with a
+  real garment + textile + weight noun ("a tailored overcoat in boiled wool, canvassed shoulder");
+  state "a tailored overcoat, not a robe or cassock"; add modern cues (suppressed waist, concealed
+  closures, tapered trousers).
+- **L16 — Stacked ancient signifiers = cosplay pile-on.** MISTAKE: toga fold + leather cuirass +
+  shoulder mantle + fibula all at once. FIX: exactly ONE ancient gesture inside disciplined modern
+  tailoring.
+- **L17 — Accent as "magic/glow" reads CG.** MISTAKE: a neon/glowing accent renders as VFX. FIX:
+  make the accent a physical in-world light with a substrate — a 1–2mm piping run on ONE seam, a
+  hidden-lining flash at the cuff, a silhouette rim-light; NEG: `glowing runes, holographic, VFX
+  glow, lens flare`.
+- **L18 — Generic "black/red" → flat plasticky oversaturation.** FIX: build a three-step mineral
+  field (oxblood, bordeaux/claret, warm red-biased near-black), every finish matte and
+  light-absorbing, so the single amber line reads intentional and expensive.
+- **L19 — Neon goes gaudy.** MISTAKE: neon as a filled panel or a cold hue. FIX: accent under ~5%
+  of surface, one analogous warm hue (ember-amber that harmonises with the palette), as a
+  line/rim/reveal only; NEG: `cyan neon, lime neon, magenta neon, icy-white neon`.
+- **L20 — One wide frame can't carry a hero's identity.** FIX: pair the wardrobe prompt with a
+  focal-length + framing spec (e.g. 85mm, ¾/portrait insert) and plan a separate tight face pass.
+- **L21 — Research can silently drop a user brief.** MISTAKE: an optimisation (e.g. "remove the
+  cape, it reads costumey") quietly discards something the user explicitly asked for. FIX: honor the
+  brief and solve the risk within it (a couture matte-wool cape, not a satin hero cape); FLAG the
+  tension to the user (GOVERNANCE §12) — never silently drop.
+
 ---
 *Append new lessons below as they are learned. Never delete a lesson.*
