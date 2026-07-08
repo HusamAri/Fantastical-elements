@@ -3,76 +3,65 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Curated Chaos — The Living Archive</title>
-    <meta
-      name="description"
-      content="An archive of a cinematic universe, visited after hours. Fragments of Real People, Curated Chaos."
-    />
+    <title>Curated Chaos — Fragments of Real People</title>
+    <meta name="description" content="Six were witnessed. Fragments of Real People — Curated Chaos." />
 
-    <!-- Brand icons (Curated Chaos round seal) -->
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <meta name="theme-color" content="#171D2D" />
-
-    <!-- Social card -->
+    <meta name="theme-color" content="#0d1119" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Curated Chaos — The Living Archive" />
-    <meta
-      property="og:description"
-      content="An archive of a cinematic universe, visited after hours."
-    />
-    <meta
-      property="og:image"
-      content="https://fantastic-elements.artifactstudio.info/og.png"
-    />
+    <meta property="og:title" content="Curated Chaos — Fragments of Real People" />
+    <meta property="og:description" content="Six were witnessed. Create your own fragment." />
+    <meta property="og:image" content="https://fantastic-elements.artifactstudio.info/og.png" />
     <meta property="og:url" content="https://fantastic-elements.artifactstudio.info" />
     <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Montserrat:wght@300;400&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <body>
-    <!-- Singleton WebGL canvas: fixed, behind all DOM, never inside a resizing container -->
-    <canvas id="stage" aria-hidden="true"></canvas>
-
-    <!-- Film grain compose layer (placeholder: CSS; GL compose pass at build hardening) -->
+    <!-- Cinematic hero video: fixed, scrubbed by scroll -->
+    <video id="hero" playsinline muted preload="auto" aria-hidden="true">
+      <source src="/hero.mp4" type="video/mp4" />
+    </video>
+    <div class="scrim" aria-hidden="true"></div>
     <div class="grain" aria-hidden="true"></div>
 
-    <!-- Registrar's Rail: the one persistent UI element -->
     <aside class="rail" aria-hidden="true">
       <span class="rail__tick" id="railTick"></span>
       <span class="rail__label" id="railLabel">I — 000%</span>
     </aside>
 
     <main id="app">
-      <!-- S0 VESTIBULE — pinned 500vh -->
-      <section class="hall" id="vestibule" data-hall="vestibule">
-        <div class="hall__pin">
-          <h1 class="display" data-beat="v-title">
-            Curated&nbsp;Chaos
-            <span class="display__sub">Beauty in Contrast</span>
-          </h1>
-          <p class="caption" data-beat="v-cap1"></p>
+      <section class="hero" id="hero-sec">
+        <div class="hero__pin">
+          <!-- Title -->
+          <div class="plate plate--title" data-plate="title">
+            <h1 class="display">Curated&nbsp;Chaos</h1>
+            <span class="display__sub">Fragments of Real People</span>
+          </div>
+
+          <!-- Fragment plates (populated from JS) -->
+          <div class="plate plate--fragment" data-plate="frag"></div>
+
+          <!-- Interstitial -->
+          <div class="plate plate--note" data-plate="note">
+            <p class="note">Six were witnessed.</p>
+          </div>
+
+          <!-- Final CTA -->
+          <div class="plate plate--cta" data-plate="cta">
+            <h2 class="cta__title">Dark<br />&amp; fantastical elements.</h2>
+            <a class="cta__btn" href="/create">Create your own fragment →</a>
+          </div>
         </div>
       </section>
-
-      <!-- Reduced-motion / no-WebGL fallback content lives in the same DOM; JS reveals it -->
-      <noscript>
-        <div class="fallback">
-          <h1>Curated Chaos</h1>
-          <p>The Living Archive requires JavaScript. Fragments of Real People.</p>
-        </div>
-      </noscript>
     </main>
 
-    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/hero.js"></script>
   </body>
 </html>
