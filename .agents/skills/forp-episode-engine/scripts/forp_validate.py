@@ -4,12 +4,17 @@
 Zero-context checks pulled out of the QA loops so they cost no tokens and never drift:
 
   prompt-scan <file> [--video]   banned abstract adjectives + prompt-dependence phrases;
-                                 --video adds the motion-only law scan (appearance words)
+                                 --video adds the motion-only law scan (appearance words).
+                                 For shotlists, extract video prompts first (see below) — a
+                                 whole-file --video scan false-positives on image prompts.
+  extract-video-prompts <shotlist> [out]  pull the fenced blocks under "Video prompt:" headings
+                                 into one file (default: <shotlist>.videoprompts.txt) for a
+                                 clean --video scan
   registry-check [registry.md]   every id in the asset registry matches UUID 8-4-4-4-12
   resolve <file> [registry.md]   every <<<uuid>>> placeholder in <file> exists in the registry
-  duration-check <file>          every "| kling3_0 ..." / "| seedance_2_0 ..." row's Gen duration
-                                 is inside the model's verified range (Kling 3-15s, Seedance 4-15s,
-                                 Seedance mini 4-15s)
+  duration-check <shotlist>      per shot block: tracks the last "Model:" line and checks each
+                                 "Gen duration" line against that model's verified range
+                                 (Kling 3-15s, Seedance 4-15s, mini 4-15s)
 
 Exit code 0 = clean, 1 = findings (printed one per line as `FINDING: ...`).
 """
@@ -97,23 +102,66 @@ def cmd_resolve(args):
 
 
 def cmd_duration_check(args):
+    """Stateful per-shot-block parse: remembers the last seen video model, checks each
+    Gen duration line against it. Works on the key-value block layout defined in
+    shotlist-standard.md (Serialization section)."""
     path = args[0]
-    text = read(path)
-    row_re = re.compile(r"(kling3_0|seedance_2_0_mini|seedance_2_0)[^|\n]*", re.I)
+    model_re = re.compile(r"(kling3_0|seedance_2_0_mini|seedance_2_0)", re.I)
+    model_line_re = re.compile(r"^\s*\|?\s*Model(?: \+ mode)?\s*:", re.I)
     dur_re = re.compile(r"gen duration[^0-9]*([0-9]+(?:\.[0-9]+)?)", re.I)
-    for i, line in enumerate(text.splitlines(), 1):
-        mm = row_re.search(line)
+    shot_re = re.compile(r"^#+\s|^Shot ID\s*:", re.I)
+    current, seen_dur = None, False
+    for i, line in enumerate(read(path).splitlines(), 1):
+        if shot_re.search(line):
+            current, seen_dur = None, False
+        if model_line_re.search(line) or (model_re.search(line) and "model" in line.lower()):
+            mm = model_re.search(line)
+            if mm:
+                current = mm.group(1).lower()
         dm = dur_re.search(line)
-        if mm and dm:
-            model = mm.group(1).lower()
+        if dm:
+            seen_dur = True
             dur = float(dm.group(1))
-            lo, hi = MODEL_DURATION[model]
-            if not (lo <= dur <= hi):
-                find(f"{path}:{i}: Gen duration {dur}s outside {model} range {lo}-{hi}s")
+            if current is None:
+                find(f"{path}:{i}: Gen duration {dur}s has no preceding Model: line in this shot block")
+            else:
+                lo, hi = MODEL_DURATION[current]
+                if not (lo <= dur <= hi):
+                    find(f"{path}:{i}: Gen duration {dur}s outside {current} range {lo}-{hi}s")
+    if not seen_dur:
+        find(f"{path}: no 'Gen duration' lines found — file does not follow the shotlist block layout (see shotlist-standard.md Serialization)")
+
+
+def cmd_extract_video_prompts(args):
+    """Extract fenced blocks that follow a 'Video prompt' heading/label into one file."""
+    path = args[0]
+    out = args[1] if len(args) > 1 else path + ".videoprompts.txt"
+    lines = read(path).splitlines()
+    chunks, i, n = [], 0, len(lines)
+    while i < n:
+        if re.search(r"video prompt", lines[i], re.I):
+            j = i + 1
+            while j < n and not lines[j].strip().startswith("```"):
+                if re.search(r"image prompt|^#|^\|", lines[j], re.I) and lines[j].strip():
+                    break
+                j += 1
+            if j < n and lines[j].strip().startswith("```"):
+                k = j + 1
+                block = []
+                while k < n and not lines[k].strip().startswith("```"):
+                    block.append(lines[k]); k += 1
+                chunks.append("\n".join(block))
+                i = k
+        i += 1
+    pathlib.Path(out).write_text("\n\n---\n\n".join(chunks), encoding="utf-8")
+    print(f"extracted {len(chunks)} video prompt(s) -> {out}")
+    if not chunks:
+        find(f"{path}: no fenced blocks under 'Video prompt' headings found — check the shotlist serialization layout")
 
 
 COMMANDS = {
     "prompt-scan": cmd_prompt_scan,
+    "extract-video-prompts": cmd_extract_video_prompts,
     "registry-check": cmd_registry_check,
     "resolve": cmd_resolve,
     "duration-check": cmd_duration_check,

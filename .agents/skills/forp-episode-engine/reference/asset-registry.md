@@ -26,11 +26,17 @@ Souls give the strongest facial identity lock. Constraints (verified):
 
 ## 2. Reference Elements (reusable via `<<<element_id>>>` inside prompts)
 
-Elements work with: Nano Banana Pro / Nano Banana 2 (`nano_banana_flash`), GPT Image 2,
-Seedream 4.5/5-lite, Cinema Studio Image 2.5 (image) and Cinema Studio Video 2/3.0, Seedance 2.0,
-Kling 3.0 (video). Multiple placeholders per prompt are allowed — for single-image prompts this
-is the only way to lock two characters in one frame; multi-character VIDEO shots may also use
-Seedance 2.0 `image_references` with separately tagged references per character.
+Element-supported models, by MACHINE id (the friendly names are confusing — trust the ids):
+- Image: `nano_banana_2` (friendly "Nano Banana Pro"), `nano_banana_flash` (friendly
+  "Nano Banana 2"), `gpt_image_2`, `seedream_v4_5`, `seedream_v5_lite`, `cinematic_studio_2_5`.
+- Video: Cinema Studio Video 2/3.0, `seedance_2_0`, `kling3_0`.
+
+**Trap:** the standalone catalog id `nano_banana_pro` is NOT on the Element-supported list —
+Element-referencing keyframes must use `nano_banana_2`. Reserve `nano_banana_pro` for
+non-Element keyframes. Multiple `<<<element_id>>>` placeholders per prompt are allowed — for
+single-image prompts this is the only way to lock two characters in one frame; multi-character
+VIDEO shots may also use Seedance 2.0 `image_references` with separately tagged references per
+character.
 
 ### Characters
 
@@ -74,7 +80,7 @@ Seedance 2.0 `image_references` with separately tagged references per character.
 | Necklage-of-Fede | `74930eee-cbb5-4c62-9a5b-f11526b736b9` | Federica's necklace |
 | lapis-kararan | `54c6fc58-8ded-457d-8701-e1da8dd68597` | |
 | piton-slip | `d078058d-0c24-4dce-8c37-8b346cf91d7b` | |
-| -Sürüngen-ipek-elbise | `6ca62d8e-201e-4172-a65e-00a1c1d69b46` | reptile silk dress |
+| -Sürüngen-ipek-elbise | `6ca62d8e-201e-4172-a65e-00a1c1d69b46` | reptile silk dress — the leading hyphen IS part of the platform name (verified live); match it exactly in token sweeps |
 | Lapis-Necklace-Verified | `c9c18e1e-0c23-4b73-923d-df586e9e4f57` | lapis lazuli pendant on gold chain, written lock description on element |
 
 ## 3. Model constraints (verified via models_explore, 2026-07-08)

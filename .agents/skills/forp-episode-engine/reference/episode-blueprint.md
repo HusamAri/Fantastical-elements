@@ -2,7 +2,9 @@
 
 Copy this template into `episodes/E<nn>-<slug>/BLUEPRINT.md` and fill every field. The structure
 loop (qa-loops.md §Loop 1) checks against the numbers below — they are targets with tolerance,
-not vibes. Timings assume ~4:30 of story + up to 30s title/button flexibility.
+not vibes. **Runtime definition:** runtime = story length before the button, target 270 s (4:30);
+the button (≤5 s) and any title allowance sit outside it. All percentages below are of story
+runtime.
 
 ## 1. Premise block
 
@@ -37,7 +39,7 @@ not vibes. Timings assume ~4:30 of story + up to 30s title/button flexibility.
 | 2:10–2:20 | **Midpoint spike** | biggest re-pricing before climax | power reversal #1 (prop/environment-triggered) |
 | 2:20–3:40 | Act 2b: beats 3–4 | cost mounts | element's COST shown; mini unresolved beat ~2:15 & ~3:40 |
 | 3:40–4:05 | Act 3: commit | protagonist's changed choice | power reversal #2; uses capability/flaw planted ≤2:15 |
-| 4:05–4:20 | **Climax** (85–90% of runtime) | the most expensive-feeling sequence | fight transformation beat; resolve dramatic question ON SCREEN |
+| 4:05–4:20 | **Climax** (begins inside 85–93% of story runtime; 4:05 ≈ 90%) | the most expensive-feeling sequence | fight transformation beat; resolve dramatic question ON SCREEN |
 | 4:20–4:30 | Resolution | earn the ending | cut on the question — 2s earlier than feels safe |
 | +≤5s | Button | series signature | sting/tag only |
 

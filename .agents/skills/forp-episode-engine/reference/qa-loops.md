@@ -34,6 +34,13 @@ Checks:
 - [ ] No gap longer than 45 s between jolts/re-pricing moments anywhere in the beat sheet
 - [ ] Mini unresolved beat present at each attention boundary (~1:00 / ~2:15 / ~3:40)
 - [ ] Every act has a turning point; the climax is the episode's most expensive-feeling sequence
+      and begins inside the 85–93% window of story runtime (runtime = story before button, 270 s target)
+- [ ] Compression gates hold: one moment in time; 1–3 speaking characters; one core conflict;
+      1–2 environments; every dialogue line advances plot or reveals character under pressure
+- [ ] Character-depth test: want / pressure / visible change stated; a different character in
+      the same ending = fail
+- [ ] Button check: resolves nothing new, ≤5 s, thematic sting or universe tag — never a plot
+      cliffhanger
 - [ ] Standalone test: a viewer who has never seen FORP understands stakes without narration
 - [ ] Universe test: at least one canon anchor (character, place, motif) ties it to FORP
 - [ ] The fantastical element obeys the world's `[PHYSICS]` — capabilities AND costs stated

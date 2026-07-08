@@ -14,9 +14,14 @@ Do NOT load other reference files.
 
 ## Procedure — per prompt, in shotlist order
 
-Step 0 (free, before any reasoning): run the deterministic scanners —
-`python3 ../forp-episode-engine/scripts/forp_validate.py prompt-scan <file>` (add `--video` for
-video prompts) and `duration-check <shotlist>`. Fix script findings first.
+Step 0 (free, before any reasoning): run the deterministic scanners from
+`../forp-episode-engine/scripts/forp_validate.py`:
+1. `prompt-scan <shotlist>` — banned adjectives + dependence phrases over the whole file;
+2. `extract-video-prompts <shotlist>` then `prompt-scan <shotlist>.videoprompts.txt --video` —
+   the motion-only scan runs ONLY on extracted video prompts (a whole-file --video scan
+   false-positives on image prompts);
+3. `duration-check <shotlist>`.
+Fix script findings first; judges never re-check what the scripts already cover.
 
 1. **Assemble, don't freestyle:** rebuild the prompt from the episode's locked Prompt Blocks
    (`[CHAR:*] [ENV:*] [LIGHT:*] [GRADE] [PHYSICS] [NEG]`) + the row's shot-specific fields, in the

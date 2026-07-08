@@ -30,7 +30,8 @@ row. If it's not in a row, it doesn't get generated.
 | Action beats | numbered beats with per-beat timing (5-beat structure for hits) | video prompt source |
 | SFX/fantastical | element behavior in this shot, per `[PHYSICS]` | world-rule compliance |
 | Audio intent | silent-gen default; note diegetic sound for edit phase | sound is an edit decision |
-| Model + mode | e.g. `kling3_0 / pro / sound off / 16:9` | no per-job improvisation |
+| Model + mode | video job spec, e.g. `kling3_0 / pro / sound off / 16:9` | no per-job improvisation |
+| Image model + mode | keyframe job spec, e.g. `nano_banana_2 / 2k / 16:9` (Element-referencing) or `soul_2 + soul_id` | the pre-generation gate checks the image job too |
 | Image prompt | full self-contained keyframe prompt | copy-paste artifact |
 | Video prompt | full self-contained motion prompt | copy-paste artifact |
 | Start/End frame | keyframe job/media id once approved; end_image if match cut | chaining contract |
@@ -63,6 +64,13 @@ row. If it's not in a row, it doesn't get generated.
   cuts, over-the-shoulder framings, and silhouettes; each side of the contact gets its own row.
 - HIGH-risk fight rows may add a **previs/motion-control pass** (see generation-protocol.md):
   blocking locked via pose stills or a reference movement video before any paid video take.
+- Alternate shot sizes on cuts (WS → CU, not MS → MS from the same axis; respect the 30° rule).
+- Geography first: every fight set opens with an establishing/orienting shot before coverage
+  tightens. Re-orient after any relocation within the set.
+- Match cuts between shots use `end_image` → next shot's `start_image` where the cut must be
+  invisible.
+- Generate 1–3 s longer than the edit target when the model's duration granularity allows —
+  trim room is cheap, extension is a regeneration.
 
 ## Scene continuity block (script-supervisor state)
 
@@ -76,13 +84,13 @@ time of day: … | axis: <180° line + camera side>
 
 This block is the "continuity sheet" the F-CONTINUITY triage class points at, and the
 continuity-guard loop verifies every row against its scene block.
-- Alternate shot sizes on cuts (WS → CU, not MS → MS from the same axis; respect the 30° rule).
-- Geography first: every fight set opens with an establishing/orienting shot before coverage
-  tightens. Re-orient after any relocation within the set.
-- Match cuts between shots use `end_image` → next shot's `start_image` where the cut must be
-  invisible.
-- Generate 1–3 s longer than the edit target when the model's duration granularity allows —
-  trim room is cheap, extension is a regeneration.
+
+## Serialization (what the scripts parse)
+
+In `SHOTLIST.md` each row is written as a per-shot key-value block — one `Field: value` line per
+schema field, with prompts as fenced blocks under `Image prompt:` / `Video prompt:` headings.
+`scripts/forp_validate.py` parses exactly this layout (`Model:`, `Image model:`,
+`Gen duration (s):`, `Video prompt:`); free-form tables are for humans, blocks are for machines.
 
 ## Lifecycle gates
 
