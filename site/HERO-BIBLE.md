@@ -5,16 +5,26 @@ No new generation may deviate from this. If a new shot is ever needed, it must b
 produced from these anchors (soul_id + wardrobe string), then continuity-checked
 against this page before use.
 
-## Identity (Soul)
-- Higgsfield Husam Soul: `76fab95a-f542-47a4-9bbe-937981c52fef`
-- Face law: cool, composed, realistic, symmetrical, undistorted. Visible fine pores,
-  matte finish, detailed skin, clear eye catchlight. Never a hard glare, never warped.
+## Identity (LOCKED)
+- Higgsfield Husam **Soul**: `76fab95a-f542-47a4-9bbe-937981c52fef` (soul_cinematic / soul_2).
+- **`@Husam` character Element**: `8c317956-18a1-4d78-ab84-4a0c8fa85ea0` — built from ~14 real
+  multi-angle photos; strongest identity ref; use in Element-supporting models (Cinema Studio, Nano
+  Banana, Seedream, Kling). Stack with the look Element below.
+- Face law: cool, composed, realistic, symmetrical, undistorted. Visible fine pores, matte finish,
+  detailed skin, clear eye catchlight. Never a hard glare, never warped.
 
-## Wardrobe LOCK (verbatim — must match across every shot)
-> a heavy dark navy-charcoal open-front layered coat with a raised textured collar,
-> worn over an ornate cream-ivory high-collar tunic with an intricate dark embroidered
-> brocade panel running vertically down the centre; a fine layered gold chain necklace
-> at the chest; a wide dark wrapped sash at the waist; a gold cuff bracelet on the wrist.
+## Look / Wardrobe LOCK — user-approved `c2ed37de` (supersedes the earlier navy costume)
+- **`HusamHero` look Element**: `edfa0dcf-c416-40a6-99bb-3bdf072f2597` (from approved image
+  `c2ed37de`) — carries costume + the disc-magic aesthetic; reproduce **one-to-one**.
+- **Costume:** long black high-collar tunic-robe with fine bronze embroidered trim down the placket
+  and cuffs, a wide black wrapped sash, and a long brown-taupe mantle-cape over one shoulder.
+- **Palette / world:** gold + black colour-block; black-glass shards shattering & ascending in real
+  3D depth; warm amber/gold fire accent; heavy filmic grain (never clean CG).
+- **Signature magic + full ability kit:** see [`HERO-KIT.md`](HERO-KIT.md) — his original spun
+  razor-glass **disc** mechanic (basic + 4 skills + Flame-Inside + ultimate). The disc is his canon
+  weapon, an original design (not a franchise shield).
+- To generate: stack `<<<8c317956…>>>` (identity) + `<<<edfa0dcf…>>>` (look) in the prompt; the
+  Soul path (soul_cinematic + soul_id) is the fallback when Elements aren't used.
 
 ## Grade LOCK (Curated Chaos tone)
 Moody desaturated but rich; deep indigo #171D2D + steel-blue shadows; a single warm

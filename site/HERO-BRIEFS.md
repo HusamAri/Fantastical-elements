@@ -17,12 +17,12 @@ status as briefs are honored. The user directs the creative lane — these are t
 | C7 | CTA "**dark & fantastical elements / create your own fragment**"; click launches the playbook's **Phase 0** | pending |
 | C8 | **Action / battle mode** must be present ("aksiyon nerede", "i in action") | pending |
 | C9 | Face always **cool, composed, realistic**, symmetrical, undistorted; visible fine pores, matte, detailed skin | holding (QA-gated) |
-| C10 | Magic is **unique/original** (NOT a rune-disc, NOT fire-bending), **grainy/particulate/analog**; signature = "The Gathering" ember-storm × quiet luxury | ✅ direction locked |
-| C11 | Costume: **modern-yet-ancient**, expensive/credible (NOT costumey/Halloween), **bordeaux + black + a harmonising neon accent**, modern collar, **cape moves with wind**, different luxury fabrics matched wisely | in progress (redesign) |
+| C10 | Magic is **his own signature**: original spun **razor-glass DISC** mechanic, fire-ember, grainy/analog. Full kit (basic + 4 skills + Flame-Inside + ultimate) in `HERO-KIT.md`. (The disc is canon-original, not a franchise shield.) | ✅ locked (c2ed37de + kit) |
+| C11 | Costume/look **LOCKED to approved `c2ed37de`** = `HusamHero` Element `edfa0dcf` — black bronze-trim tunic-robe + brown mantle, gold+black colour-block, shattering glass. **Supersedes** the bordeaux/black redesign (user chose this). | ✅ locked |
 | C12 | Costume **EXACT continuity** across every shot — locked reference (Element), one-to-one | enforced via §7 |
 | C13 | **Golden-ratio** composition; **best posture** | ✅ applied |
 | C14 | Grade = **Curated Chaos** (deep indigo/steel-blue + warm amber accent), filmic grain | ongoing |
-| C15 | Always use the **Husam Soul** `76fab95a-f542-47a4-9bbe-937981c52fef` | ✅ enforced |
+| C15 | Identity refs: **Husam Soul** `76fab95a…` + **`@Husam` Element** `8c317956…` (14 real photos). Stack `@Husam` (identity) + `@HusamHero` (look) in Element-model gens. | ✅ enforced |
 | C16 | Site restyle overall: scroll-driven 3D, elements move/adapt/morph on scroll, perfect timing with text, amazing VFX UI | pending |
 | C17 | **Federica's fragment object = `lapis-kararan` necklace** (Element `54c6fc58-8ded-457d-8701-e1da8dd68597`) — hold and **remind the user when it's time for Federica** | holding (reminder set) |
 
@@ -43,11 +43,8 @@ status as briefs are honored. The user directs the creative lane — these are t
 - The playbook is **hardened + enforced** (GOVERNANCE state machine).
 
 ## Open flags (conflicts needing the user)
-- **F1 — palette:** bordeaux+black costume departs from the Curated Chaos indigo/amber brand palette.
-  Reconciliation in play: costume in bordeaux/oxblood + black with a **neon-amber** accent (the brand
-  accent) set inside the indigo/steel-blue graded world (warm garment vs cool world = filmic
-  complementary harmony). Flagged for the user; adjust if they want a full palette shift instead.
-- **F2 — cape:** the anti-costumey research recommended removing the cape (capes read cosplay), but
-  the user explicitly asked for a **wind-blown cape**. Reconciliation: KEEP the cape, rendered as a
-  heavy matte-wool couture mantle (not a satin hero cape) caught in the wind. Flagged; drop only on
-  the user's say-so.
+- **F1 — palette/costume — RESOLVED by user choice.** The bordeaux/black redesign was superseded when
+  the user approved `c2ed37de` (black + bronze-trim robe + brown mantle, gold+black colour-block) and
+  said "lock this for clothe." Locked as `HusamHero`. No action needed.
+- **F2 — cape — folded into the locked look.** `c2ed37de` carries a brown mantle-cape; the wind-motion
+  brief (C-cape) will be honored in the video/motion pass. No open conflict.
