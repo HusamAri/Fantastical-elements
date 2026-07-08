@@ -24,21 +24,24 @@ const FRAGMENTS = [
 
 // Each beat: which keyframe is on stage, which plate shows, and its payload.
 // frame 0=K1 calm, 1=K2 shatter, 2=K3 action, 3=K4 flame, 4=K5 final.
+// frame indices: 0 K1 calm/disc · 1 K2 shatter · 2 K3 action · 3 K4 flame · 4 K5 settle ·
+// 5 K6 dodge · 6 K7 ultimate · 7 K8 pendant · 8 K9 evil-eye · 9 K10 constellation ·
+// 10 K11 lotus · 11 Baver glass interstitial. Each fragment reveals ON its motif frame.
 const BEATS = [
-  { frame: 0, plate: "title" },
-  { frame: 1, plate: "note" },
-  { frame: 1, plate: "frag", frag: 0 },
-  { frame: 1, plate: "frag", frag: 1 },
-  { frame: 1, plate: "frag", frag: 2 },
-  { frame: 1, plate: "frag", frag: 3 },
-  { frame: 1, plate: "frag", frag: 4 },
-  { frame: 1, plate: "frag", frag: 5 },
-  { frame: 2, plate: "beat", line: "He fought to keep them whole." },   // K3 action
-  { frame: 5, plate: "beat", line: "Every strike, he turned aside." },  // K6 dodge (mid-scene)
-  { frame: 3, plate: "beat", line: "The fire he carried turned outward." }, // K4 Flame Inside
-  { frame: 6, plate: "beat", line: "Then he called down the sun." },    // K7 ultimate
-  { frame: 6, plate: null },                       // eye-blinder flash → fade to black
-  { frame: 6, plate: "cta" },                      // CTA over black
+  { frame: 0,  plate: "title" },                                            // K1 calm, the disc
+  { frame: 1,  plate: "note" },                                             // K2 shatter — "Six were witnessed."
+  { frame: 0,  plate: "frag", frag: 0 },                                    // I  Agustín — the disc (vinyl)
+  { frame: 10, plate: "frag", frag: 1 },                                    // II Najoua — lotus
+  { frame: 8,  plate: "frag", frag: 2 },                                    // III Başak — evil-eye
+  { frame: 9,  plate: "frag", frag: 3 },                                    // IV Yaşar Efe — constellation
+  { frame: 11, plate: "frag", frag: 4 },                                    // V  Baver — data in the glass
+  { frame: 7,  plate: "frag", frag: 5 },                                    // VI Federica — pendant / disc-gate
+  { frame: 2,  plate: "beat", line: "He fought to keep them whole." },      // K3 action
+  { frame: 5,  plate: "beat", line: "Every strike, he turned aside." },     // K6 dodge
+  { frame: 3,  plate: "beat", line: "The fire he carried turned outward." },// K4 Flame Inside
+  { frame: 6,  plate: "beat", line: "Then he called down the sun." },       // K7 ultimate
+  { frame: 6,  plate: null },                       // eye-blinder flash → fade to black
+  { frame: 6,  plate: "cta" },                      // CTA over black
 ];
 const N = BEATS.length;
 const WIPE_HALF = 0.028; // half-width (scroll progress) of a shard-wipe window

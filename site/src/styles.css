@@ -73,6 +73,9 @@ body {
 .plate--center { place-items: center; text-align: center; }
 .plate--right { place-items: center end; text-align: right; }
 .plate--right > * { max-width: min(42ch, 46vw); }
+/* Fragment plate anchored low-right so it never clashes with the upper-right motif */
+.plate--frag { place-items: end end; text-align: right; padding-bottom: 12vh; }
+.plate--frag > * { max-width: min(42ch, 48vw); }
 .plate.is-live { pointer-events: auto; }
 
 .display { font-family: var(--font-serif); font-weight: 400; font-size: clamp(2.8rem, 8.5vw, 7rem); line-height: 1; letter-spacing: 0.01em; text-shadow: 0 2px 40px rgba(0,0,0,0.6); }
