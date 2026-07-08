@@ -9,10 +9,14 @@ continuity. Grade: Curated Chaos × gold-and-black; grainy analog; his signature
 | # | Beat | Purpose (site) | Status |
 |---|------|----------------|--------|
 | K1 | **Calm hero** — conjures a disc, composed, gold+black, shards beginning | Opening / title | ✅ have (`c5f64e8c` / `c2ed37de`) |
-| K2 | **The Shatter** — he casts; the world fractures into black-glass shards exploding outward in 3D depth | Triggers the fragment reveals | pending |
-| K3 | **Action / disc-throw** — hurls a razor-disc, hooded attacker lunges, he dodges, mantle flaring | The battle beat ("aksiyon") | generating (`a02cbc15`) |
-| K4 | **Flame Inside** — transformation: inner fire visible, glowing/smoky, discs enhanced | Escalation / super state | pending |
-| K5 | **Final — silhouette → black** — Husam centered, calms, light from one side on his silhouette, screen goes black and stays | Sets up the CTA | pending |
+| K2 | **The Shatter** — he casts; the world fractures into black-glass shards exploding outward in 3D depth | Triggers the fragment reveals | ✅ `264b0f19` |
+| K3 | **Action / disc-throw** — hurls a razor-disc, hooded attacker lunges, he dodges, mantle flaring | The battle beat ("aksiyon") | ✅ `a02cbc15` |
+| K4 | **Flame Inside** — transformation: inner fire visible, glowing/smoky, discs enhanced | Escalation / super state | ✅ `95354518` |
+| K5 | **Final — silhouette → black** — Husam centered, calms, light from one side on his silhouette, screen goes black and stays | Sets up the CTA | ✅ `c1b64585` |
+
+**K-set complete (K1–K5), full continuity.** Next in the sequence: assemble the scroll site around
+these approved stills (the animatic/site build, zero credits) → Gate: keyframes+assembly approved
+before any video credit.
 
 Fragment plates (I–VI) reveal with the **real FORP objects** (from Drive) + slogan + link — those
 are composited in-site, not generated. CTA "dark & fantastical elements / create your own fragment"
