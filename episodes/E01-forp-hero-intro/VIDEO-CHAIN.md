@@ -251,3 +251,25 @@ The site is now ONE continuous scroll-scrub in two phases. Phase-2 clips C7–C1
   screen carries the reveal. TODO: swap in a proper Başak cutout when the upload path is available.
 - Verified headless (Playwright + Chromium, range-capable server) at each reveal frame, desktop +
   mobile; phase-1 unchanged (connector/ring/tag intact), no JS errors. Re-encodes are LOCAL (0 cr).
+
+## PHASE 2b — redesign: photo-free fragments + play-through + Adobe fonts (2026-07-09)
+Director notes: drop the character photos; every fragment is the film's OWN object → a leader line to a
+glass info-box in the negative space; phase-2 froze + looked bad; switch fonts to an Adobe pairing.
+- **Freeze fixed.** Root cause: scrubbing a long VP9 by seeking `currentTime` stalls whenever the seek
+  lands past the buffered range (VP9 seeks poorly; long scrub needs `-g1`/image-sequence). Phase-2 is
+  now a PLAY-THROUGH reel (`film2` plays on enter, no seeking) → no stall. Phase-1 still scrubs.
+- **Quality fixed.** Re-encoded phase-2 with a normal GOP (no dense-keyframe tax) at higher quality:
+  `phase2.mp4` (H.264 crf20) + `phase2.webm` (VP9 crf28), local imageio-ffmpeg, 0 cr. Visibly crisper.
+- **Fragments = object→box annotation (no photos).** For all six: a marker ring rides the film object
+  (record · lotus · pendant · nazar · data · constellation), a leader line runs to a frosted glass
+  info-box in the negative space, and the box opens as the object comes into focus. Object anchor +
+  box position are precomputed (`site/src/fragmap.json`) with a saliency / free-space pass (external-
+  labeling technique, Bekos et al.) and the anchor is TRACKED across the reveal so the line follows the
+  object. Screen mapping uses the same object-fit:cover math the browser applies, so the ring lands on
+  the real pixel on any viewport. Mobile stays text + glass box only.
+- **Fonts → Adobe (kit iwq4dnt):** Bodoni URW (display), Adobe Caslon Pro (editorial italic serif),
+  P22 Underground (labels). Retired Chicle/Fraunces/Space Grotesk.
+- **Scroll-GATED play (2026-07-09):** phase-2 plays at natural speed toward the next fragment peak,
+  then HOLDS there (paused, box centered) until scroll unlocks the next one; scrolling on resumes at
+  normal speed to the following fragment. Peaks 5.0/20.1/30.2/34.6s, gates at scroll 0.16/0.38/0.58/
+  0.78. Başak's box moved to lower-right (was over the nazar).
