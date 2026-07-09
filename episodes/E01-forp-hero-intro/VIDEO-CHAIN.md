@@ -84,6 +84,11 @@ the least. Extend for phase 2 by appending clips + SPANS rows (holds for reveals
 - **PROCESS RULE (corrected 2026-07-09): ONE clip at a time.** Generate one → QA → deliver → WAIT for
   the director's go → next. NO parallel batching (GOVERNANCE §10). C4/C5/C6 were wrongly batched;
   they'll be QA'd one-by-one, and no further clip starts without director approval.
+- **PROCESS RULE (new, 2026-07-09): STORY-FIRST, decided TOGETHER.** Before generating each clip,
+  SHOW the director the first and last frame (start + end keyframe) and agree the in-between story
+  (what connects to what, camera move, beat order) collaboratively. Only generate once the director
+  has signed off on the story. This gate sits ahead of the get_cost/LEDGER/prompt steps. Rationale:
+  the endpoints are locked, so the audience/director narrate the in-between; align on it first.
 - **C7 K14→K8 (Kling v3.0, std, sound on)** · job `3b762485-5c47-4fdc-a630-e5fef0eec5f8` · 10 cr ·
   connecting logic: the twin glass discs streak forward and SHATTER into black-glass shards (V13 solid
   disc, not flame); the shards sweep R→L as a shard-wipe and the camera whips with them, clearing on
@@ -179,4 +184,13 @@ the least. Extend for phase 2 by appending clips + SPANS rows (holds for reveals
   · 10 cr · corrected connecting logic: camera turns/orbits across shards ALREADY drifting (never
   spawned from nothing) so we see the glass first -> swirling PURPLE smoke rolls in and wraps them ->
   then cascading GREEN data ignites LIKE LIGHT across each turning shard, resolving on the person-less
-  BAVER frame. Director-requested re-roll (2026-07-09). **Status: rendering, QA pending. HELD, no C13 until go.**
+  BAVER frame. Director-requested re-roll (2026-07-09). Result mp4 job `b2fbfdc1` → hf_20260709_101059.
+  **DIRECTOR ACCEPTED (locked) 2026-07-09** — C12b is the final C12; the first C12 (d60a18c0) is retired.
+- **C13 BAVER→K10 (Kling v3.0, std, sound on)** · job `3d5f1d1a-57a2-4064-8d9e-cf5088192fef` · 10 cr ·
+  **STORY AGREED WITH DIRECTOR (first+last frame shown, story-first rule):** warm GOLD light sweeps in
+  from the RIGHT and chases the purple smoke away, green data fades, yellow-gold rises; camera pans
+  RIGHT; Husam is revealed low-angle already gathering amber energy in his hands, waiting/anticipating
+  and looking to the sky; the Big Dipper (Yaşar) constellation blooms above and empowers him, he looks
+  up with resolve, and the sun behind suddenly FLARES (K10). All objects move (V9), camera pans right
+  with the light (V12); gathered energy = charge-up glow, not thrown flame (V13). **Status: rendering,
+  QA pending. HELD, no C14 until go.**
