@@ -84,3 +84,23 @@ the least. Extend for phase 2 by appending clips + SPANS rows (holds for reveals
 - **PROCESS RULE (corrected 2026-07-09): ONE clip at a time.** Generate one → QA → deliver → WAIT for
   the director's go → next. NO parallel batching (GOVERNANCE §10). C4/C5/C6 were wrongly batched;
   they'll be QA'd one-by-one, and no further clip starts without director approval.
+- **C7 K14→K8 (Kling v3.0, std, sound on)** · job `3b762485-5c47-4fdc-a630-e5fef0eec5f8` · 10 cr ·
+  connecting logic: the twin glass discs streak forward and SHATTER into black-glass shards (V13 solid
+  disc, not flame); the shards sweep R→L as a shard-wipe and the camera whips with them, clearing on
+  Husam mid-lunge catching the falling lapis pendant from the disc-gate (K8). Motion-only (V11), all
+  objects move (V9), camera↔action synced (V12). Director-approved single generation (2026-07-09).
+  **Status: RENDERED + QA PASSED, awaiting director sign-off.** Result mp4 job `3b762485` →
+  hf_20260709_055140. QA: start-lock vs K14 ncc=0.999 histCorr=1.000 (perfect); end-lock vs K8
+  ncc=0.894 histCorr=0.993 (strong); glitch spike_ratio=2.3 (clean, <6); frozen cells=0; 5.04s@24fps.
+  Face audit: Husam identity + locked costume consistent across the lunge, no warp. FLAG: mid-clip
+  burst (~1.1–2.5s) renders fire-heavy and hand briefly fire-wreathed (~2.5s) — inherited from K14's
+  locked glass-AND-fire disc; brushes the "flame-cast" look. Delivered to director with accept(A) /
+  re-roll-with-suppressed-fire(B) choice.
+  **DIRECTOR ACCEPTED (A) 2026-07-09** — C7 locked into the chain as-is.
+- **C8 K8→K6 (Kling v3.0, std, sound on)** · job `6f31f4c3-3f05-4bcb-a6f6-933e86d1ffb3` · 10 cr ·
+  connecting logic (continuous combat, NO scene gap): he closes his hand on the lapis pendant → a
+  DARK force-bolt streaks in from the right → he reverses momentum and leaps BACKWARD to dodge, cape
+  flaring, flicking two SOLID glass discs out (one per hand, thin ember-rim only — V13, no flame-cast);
+  dark air detonates into black-glass shards; camera pulls back + pans left with the leap (V12), all
+  objects move (V9), attack kept dark/not-amber to stay distinct from the fire flagged on C7.
+  Director-approved single generation (2026-07-09). **Status: rendering → QA pending. HELD — no C9 until go.**

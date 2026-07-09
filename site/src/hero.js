@@ -27,8 +27,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 const FRAG_BASE = "https://curatedchaos.artifactstudio.info/en/works/fragments/";
 const FRAGMENTS = {
-  agustin: { roman: "I",  name: "Agustín", slogan: "A minimalist visual poem about artistic awakening.", slug: "agustin", cut: "/fragments/agustin.png" },
-  najoua:  { roman: "II", name: "Najoua",  slogan: "Kindness mistaken for weakness — until she spoke.",  slug: "najoua",  cut: "/fragments/najoua.png" },
+  agustin: { roman: "I",  name: "Agustín", slogan: "A minimalist visual poem about artistic awakening.", slug: "agustin", cut: "/fragments/agustin.png", object: "the record", obj: { x: 47, y: 42 } },
+  najoua:  { roman: "II", name: "Najoua",  slogan: "Kindness mistaken for weakness — until she spoke.",  slug: "najoua",  cut: "/fragments/najoua.png", object: "the lotus",  obj: { x: 73, y: 27 } },
 };
 
 // Film duration read from the element once metadata loads; this is the fallback.
@@ -57,9 +57,19 @@ const els = {
   label: document.getElementById("railLabel"),
 };
 
-// ---- Fragment card markup (frosted panel + cutout that breaks the edge) ----
+// ---- Fragment card markup: card in the empty quadrant, a hairline connector pointing to the
+// film's own object (the record / the lotus), the cutout breaking the card edge ----
 function cardHTML(f, side) {
-  return `<figure class="fcard fcard--${side}">
+  const cls = side > 0 ? "right" : "left";
+  const x1 = side > 0 ? 60 : 40; // wire starts at the card's inner-top; ends on the film object
+  return `<div class="fconn">
+      <svg class="fcard__wire" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <line class="fcard__wireline" pathLength="1" x1="${x1}" y1="50" x2="${f.obj.x}" y2="${f.obj.y}" />
+      </svg>
+      <span class="fcard__ring" style="left:${f.obj.x}%; top:${f.obj.y}%"><i></i></span>
+      <span class="fcard__tag fcard__tag--${cls}" style="left:${f.obj.x}%; top:${f.obj.y}%">${f.object}</span>
+    </div>
+    <figure class="fcard fcard--${cls}">
     <span class="fcard__ghost">${f.roman}</span>
     <img class="fcard__cut" src="${f.cut}" alt="${f.name}" draggable="false" />
     <figcaption class="fcard__panel">
@@ -73,8 +83,8 @@ function cardHTML(f, side) {
 }
 
 const plateEl = (k) => document.querySelector(`[data-plate="${k}"]`);
-plateEl("fragA").innerHTML = cardHTML(FRAGMENTS.agustin, "right");
-plateEl("fragN").innerHTML = cardHTML(FRAGMENTS.najoua, "left");
+plateEl("fragA").innerHTML = cardHTML(FRAGMENTS.agustin, 1);
+plateEl("fragN").innerHTML = cardHTML(FRAGMENTS.najoua, -1);
 
 // ---- Plate timeline: window [a,b] in scroll + motion params ----
 // type "text": rises + unblurs. type "card": panel + cutout parallax at different rates.
@@ -94,6 +104,7 @@ for (const pl of PLATES) {
     pl.cut = pl.el.querySelector(".fcard__cut");
     pl.panel = pl.el.querySelector(".fcard__panel");
     pl.ghost = pl.el.querySelector(".fcard__ghost");
+    pl.wire = pl.el.querySelector(".fcard__wireline");
   }
 }
 
@@ -122,6 +133,8 @@ function applyPlate(pl, p) {
     pl.panel.style.transform = `translate3d(${(pl.side * lerp(52, -6, u)).toFixed(1)}px, ${lerp(30, -20, u).toFixed(1)}px, 0)`;
     pl.panel.style.clipPath = `inset(0 0 ${clamp((1 - o) * 42, 0, 42).toFixed(1)}% 0 round 18px)`;
     pl.ghost.style.transform = `translate3d(${(pl.side * lerp(30, -30, u)).toFixed(1)}px, ${lerp(-10, -40, u).toFixed(1)}px, 0)`;
+    // The connector draws itself toward the film's object as the card enters (points to it).
+    pl.wire.style.strokeDashoffset = (1 - smooth(clamp(u / 0.5, 0, 1))).toFixed(3);
   } else {
     const blur = (1 - o) * pl.blur;
     el.style.transform = `translate3d(0, ${lerp(pl.y[0], pl.y[1], u).toFixed(1)}px, 0)`;
@@ -142,9 +155,15 @@ function timeAt(p) {
 let targetTime = 0, ready = false;
 function onScroll(p) {
   targetTime = timeAt(p);
-  let strongest = 0;
-  for (const pl of PLATES) strongest = Math.max(strongest, applyPlate(pl, p));
-  els.scrim.style.opacity = (0.12 + 0.42 * strongest).toFixed(3);
+  let strongest = 0, cardStrong = 0;
+  for (const pl of PLATES) {
+    const o = applyPlate(pl, p);
+    strongest = Math.max(strongest, o);
+    if (pl.type === "card") cardStrong = Math.max(cardStrong, o);
+  }
+  // Cards dim the film GENTLY (the scrim sits below the plates, so the cutout stays bright while the
+  // film's protagonist eases back) — enough to settle the frame, without crushing the footage.
+  els.scrim.style.opacity = (0.12 + 0.28 * strongest + 0.14 * cardStrong).toFixed(3);
   const pc = Math.round(p * 100);
   els.tick.style.top = els.label.style.top = `${p * 100}%`;
   els.label.textContent = String(pc).padStart(2, "0");
