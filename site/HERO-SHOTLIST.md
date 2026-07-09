@@ -17,13 +17,15 @@ continuity. Grade: Curated Chaos × gold-and-black; grainy analog; his signature
 | K7 | **ULTIMATE — Ancient Sunlight** — a sudden burst of sun from the sky strikes down; **eye-blinder white flash** | The climax + closer | pending |
 | — | **Close** — the sun-flash whites out → **fade to black and stays** → CTA | Ending, right after the ultimate | site effect |
 
-**Woven order (per user — fragments threaded THROUGH the fight, not a six-block parade):**
-title (K1) → shatter (K2) → **Fragment I Agustín / the disc (K12)** → K3 action → **Fragment II
-Najoua / lotus (K11)** → K6 dodge → **Fragment VI Federica / pendant-catch (K8)** → **Fragment III
-Başak / evil-eye damage (K9)** → K4 Flame Inside → **Fragment V Baver / glass data** → **Fragment IV
-Yaşar / constellation (K10)** → **K7 ultimate (sun burst + blinder flash)** → close to black → CTA.
-The **ultimate is the closer** (K5 settle kept only as an optional beat, not in the mainline). The
-eye-blinder flash is a white full-screen bloom in the site, resolving to black.
+**Woven order — N=16 (per director; fragments threaded THROUGH the fight, Twin Spiral added as two
+battle beats, close resolves to the settle not to black):**
+1 title (K1) · 2 shatter (K2) · 3 Fragment I Agustín / disc (K12) · 4 action (K3) · 5 Fragment II
+Najoua / lotus (K11) · 6 **Twin Spiral charge (K13)** · 7 **Twin Spiral throw (K14)** · 8 Fragment VI
+Federica / pendant-catch (K8) · 9 dodge (K6) · 10 Fragment III Başak / evil-eye damage (K9, the "last
+drop") · 11 Flame Inside (K4) · 12 Fragment V Baver / glass data · 13 Fragment IV Yaşar / constellation
+(K10) · 14 **ultimate (K7)** · 15 eye-blinder flash → **resolves to the settle (K5)** · 16 CTA over K5.
+The eye-blinder flash is a white full-screen bloom that **falls to reveal K5** (him standing in the
+dust) — **not a pure blackout** (director change). Twin Spiral (Q) is two beats: charge → throw.
 
 **Structure rationale:** a battle move, then a fragment surfaces — the fight's momentum carries the
 reveals (matches the tempo rule below). Two fragments double as battle moves (Federica's pendant-catch,
