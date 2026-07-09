@@ -70,10 +70,10 @@ body {
 .plate--frag { place-items: center; padding: 0; }
 .plate.is-live { pointer-events: auto; }
 
-.display { font-family: var(--font-display); font-weight: 400; font-size: clamp(2.6rem, 8vw, 5.8rem); line-height: 0.92; letter-spacing: 0; text-shadow: 0 2px 40px rgba(0,0,0,0.7); }
+.display { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.7rem, 3.6vw, 2.8rem); line-height: 1.0; letter-spacing: 0.01em; text-shadow: 0 2px 30px rgba(0,0,0,0.6); }
 .display__sub { display: block; margin-top: 1.5rem; font-family: var(--font-sans); font-weight: 400; font-size: clamp(0.6rem,1.4vw,0.8rem); letter-spacing: 0.44em; text-transform: uppercase; color: var(--blush); }
 
-.note { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: clamp(1.4rem, 3.6vw, 2.8rem); color: #e7e3dd; letter-spacing: 0.02em; text-shadow: 0 2px 30px rgba(0,0,0,0.7); }
+.note { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: clamp(1.15rem, 2.6vw, 1.9rem); color: #e7e3dd; letter-spacing: 0.01em; text-shadow: 0 2px 24px rgba(0,0,0,0.65); }
 
 /* ---- Fragment card: frosted glass panel + real character cutout breaking the edge ---- */
 .fcard {
@@ -116,7 +116,7 @@ body {
 }
 .fcard__idx { font-family: var(--font-sans); font-weight: 500; font-size: 0.72rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--amber); }
 .fcard__arrow { position: absolute; top: 1.7rem; right: 1.7rem; width: 26px; height: 26px; color: rgba(244,241,237,0.55); }
-.fcard__name { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.9rem, 4.4vw, 3.2rem); line-height: 0.98; letter-spacing: 0; color: var(--ivory); text-shadow: 0 2px 24px rgba(0,0,0,0.6); }
+.fcard__name { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.35rem, 2.6vw, 2rem); line-height: 1.0; letter-spacing: 0.01em; color: var(--ivory); text-shadow: 0 2px 20px rgba(0,0,0,0.55); }
 .fcard__slogan { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: clamp(1rem, 1.7vw, 1.32rem); color: #ded9d3; line-height: 1.4; }
 .fcard__enter {
   justify-self: start; margin-top: 1rem; pointer-events: auto; font-family: var(--font-sans); font-weight: 400;
@@ -149,11 +149,11 @@ body {
 .fcard__tag--left  { transform: translate(-22px, -6px) translateX(-100%); text-align: right; }
 
 /* Beat caption */
-.beat__line { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: clamp(1.2rem, 2.8vw, 2.1rem); color: #e7e3dd; line-height: 1.35; text-shadow: 0 2px 30px rgba(0,0,0,0.8); }
+.beat__line { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: clamp(1rem, 2.2vw, 1.6rem); color: #e7e3dd; line-height: 1.4; text-shadow: 0 2px 24px rgba(0,0,0,0.75); }
 
 /* CTA */
 .cta__kicker { display: block; margin-bottom: 1.4rem; font-family: var(--font-sans); font-weight: 400; font-size: 0.68rem; letter-spacing: 0.34em; text-transform: uppercase; color: var(--amber); }
-.cta__title { font-family: var(--font-display); font-weight: 400; font-size: clamp(2.3rem, 6.6vw, 5rem); line-height: 0.96; letter-spacing: 0; }
+.cta__title { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.6rem, 3.4vw, 2.6rem); line-height: 1.02; letter-spacing: 0.01em; }
 .cta__btn {
   display: inline-block; margin-top: 2.4rem; font-family: var(--font-sans); font-weight: 400;
   font-size: 0.82rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ivory);
@@ -189,7 +189,9 @@ body.is-static .fcard__panel { position: relative; transform: none; clip-path: n
   .plate--right { place-items: end center; text-align: center; padding-bottom: 14vh; }
   .plate--right > * { max-width: 90vw; }
   .film { object-position: 50% 40%; }
-  /* narrow screens: cards centre and shrink so the cutout + panel stay on-canvas */
-  .fcard { width: min(440px, 90vw); right: 5vw; left: auto; }
-  .fcard--left { left: 5vw; right: auto; }
+  /* Mobile fragments: text + frosted glass box ONLY. No photo cutout, ghost numeral, or connector. */
+  .fcard__cut, .fcard__ghost, .fconn { display: none !important; }
+  .fcard { left: 5vw; right: 5vw; margin: 0 auto; width: min(460px, 90vw); height: auto; bottom: 10vh; }
+  .fcard--left { left: 5vw; right: 5vw; }
+  .fcard__panel { position: relative; left: auto; right: auto; bottom: auto; transform: none !important; clip-path: none !important; }
 }
