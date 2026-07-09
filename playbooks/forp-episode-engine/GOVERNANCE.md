@@ -241,6 +241,13 @@ These actually happened on this project. Each maps to the rule that now prevents
 - Would have proceeded on an unresolved A/B choice → **§4** (never proceed on an unmade decision).
 - Wrote "Harry Potter / Marvel / a Dr-Strange disc" into a prompt → **§11** (no franchise names;
   original form + ability; references inform look/colour/feeling only).
+- **Generated multiple video clips in parallel to save time, violating the one-at-a-time rule**
+  (2026-07-09, C2+C3 then C4+C5+C6) → **§8 one-generation-at-a-time is ABSOLUTE**. It is NOT a
+  cost rule — it exists so the director reviews/approves each output before the next and stays in
+  the loop. Speed/wall-clock is NEVER a reason to batch. RULE: generate exactly ONE image or ONE
+  video, QA it, deliver it, and WAIT for the director's go before the next. "Parallel = same credits"
+  is an invalid excuse. (The only sanctioned multi-output is a 4-up strictly for concept/variance
+  selection, never for producing distinct final shots.)
 
 ---
 

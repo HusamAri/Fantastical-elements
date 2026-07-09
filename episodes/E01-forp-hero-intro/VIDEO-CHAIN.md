@@ -63,5 +63,8 @@ mid-frames free of unwanted morphing. Endpoint preservation is the join-critical
 - **V12 (camera↔action sync) applied from C4 on** [hypothesis]: bind camera to action ("as he acts the
   camera tracks WITH him"), not a separate move. Sync-feel is a VISUAL check (metrics can't measure it).
 - _raw clips tracked by job id, not committed to git (heavy); assembled at picture-lock._
-- _method: Kling std, motion-only prompt (V11), action-primary (V10), all-objects-move (V9), axis held
-  (DIRECTING §C), QA every clip (vqa.py + frozen.py). Running clips in parallel for wall-clock._
+- _method: Kling std, motion-only prompt (V11), action-primary (V10), all-objects-move (V9),
+  camera↔action synced (V12), axis held (DIRECTING §C), QA every clip (vqa.py + frozen.py)._
+- **PROCESS RULE (corrected 2026-07-09): ONE clip at a time.** Generate one → QA → deliver → WAIT for
+  the director's go → next. NO parallel batching (GOVERNANCE §10). C4/C5/C6 were wrongly batched;
+  they'll be QA'd one-by-one, and no further clip starts without director approval.
