@@ -133,5 +133,12 @@ the least. Extend for phase 2 by appending clips + SPANS rows (holds for reveals
   lands, he recoils/twists again → warm amber bleeds out and cold BLUE SMOKE floods in → a glowing
   blue nazar (evil-eye amulet) resolves upper-right (Başak's motif, K9). No discs in play (already
   destroyed C9) → no fire-cast risk; strike is DARK. Camera settles/drifts with recoil (V12), all
-  objects move (V9). Director-approved single generation (2026-07-09). **Status: rendering → QA
-  pending. HELD — no C11 until go.**
+  objects move (V9). Director-approved single generation (2026-07-09).
+  **Status: RENDERED + QA PASSED, awaiting director sign-off.** Result mp4 job `2231b2d3` →
+  hf_20260709_081121. QA (cleanest so far): start-lock vs K15 ncc=0.998 histCorr=0.999; end-lock vs
+  K9 ncc=0.967 histCorr=0.998; glitch spike_ratio=1.6 (clean); frozen cells=0; 5.04s@24fps. Face
+  audit: identity + pained-defiant expression consistent, no warp. Tonal shift warm-orange→cold-blue
+  LANDS (frame cools amber→blue); nazar evil-eye amulet resolves upper-right golden point (Başak
+  motif). Minor: small orange impact-ember lingers on hand/chest through the blue section (faithful
+  to K9); groundplane/light panel bg vs pure void (inherited). Delivered, recommended ACCEPT. HELD —
+  no C11 until director's go.
