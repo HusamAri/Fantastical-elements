@@ -1,9 +1,15 @@
 # E01 — Video chain (State 7)
 
-**Method (director):** seamless start→end-frame clips on **seedance_2_0**, `start_image` = beat N
-keyframe, `end_image` = beat N+1 keyframe → each clip morphs one locked frame into the next, chained
-into one flow. **Sound ON** (`generate_audio` default true). 720p/std first pass; upscale at State 9.
-One clip at a time · `get_cost` + LEDGER row + face-audit each · per-take drift gate.
+**Method (director):** seamless start→end-frame clips, `start_image` = beat N keyframe, `end_image` =
+beat N+1 keyframe → each clip morphs one locked frame into the next, chained into one flow. **Sound ON.**
+720p first pass; upscale at State 9. One clip at a time · `get_cost` + LEDGER row + `vqa.py` endpoint QA
++ face-audit each.
+
+**MODEL = Kling v3.0** (`kling3_0`, std, sound on). Chosen after A/B: seedance_2_0 drifts the END frame
+(K1→K2 last-vs-K2 ncc −0.10 ✗); **Kling hard-locks BOTH endpoints** (first 0.99 ✓, last 0.965 ✓) and
+costs ~10 cr vs 22.5. Gemini Omni Flash has no start/end roles (can't do endpoint morphs). Per clip:
+author the LOGICAL motion + camera that carries frame N→N+1 (lesson V8), Kling prompt order
+Scene→Characters→Action→Camera→Audio.
 
 ## Beat → keyframe UUID (N=17)
 | # | Beat | Keyframe | Job UUID |
@@ -36,8 +42,10 @@ first frame ≈ start keyframe (ncc>0.8), last frame ≈ end keyframe (ncc>0.8),
 mid-frames free of unwanted morphing. Endpoint preservation is the join-critical check.
 
 ## Log (job id · cost · verdict)
-- **C1 K1→K2** · job `ddc4c67c` · 22.5 cr · 720p/std/5s/audio · **QA FAIL (endpoint):** first vs K1
-  ncc **0.969 ✓** (start locked); last vs K2 ncc **−0.10 ✗** (end NOT locked — seedance invented its
-  own ending); glitch spike_ratio 2.8 ✓ (no cut inside). ⇒ seedance locks START not END (lesson V6).
-  Pure start→end chain won't join. **DECISION PENDING** on approach (see below). Raw clips tracked by
-  job id, not committed to git (heavy).
+- **C1 K1→K2 (seedance_2_0)** · job `ddc4c67c` · 22.5 cr · **QA FAIL (endpoint):** first 0.969 ✓,
+  last vs K2 **−0.10 ✗**, no cut. ⇒ seedance drops the end frame (V6). Rejected the model.
+- **C1 K1→K2 (Kling v3.0, generic prompt, model test)** · job `6d4f71dd` · 10 cr · **QA PASS:** first
+  0.990 ✓, last 0.965 ✓ (both endpoints locked), glitch 3.3 ✓. ⇒ Kling adopted for the chain.
+- **C1 K1→K2 (Kling v3.0, choreographed)** · job `c96e30fd` · 10 cr · turn-right + disc-from-back +
+  camera orbit + land defending (director choreo, V8) · **rendering → QA next**.
+- _raw clips tracked by job id, not committed to git (heavy); assembled at picture-lock._

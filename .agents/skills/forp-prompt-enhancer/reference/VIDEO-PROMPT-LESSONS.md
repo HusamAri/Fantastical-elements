@@ -78,6 +78,15 @@ interpolates between two LOCKED frames — this pins identity/composition at bot
 - **V7 — Verify, don't assume, endpoint preservation.** Every clip: decode with OpenCV, compare
   first/last frames to the intended keyframes (ncc>0.8 = preserved), scan consecutive-frame diffs for
   cut/glitch spikes, and eyeball mid-frames for unwanted scene morphing. No clip is "done" un-QA'd.
+- **V8 — Design the LOGICAL connection between the two frames (director's core skill).** MISTAKE:
+  prompting a generic action ("he casts, world fractures") and hoping the clip bridges the two
+  keyframes. FIX: **look at both frames, then reverse-engineer the motivated motion + camera that
+  physically carries frame N into frame N+1** — including a camera move that makes the BACKGROUND
+  change logical (e.g. the camera **orbits** so a different backdrop reads as a new angle, not a cut).
+  Name the character's action, the body mechanics, and the camera path as one continuous move.
+  Example (C1 K1→K2, director): "he turns to his right and throws the disc from behind his back;
+  camera orbits around him so the backdrop rotates naturally; he lands defending himself with the
+  disc (K2)." Do this per clip — the connection is authored, never left to chance.
 
 ## Kling v3.0 (our endpoint-lock model for the seamless chain)
 Chosen over seedance for the chain because it **hard-locks first AND last frame** (seedance drifts the
