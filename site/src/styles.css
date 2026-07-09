@@ -118,12 +118,12 @@ body {
 .fcard__name { font-family: var(--font-serif); font-weight: 400; font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.0; color: var(--ivory); text-shadow: 0 2px 24px rgba(0,0,0,0.6); }
 .fcard__slogan { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: clamp(1rem, 1.7vw, 1.32rem); color: #ded9d3; line-height: 1.4; }
 .fcard__enter {
-  justify-self: start; margin-top: 0.7rem; pointer-events: auto; font-family: var(--font-sans); font-weight: 400;
-  font-size: 0.68rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--ivory);
-  text-decoration: none; padding-bottom: 5px; border-bottom: 1px solid rgba(244,241,237,0.4);
-  transition: color 0.3s, border-color 0.3s;
+  justify-self: start; margin-top: 1rem; pointer-events: auto; font-family: var(--font-sans); font-weight: 400;
+  font-size: 0.66rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ivory);
+  text-decoration: none; padding: 11px 22px; border: 1px solid rgba(244,241,237,0.35); border-radius: 999px;
+  transition: color 0.3s, border-color 0.3s, background 0.3s;
 }
-.fcard__enter:hover { border-color: var(--amber); color: var(--amber); }
+.fcard__enter:hover { border-color: var(--amber); background: var(--amber); color: #0b0b0b; }
 
 /* Connector: hairline wire + marker ring that points from the card to the film's own object */
 .fconn { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
