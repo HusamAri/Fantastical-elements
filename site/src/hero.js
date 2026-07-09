@@ -142,9 +142,15 @@ function timeAt(p) {
 let targetTime = 0, ready = false;
 function onScroll(p) {
   targetTime = timeAt(p);
-  let strongest = 0;
-  for (const pl of PLATES) strongest = Math.max(strongest, applyPlate(pl, p));
-  els.scrim.style.opacity = (0.12 + 0.42 * strongest).toFixed(3);
+  let strongest = 0, cardStrong = 0;
+  for (const pl of PLATES) {
+    const o = applyPlate(pl, p);
+    strongest = Math.max(strongest, o);
+    if (pl.type === "card") cardStrong = Math.max(cardStrong, o);
+  }
+  // Cards dim the film HARD (the scrim sits below the plates, so the cutout stays bright while the
+  // film's own protagonist recedes) — a fragment reveal reads as its cutout, not the hero behind it.
+  els.scrim.style.opacity = (0.12 + 0.32 * strongest + 0.34 * cardStrong).toFixed(3);
   const pc = Math.round(p * 100);
   els.tick.style.top = els.label.style.top = `${p * 100}%`;
   els.label.textContent = String(pc).padStart(2, "0");
