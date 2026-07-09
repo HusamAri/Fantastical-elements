@@ -22,23 +22,22 @@ body {
   overflow-x: hidden;
 }
 
-/* ---- Stage: the five keyframes, cross-faded ---- */
+/* ---- Stage: the phase-1 film, scrubbed by scroll ---- */
 .stage { position: fixed; inset: 0; z-index: 0; background: var(--deep); }
-.frame {
+.film {
   position: absolute; inset: 0;
   width: 100vw; height: 100vh;
-  object-fit: cover; object-position: 38% 42%;
-  opacity: 0; will-change: opacity, transform;
-  transition: none;
+  object-fit: cover; object-position: 42% 42%;
+  will-change: contents;
 }
-.frame.is-active { opacity: 1; }
 
 /* Flat scrim (opacity scroll-driven; never a gradient on chrome) */
-.scrim { position: fixed; inset: 0; z-index: 1; background: var(--deep); opacity: 0; pointer-events: none; }
-/* Full blackout for the final fade-to-black */
-.blackout { position: fixed; inset: 0; z-index: 2; background: #000; opacity: 0; pointer-events: none; }
-/* Eye-blinder sun flash (whites out the whole frame at the ultimate, then falls to black) */
-.flash { position: fixed; inset: 0; z-index: 7; background: #fff; opacity: 0; pointer-events: none; will-change: opacity; }
+.scrim { position: fixed; inset: 0; z-index: 1; background: var(--deep); opacity: 0.14; pointer-events: none; }
+/* Photographic edge-darkening so the frame reads like film, and corners never fight text */
+.vignette {
+  position: fixed; inset: 0; z-index: 2; pointer-events: none;
+  background: radial-gradient(120% 90% at 50% 44%, rgba(7,8,12,0) 52%, rgba(7,8,12,0.5) 82%, rgba(7,8,12,0.82) 100%);
+}
 .grain {
   position: fixed; inset: 0; z-index: 4; pointer-events: none;
   opacity: 0.09; mix-blend-mode: soft-light;
@@ -48,21 +47,13 @@ body {
 
 /* ---- Registrar's rail ---- */
 .rail { position: fixed; top: 0; right: 22px; bottom: 0; width: 1px; z-index: 6; background: rgba(138,143,152,0.24); pointer-events: none; }
+.rail__phase { position: absolute; top: 26px; right: 10px; transform: rotate(90deg); transform-origin: right top; font-size: 9px; letter-spacing: 0.34em; color: var(--gray); white-space: nowrap; }
 .rail__tick { position: absolute; right: -3px; width: 7px; height: 1px; background: var(--gray); }
 .rail__label { position: absolute; right: 12px; transform: translateY(-50%); font-size: 10px; letter-spacing: 0.2em; color: var(--gray); }
 
-/* ---- Glass-shard wipe (scene transitions, no cut) ---- */
-.wipe { position: fixed; inset: 0; z-index: 5; pointer-events: none; overflow: hidden; }
-.wipe .shard {
-  position: absolute; top: -25vh; height: 150vh; width: auto;
-  will-change: transform, opacity; opacity: 0;
-  transform: translateX(-170%);
-  filter: drop-shadow(0 0 46px rgba(0,0,0,0.75));
-}
-
 /* ---- Scroll frame ---- */
 #app { position: relative; z-index: 3; }
-.hero { height: 1450vh; }
+.hero { height: 1000vh; } /* JS overrides from the pacing weights; this is the pre-hydrate fallback */
 .hero__pin { position: relative; height: 100vh; width: 100%; overflow: hidden; }
 
 /* ---- Plates (integrated composition — text lives in the frame's negative space) ---- */
@@ -98,6 +89,7 @@ body {
 .beat__line { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: clamp(1.2rem, 2.8vw, 2.1rem); color: #e7e3dd; line-height: 1.35; text-shadow: 0 2px 30px rgba(0,0,0,0.8); }
 
 /* CTA */
+.cta__kicker { display: block; margin-bottom: 1.4rem; font-family: var(--font-sans); font-weight: 400; font-size: 0.68rem; letter-spacing: 0.34em; text-transform: uppercase; color: var(--amber); }
 .cta__title { font-family: var(--font-serif); font-weight: 400; font-size: clamp(2.6rem, 7.5vw, 6rem); line-height: 1.02; }
 .cta__btn {
   display: inline-block; margin-top: 2.4rem; font-family: var(--font-sans); font-weight: 400;
@@ -107,13 +99,17 @@ body {
 }
 .cta__btn:hover { color: #0b0b0b; background: var(--amber); border-color: var(--amber); }
 
-/* ---- Reduced-motion / no-JS static tier ---- */
-body.is-static .hero { height: auto; }
-body.is-static .wipe, body.is-static .rail, body.is-static .blackout { display: none; }
-body.is-static .stage { position: absolute; height: auto; }
-body.is-static .stage .frame { display: none; }
-body.is-static .hero__pin { height: auto; overflow: visible; }
-body.is-static .plate { position: relative; inset: auto; opacity: 1; min-height: 100vh; background: var(--ink); border-bottom: 1px solid rgba(138,143,152,0.15); }
+/* ---- Reduced-motion / no-scrub static tier: film plays through, key plates over it ---- */
+body.is-static .hero { height: 100vh; }
+body.is-static .rail { display: none; }
+body.is-static .hero__pin { position: fixed; inset: 0; }
+body.is-static .plate[data-plate="note"],
+body.is-static .plate[data-plate="fragA"],
+body.is-static .plate[data-plate="beatAction"],
+body.is-static .plate[data-plate="fragN"],
+body.is-static .plate[data-plate="beatCharge"],
+body.is-static .plate[data-plate="beatThrow"] { display: none; }
+body.is-static .plate[data-plate="cta"] { top: auto; bottom: 0; height: 60vh; align-content: end; }
 @media (prefers-reduced-motion: reduce) { .grain { opacity: 0.05; } }
 
 @media (max-width: 720px) {

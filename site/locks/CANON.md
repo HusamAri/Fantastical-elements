@@ -13,10 +13,19 @@ locked decision from memory — read the lock file. (Standing rule from the dire
 - **Federica pendant:** `@lapis-kararan` `54c6fc58-8ded-457d-8701-e1da8dd68597`.
 - Stack **@Husam + @HusamHero** on every Husam frame (`<<<id>>> <<<id>>>` in the prompt). Max 2 identity elements.
 
-## The WEAPON DISC form (canonical) — from K1 `c5f64e8c`
-The hero's razor-glass disc is an **ember-fire disc-sigil**: a glowing amber disc of fire-embers with
-a faint inner geometric sigil, floating, grainy analog fire — **glass + fire**. It is **NOT a literal
-vinyl LP** (that read wrong — v7 rejected) and **NOT a plain clear glass plate** (v5 wrong).
+## The WEAPON DISC form (canonical) — from K1 `c5f64e8c`  ⚠ CORRECTED 2026-07-09 (V13)
+The hero's weapon is a **SOLID physical razor-glass disc** — a real, hard, thrown object like a
+chakram / a spun vinyl record / a glass discus. Dark smoked glass, faint concentric grooves, a thin
+gold rim-light along the edge. It **SPINS and FLIES** through the air (physical rotation, an arc, a
+throw) and can **shatter on impact**. The gold glow and any short ember trail are **edge ACCENTS
+ONLY** — they trace the spinning solid, they are never the substance of it.
+- **It is NOT** a fireball, a flame beam, an energy blast, a glowing rune/sigil-disc, a ball of fire,
+  or a "magic-casting" effect. (2026-07-09: video read as "flame like magic casting" — the old
+  "ember-fire disc-sigil / glass+fire" wording caused it. That wording is RETIRED.) Contradicts L7
+  (magic looks CG), L8 (fireball cliché).
+- **Throw physics (always name explicitly):** *from both hands he flicks two solid glass discs low
+  and forward — like skipping stones (taş sektirir gibi) — without gripping them; they spin fast,
+  spiral around each other, and burst when they collide.* Solid object, physical spin, real arc.
 - **Agustín's fragment motif** is a **vinyl-record disc** (K12 `567654f3`) — a DIFFERENT, stylised
   representation used ONLY for Agustín's fragment reveal, not the weapon in his hands.
 

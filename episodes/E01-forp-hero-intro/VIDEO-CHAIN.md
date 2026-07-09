@@ -41,6 +41,22 @@ C15 K7→K5 (flash between) · C16 K5→K5 (settle hold, optional / subtle drift
 first frame ≈ start keyframe (ncc>0.8), last frame ≈ end keyframe (ncc>0.8), glitch spike_ratio<6,
 mid-frames free of unwanted morphing. Endpoint preservation is the join-critical check.
 
+## PHASE 1 — site assembly (State 8, locked 2026-07-09)
+The site is **video-scrubbed**: the phase-1 film (C1→C6 concatenated, 30.29s @24fps, K1→K2→K12→
+K3→K11→K13→K14) IS the scroll. Scroll scrubs the playhead; the clip morphs are the scene changes
+(no cuts/wipes inside the take). Assets in `site/public/hero/`: `phase1.mp4` (source, sound on),
+`phase1-scrub.mp4` (H.264 dense-keyframe `-g4`, silent, Safari), `phase1-scrub.webm` (VP9 `-g4`,
+silent, Chromium/FF — also the only one this env's headless Chromium can decode for capture).
+Re-encodes are LOCAL (imageio-ffmpeg), **zero credits**.
+
+**Pacing (director rule: "tailor how many seconds between those frames, then tailor the length"):**
+each frame-pair is a fixed ~5.05s of film, but its DWELL in the scroll is tailored per beat and the
+page length = Σ(weights). Calm/reveal beats linger, action beats snap past (EDITING-SOUND §10).
+Scroll weights (`src/hero.js` SPANS): title 1.1 · C1 shatter 0.9 · note 0.7 · C2 0.7 ·
+**Agustín I 1.5** · C3 action 0.6·0.7 · **Najoua II 1.5** · C5 0.8 · charge 0.6 · C6 throw 0.8 ·
+**CTA 1.6**. Σ=12.2 → `#hero-sec` height = 12.2×78 ≈ 950vh. Reveals/CTA get the most scroll; action
+the least. Extend for phase 2 by appending clips + SPANS rows (holds for reveals, plays for motion).
+
 ## Log (job id · cost · verdict)
 - **C1 K1→K2 (seedance_2_0)** · job `ddc4c67c` · 22.5 cr · **QA FAIL (endpoint):** first 0.969 ✓,
   last vs K2 **−0.10 ✗**, no cut. ⇒ seedance drops the end frame (V6). Rejected the model.

@@ -139,6 +139,23 @@ interpolates between two LOCKED frames — this pins identity/composition at bot
   the camera move (push-in/orbit) in POST where timing is exact — we edit anyway (State 8–9), so this
   guarantees sync. Prefer post-camera for beats where the synced-follow prompt still desyncs.
 
+- **V13 — the thrown disc rendered as "flame / magic casting," not a solid disc (director, 2026-07-09).**
+  MISTAKE: the CANON weapon definition said "ember-fire disc-sigil … glass + fire," and clip prompts
+  leaned on "glowing amber disc / embers / sigil." Kling has no anchor for a *hard object* in that
+  wording, so between endpoints it interpolated the glow into a **fireball / flame-cast**, exactly the
+  CG-magic cliché we banned (L7, L8). The disc stopped reading as a thrown physical thing.
+  FIX (best-practice, validated against craft refs — belongs to prompt authoring, NOT a re-shoot; the
+  director has ruled the existing C1–C6 final, no more credits): describe the disc as a **SOLID
+  MATERIAL object with real throw physics**. Name the material ("smoked razor-glass disc, hard, solid,
+  spinning like a thrown chakram / spun vinyl record"), the **physical rotation and arc** ("spins fast
+  on its axis, flies forward in a low arc, spirals, shatters on impact"), and keep glow/embers as
+  **edge accents only** ("thin gold rim-light traces the spinning glass; a short ember trail follows
+  the edge"). Add to EVERY disc-clip avoid list: `flame blast, fireball, energy beam, magic casting,
+  spell effect, disc made of fire, glowing rune-disc, plasma, CG glow`. Rule of thumb (from best-
+  practice research): to get a solid, state the **material + tactility + explicit motion physics** and
+  strip ambiguous "glowing/energy" language — glow words without a named solid = the model builds the
+  glow, not the object. CANON updated. [applies to all future disc generations]
+
 ## Kling v3.0 (our endpoint-lock model for the seamless chain)
 Chosen over seedance for the chain because it **hard-locks first AND last frame** (seedance drifts the
 end — V6) and costs less (~10 cr vs 22.5 for K1→K2). Params: `mode` std/pro/4k, `sound` on/off,
