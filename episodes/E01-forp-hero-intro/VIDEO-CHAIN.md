@@ -140,5 +140,13 @@ the least. Extend for phase 2 by appending clips + SPANS rows (holds for reveals
   audit: identity + pained-defiant expression consistent, no warp. Tonal shift warm-orange→cold-blue
   LANDS (frame cools amber→blue); nazar evil-eye amulet resolves upper-right golden point (Başak
   motif). Minor: small orange impact-ember lingers on hand/chest through the blue section (faithful
-  to K9); groundplane/light panel bg vs pure void (inherited). Delivered, recommended ACCEPT. HELD —
-  no C11 until director's go.
+  to K9); groundplane/light panel bg vs pure void (inherited). Delivered, recommended ACCEPT.
+  **DIRECTOR ACCEPTED 2026-07-09** — C10 locked into the chain.
+- **C11 K9→K4 (Kling v3.0, std, sound on)** · job `693fe5a6-e08e-40af-985a-549cec25c379` · 10 cr ·
+  connecting logic (THE HERO TURN, cold→warm shift): pain hardens to resolve → he plants and RISES
+  into a power stance → cold blue drains as his INNER FIRE ignites (molten seams through the robe,
+  embers off shoulders, amber in eyes, heat-haze), frame warming blue→gold → both hands lower, each
+  starting to spin a small SOLID glass disc (ember-rim). V13 key distinction: fire glows from WITHIN
+  = transformation, NOT flame thrown from hands; discs stay solid glass. Camera push-in + slight rise
+  to the hero stance (V12); all objects move (V9). Director-approved single generation (2026-07-09).
+  **Status: rendering → QA pending. HELD — no C12 until go.**
