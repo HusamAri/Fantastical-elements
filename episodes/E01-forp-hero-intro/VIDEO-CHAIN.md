@@ -192,5 +192,23 @@ the least. Extend for phase 2 by appending clips + SPANS rows (holds for reveals
   RIGHT; Husam is revealed low-angle already gathering amber energy in his hands, waiting/anticipating
   and looking to the sky; the Big Dipper (Yaşar) constellation blooms above and empowers him, he looks
   up with resolve, and the sun behind suddenly FLARES (K10). All objects move (V9), camera pans right
-  with the light (V12); gathered energy = charge-up glow, not thrown flame (V13). **Status: rendering,
-  QA pending. HELD, no C14 until go.**
+  with the light (V12); gathered energy = charge-up glow, not thrown flame (V13).
+  **RENDERED, DIRECTOR REJECTED** (face identity drift). Re-rolled with a Husam soul-id.
+- **C13b BAVER→K10 RE-ROLL (Kling v3.0, +soul-id via kling_element_ids)** · job `7535233e-c926-446f-8835-bf95390fc2a3`
+  · 10 cr · same agreed story + sun-only-at-end + more action; passed Husam soul-id (76fab95a). QA:
+  start-lock vs BAVER ncc=0.996, end-lock vs K10 ncc=0.975, glitch 1.6, frozen 0. NOTE: Kling DROPS the
+  soul-id (job record shows kling_element_ids empty) — identity comes from the endpoints, not the soul.
+  **DIRECTOR ACCEPTED (locked) 2026-07-09** — C13b is the final C13.
+- **C14 K10→K7 "Ultimate" (Kling v3.0, std, sound on)** — story agreed (story-first): hooded enemies RUN
+  IN, some fire DARK black-glass streak-bolt ranged attacks (ref C9), Husam raises an arm and unleashes the
+  sun-pillar from the sky, enemies disintegrate into smoke, ends on K7; camera tilt-up then brace. THREE
+  takes for a FACE comparison: A (Kling, soul-id passed→dropped) job `b83a718e`; B (Kling, no soul-id) job
+  `cf8e63a4`; Seedance (identity model + Husam soul face image_ref `dcb4c7ad`) job `035558d1`. Findings:
+  Kling can't use the soul-id (dropped both times); Seedance holds the face but did NOT lock the START
+  endpoint (start ncc=0.612 vs Kling 0.999) so it breaks the chain join. **DIRECTOR PICKED + LOCKED
+  version A (Kling, first) 2026-07-09** — job `b83a718e` (start ncc 0.999, end 0.983). B/Seedance retired.
+- **C15 K7→K5 "Flash → settle" (final resolution)** — STORY PROPOSED (K7+K5 frames shown): sun-pillar
+  blast peaks → whole frame FLASHES white → light collapses, everything settles (enemies gone, fire to
+  embers, shards dark) → Husam revealed centered, calm, single left rim-light, rest near-black (K5).
+  Camera eases from the low angle up to a level centered framing. **Status: awaiting director story
+  sign-off; no C15 generation until agreed.**
