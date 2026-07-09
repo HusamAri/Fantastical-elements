@@ -171,4 +171,12 @@ the least. Extend for phase 2 by appending clips + SPANS rows (holds for reveals
   match); glitch spike_ratio=1.3 (very clean); frozen cells=0; 5.04s@24fps. Visual: camera pushes past
   Husam into the shards, he falls away by ~1.7s and is gone by ~2.4s; green matrix data + purple neon
   smoke wrap the tumbling shards; final frame person-less = BAVER; no stray face/hands at the end.
-  Delivered, recommended ACCEPT. HELD, no C13 until director's go.
+  Delivered, recommended ACCEPT.
+  **DIRECTOR REJECTED 2026-07-09** (choreography): shards must NOT build from zero; the order is wrong.
+  Wanted order: camera TURNS/orbits and we SEE the glass shards first (already present in the void),
+  THEN purple smoke rolls over them, THEN the green data appears LIKE LIGHT igniting across the shards.
+- **C12b K4->BAVER RE-ROLL (Kling v3.0, std, sound on)** · job `b2fbfdc1-561a-451a-9fd8-ce085f27f4bf`
+  · 10 cr · corrected connecting logic: camera turns/orbits across shards ALREADY drifting (never
+  spawned from nothing) so we see the glass first -> swirling PURPLE smoke rolls in and wraps them ->
+  then cascading GREEN data ignites LIKE LIGHT across each turning shard, resolving on the person-less
+  BAVER frame. Director-requested re-roll (2026-07-09). **Status: rendering, QA pending. HELD, no C13 until go.**
