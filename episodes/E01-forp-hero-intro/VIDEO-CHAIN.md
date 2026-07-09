@@ -112,4 +112,11 @@ the least. Extend for phase 2 by appending clips + SPANS rows (holds for reveals
   consistent across the whole leap, no warp. Fire: incoming attack is DARK with only a small fire
   tip — no plume (cleaner than C7 on V13). Disc reads as a glowing amber ring at his hand rather than
   two distinct solid discs, but faithful to K6's fire-sigil disc keyframe. Delivered to director,
-  recommended ACCEPT. HELD — no C9 until director's go.
+  recommended ACCEPT. **DIRECTOR ACCEPTED 2026-07-09** — C8 locked into the chain.
+- **C9 K6→K15 (Kling v3.0, std, sound on)** · job `a72c93e2-985d-4400-ab23-f0a8f0c2668f` · 10 cr ·
+  connecting logic (continuous combat, NO scene gap): he lands from the dodge → whips his two glass
+  discs back to counter → the enemy's DARK strike catches him mid-cast → the discs DETONATE in a
+  diegetic ORANGE blast of shattering glass (V13: solid discs destroyed BY the enemy's strike, not
+  fire he casts) → he's thrown, torso twisting, one arm up, pained-defiant (K15). Camera shakes +
+  pushes in on the hit then settles (V12); all objects move (V9). Director-approved single generation
+  (2026-07-09). **Status: rendering → QA pending. HELD — no C10 until go.**
