@@ -149,4 +149,12 @@ the least. Extend for phase 2 by appending clips + SPANS rows (holds for reveals
   starting to spin a small SOLID glass disc (ember-rim). V13 key distinction: fire glows from WITHIN
   = transformation, NOT flame thrown from hands; discs stay solid glass. Camera push-in + slight rise
   to the hero stance (V12); all objects move (V9). Director-approved single generation (2026-07-09).
-  **Status: rendering → QA pending. HELD — no C12 until go.**
+  **Status: RENDERED + QA PASSED, awaiting director sign-off.** Result mp4 job `693fe5a6` →
+  hf_20260709_082657. QA: start-lock vs K9 ncc=0.999 histCorr=0.999 (perfect); end-lock vs K4
+  ncc=0.982 histCorr=0.999 (excellent); glitch spike_ratio=2.9 (clean); motion mean=4.8 (low by
+  design — slow power-up/settle); frozen cells=5 all upper-right = static warm-gold light panel
+  (intended backdrop, K4) + slow suspended shards (K4 calls for "shards suspended and slowly
+  ascending"); 5.04s@24fps. Face audit: identity + composed intensity consistent, no warp. Inner fire
+  reads as TRANSFORMATION FROM WITHIN (traces up robe/silhouette, grounded stance) — NOT thrown from
+  hands → V13-correct for this super-state beat. Blue→gold warming lands. Delivered, recommended
+  ACCEPT (offered re-roll option for more shard drift). HELD — no C12 until director's go.
