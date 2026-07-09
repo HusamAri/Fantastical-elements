@@ -235,11 +235,15 @@ When any output reaches the director flawed, append the MISTAKE→FIX to the mat
 (image/video) AND, if it's a process failure, to §10 here. The loops are read before every run so a
 mistake is made **once**. Improve the method each cycle; never repeat a logged error.
 
-### 8.3 Token efficiency (not only credits)
-Be economical with tokens as with credits: concise replies; no redundant reads or re-verification of
-state the harness already tracks; batch independent read-only calls; don't spawn agents or re-run
-research for something already known/committed; prefer the cheapest tool that answers. Waste of
-tokens is waste — the same discipline as credits.
+### 8.3 Efficiency serves quality — never the reverse (priority order)
+**QUALITY (§0) is the top priority. Cost- and token-efficiency are subordinate to it.** Efficiency
+means eliminating **waste** — careless, duplicate, exploratory, or rule-skipping generations, and
+redundant token use — NOT cutting corners on the result. When quality and thrift conflict, **quality
+wins**: spending the credits/tokens to get a shot right (a genuine regeneration, a needed QA pass, a
+harder prompt) is **required work, not waste**. Priority: **film-grade result > continuity > correct
+process > efficiency.** Be economical *within* that: concise replies; no redundant reads/re-verification
+the harness already tracks; batch independent read-only calls; don't re-run research already committed;
+cheapest tool that answers. Never let "save credits/tokens" produce a weaker result.
 
 ---
 
