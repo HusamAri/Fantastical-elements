@@ -97,6 +97,15 @@ interpolates between two LOCKED frames — this pins identity/composition at bot
   frozen-region map in `vqa.py` (per-cell temporal variance) — flag cells with ~0 motion while global
   motion is high, and name where (e.g. "left third static"). Re-generate on a frozen-region flag.
 
+- **V10 — character stays static, only camera/background moves.** MISTAKE: C1 between two CALM
+  standing keyframes (K1→K2) — Kling animated the camera/backdrop but the character barely moved
+  ("he stands but background changes"). Two similar static poses give the model nothing to move.
+  FIX: (a) make the character's ACTION the primary motion (strong verbs + body mechanics + weight
+  shift), camera secondary; (b) for real movement the two endpoint keyframes must DIFFER in pose —
+  pick/insert an action keyframe so there is actual character motion to interpolate; (c) accept that
+  calm→calm transitions read as a living-portrait + camera move, and reserve big fight action for
+  beats whose keyframes are already dynamic (K3 action, K6 dodge, K13/K14 twin-spiral, K15 interrupt).
+
 ## Kling v3.0 (our endpoint-lock model for the seamless chain)
 Chosen over seedance for the chain because it **hard-locks first AND last frame** (seedance drifts the
 end — V6) and costs less (~10 cr vs 22.5 for K1→K2). Params: `mode` std/pro/4k, `sound` on/off,
