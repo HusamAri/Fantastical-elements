@@ -165,5 +165,10 @@ the least. Extend for phase 2 by appending clips + SPANS rows (holds for reveals
   cluster fills the view, tumbling → cascading GREEN neon data + swirling PURPLE neon smoke bloom in
   and wrap/mirror across the turning shards (Baver motif, BAVER frame), warm amber falling behind into
   black. End is person-less. All objects move (V9), camera push-in (V12). No disc/fire in play (fire
-  falls behind) → no V13 risk. Director-approved single generation (2026-07-09). **Status: rendering →
-  QA pending. HELD — no C13 until go.**
+  falls behind) → no V13 risk. Director-approved single generation (2026-07-09). **Status: RENDERED + QA PASSED, awaiting director sign-off.**
+  Result mp4 job `d60a18c0` → hf_20260709_091132. QA: start-lock vs K4 ncc=0.998 histCorr=1.000
+  (perfect); end-lock vs BAVER ncc=0.806 histCorr=0.998 (pass; abstract shards/data frame = hardest
+  match); glitch spike_ratio=1.3 (very clean); frozen cells=0; 5.04s@24fps. Visual: camera pushes past
+  Husam into the shards, he falls away by ~1.7s and is gone by ~2.4s; green matrix data + purple neon
+  smoke wrap the tumbling shards; final frame person-less = BAVER; no stray face/hands at the end.
+  Delivered, recommended ACCEPT. HELD, no C13 until director's go.
