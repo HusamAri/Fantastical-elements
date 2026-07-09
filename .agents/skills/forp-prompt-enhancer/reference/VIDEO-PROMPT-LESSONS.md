@@ -6,6 +6,19 @@ appends when a clip fails (QA or director feedback). Loop the user asked for: le
 
 Format per lesson: **MISTAKE → FIX**. Researched baseline first, then analysed mistakes.
 
+## TRUST & VALIDATION (not everything online is valid — director's rule)
+Treat every web finding as a **hypothesis until our own QA confirms it on OUR footage.** Trust tiers:
+- **Tier 1 — empirical (highest):** what we measure — `vqa.py` endpoint `ncc`, `frozen.py` flow map,
+  glitch spike, visual frame checks. This is truth. (E.g., "seedance drops the end frame / Kling locks
+  both" = proven by ncc −0.10 vs 0.97, not by a blog.)
+- **Tier 2 — primary/official:** model cards, API schemas, official docs (verified directly).
+- **Tier 3 — canonical craft:** film grammar (DIRECTING/EDITING/SHOTLISTING) — evergreen, cross-
+  confirmed by multiple independent sources.
+- **Tier 4 — secondary blogs / marketing / SEO / AI-written (lowest):** prompt "tips" from content
+  farms. Useful for ideas, but **flag as hypothesis and validate empirically before trusting.**
+Rule: a lesson is promoted from "hypothesis" to "confirmed" only after an A/B on our own clips.
+Mark unverified lessons `[hypothesis]`. Re-verify if a provider updates the model.
+
 ## Seedance 2.0 — params cheat (from the model card)
 - `duration` 4–15s (5 default) · `resolution` 480p/720p/1080p/4k (1080p+ need `mode:std`) ·
   `mode` std (quality) / fast (cheap, ≤720p) · `genre` auto|action|horror|comedy|noir|drama|epic ·
@@ -114,6 +127,17 @@ interpolates between two LOCKED frames — this pins identity/composition at bot
   Subject-appearance layer. Identity is already pinned by the locked endpoint keyframes (why ncc hit
   0.99/0.97) — Elements/Soul are optional reinforcement, not required. See CINEMATOGRAPHY.md,
   DIRECTING.md, EDITING-SOUND.md, KLING-CONTROL.md for the full craft.
+
+- **V12 — camera & action must be SIMULTANEOUS, not sequential.** MISTAKE: prompting the camera as a
+  separate instruction ("He strikes. Camera pushes in / pulls back to reveal") makes Kling run the
+  camera move on its own clock — it "zooms, THEN the action happens," so the beat isn't continuous
+  (director: "camera movement not at the same time with motion"). FIX: bind the camera to the action as
+  ONE event and make it FOLLOW/track the subject: **"AS he whips the disc, the camera tracks the strike,
+  arcing WITH his turn"** — tracking / dolly-with-actor / follow language is inherently synced. One
+  continuous beat, moderate speed, camera pace = action pace; avoid an independent zoom/push that runs
+  alone. **Pro fallback:** generate with a near-static camera and let the ACTION be the motion, then add
+  the camera move (push-in/orbit) in POST where timing is exact — we edit anyway (State 8–9), so this
+  guarantees sync. Prefer post-camera for beats where the synced-follow prompt still desyncs.
 
 ## Kling v3.0 (our endpoint-lock model for the seamless chain)
 Chosen over seedance for the chain because it **hard-locks first AND last frame** (seedance drifts the

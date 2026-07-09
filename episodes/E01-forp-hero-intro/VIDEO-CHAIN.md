@@ -55,10 +55,13 @@ mid-frames free of unwanted morphing. Endpoint preservation is the join-critical
   primary (attack→guard), axis held, all shards move · **QA PASS:** first 0.990 ✓, last 0.970 ✓,
   frozen 0 ✓, glitch 5.7 = the fast attack-whip (legit, confirmed by frame). Dynamic action (fixes V10).
   Delivered. ✅ **C1 locked.**
-- **C2 K2→K12 (Kling)** · job `e697416f` · 10 cr · shatter shards coalesce → spinning vinyl disc,
-  push-in · rendering → QA.
-- **C3 K12→K3 (Kling)** · job `a533c254` · 10 cr · disc ignites & launches, pull-back reveals him
-  mid-throw + attacker (axis: him left, attacker right) · rendering → QA.
+- **C2 K2→K12 (Kling)** · job `e697416f` · 10 cr · shatter shards coalesce → spinning vinyl disc ·
+  **QA PASS:** first 0.998 ✓, last 0.961 ✓, frozen 0 ✓, glitch 1.7 ✓. ✅ **locked.**
+- **C3 K12→K3 (Kling)** · job `a533c254` · 10 cr · disc launches, reveals him mid-throw + attacker ·
+  **QA PASS:** first 0.997 ✓, last 0.994 ✓, glitch 3.2 ✓, 1 "frozen" cell = the static FLOOR (false
+  positive, not a stuck shard). ✅ **locked.**
+- **V12 (camera↔action sync) applied from C4 on** [hypothesis]: bind camera to action ("as he acts the
+  camera tracks WITH him"), not a separate move. Sync-feel is a VISUAL check (metrics can't measure it).
 - _raw clips tracked by job id, not committed to git (heavy); assembled at picture-lock._
 - _method: Kling std, motion-only prompt (V11), action-primary (V10), all-objects-move (V9), axis held
   (DIRECTING §C), QA every clip (vqa.py + frozen.py). Running clips in parallel for wall-clock._
