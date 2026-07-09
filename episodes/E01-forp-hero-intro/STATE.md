@@ -5,13 +5,13 @@
 Rule: a state may not begin until the previous state's Definition of Done is **100% checked below**
 with an evidence pointer for each box.
 
-- **Current state:** `6 — Animatic → HUMAN GATE 2`
-- **Last gate passed:** `Gate 1 — shotlist lock` (woven N=16 order approved by director)
-- **Open blockers (non-gating flags):** interrupt-beat image undecided (dodge → *blades destroyed /
-  spin interrupted* → Başak → Flame) — director reviewing `b43a3a1b` vs a fresh in-void take. Does
-  NOT block Gate 2; slots in as one extra beat if approved.
-- **Registry refreshed:** 2026-07-09 · **Budget cap:** 40% of credits · **Spent:** ~50.8 cr (all
-  stills; **zero video credits**) · balance ~5919.
+- **Current state:** `7 — Video generation` (Gate 2 PASSED)
+- **Last gate passed:** `Gate 2 — keyframes + animatic` (director approved; video via seedance_2_0
+  start→end-frame chain, sound ON)
+- **Open blockers:** _none_ — interrupt beat resolved: fresh in-void take K15 `33677d48` locked and
+  inserted (dodge → interrupt → Başak → Flame). Sequence now **N=17**, 15 keyframes + Baver, all locked.
+- **Registry refreshed:** 2026-07-09 · **Budget cap:** 40% of credits · **Spent:** ~52.8 cr stills;
+  **video: 0 so far** · balance ~5917.
 
 ## Definition-of-Done ledger
 
@@ -53,15 +53,17 @@ with an evidence pointer for each box.
 - [x] Anchor-scene-first + master-first — _evidence: K1 calm master first; LEDGER order_
 - [x] Static continuity review vs Bibles clean (before any video credit) — _evidence: `locks/K1..K14 + BAVER`, all face-audited & director-locked_
 
-### State 6 — Animatic → HUMAN GATE 2 ⏳ (current)
-- [x] Animatic cut at target rhythm — _evidence: the scroll-scrubbed site IS the animatic; N=16 order QA-verified (frames map, shard-wipes, flash 0.93 → settle close). Linear capture: `episodes/E01-forp-hero-intro/animatic.webm`_
-- [ ] Temp sound — _n/a for the scroll web piece (rhythm is scroll-paced; ambient audio deferred to final polish)_
-- [ ] **Director approves keyframes + animatic** → unlocks State 7 (video) — _AWAITING GATE 2 APPROVAL_
+### State 6 — Animatic → HUMAN GATE 2 ✅
+- [x] Animatic cut at target rhythm — _evidence: the scroll-scrubbed site IS the animatic; N=17 order QA-verified (frames map, shard-wipes, flash 0.98 → settle close). Linear capture: `animatic.webm`_
+- [x] **Director approves keyframes + animatic** — _evidence: director approved Gate 2; directed seedance start→end-frame chain + sound on + interrupt beat generate_
 
-### State 7 — Video generation — _blocked on Gate 2_
-- [ ] Previs/motion-control lock on HIGH-risk rows
-- [ ] get_cost + toggle audit + ledger row per take
-- [ ] Per-take drift gate (Loop 5) clean
+### State 7 — Video generation ⏳ (current)
+Plan: **seedance_2_0**, one clip per beat-gap, `start_image` = beat N keyframe, `end_image` = beat
+N+1 keyframe → 16 seamless chained clips over the N=17 order. **Sound ON** (audio per clip). One at a
+time, `get_cost` + ledger row + face-audit each, per-take drift gate.
+- [ ] Previs/motion-control lock on HIGH-risk rows — _pending; test clip first (K1→K2)_
+- [ ] get_cost + toggle audit + ledger row per take — _pending_
+- [ ] Per-take drift gate (Loop 5) clean — _pending_
 
 ### State 8 — Post-gen QA — _pending_
 ### State 9 — Edit & Post → HUMAN GATE 3 — _pending_

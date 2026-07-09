@@ -26,9 +26,10 @@ const FRAGMENTS = [
 // frame indices: 0 K1 calm · 1 K2 shatter · 2 K3 action · 3 K4 flame · 4 K5 settle/close ·
 // 5 K6 dodge · 6 K7 ultimate · 7 K8 pendant · 8 K9 evil-eye · 9 K10 constellation ·
 // 10 K11 lotus · 11 Baver glass · 12 K12 Agustín disc · 13 K13 Twin Spiral charge ·
-// 14 K14 Twin Spiral throw. Fragments are WOVEN through the fight — a battle move, then a
-// fragment surfaces. His Twin Spiral (Q) is two beats: charge (K13) then throw (K14). No frame
-// is reused for two beats; the close resolves the sun-flash to K5 (settle), not to pure black.
+// 14 K14 Twin Spiral throw · 15 K15 spin interrupted / blades destroyed. Fragments are WOVEN
+// through the fight; Twin Spiral (Q) is two beats (charge→throw). The enemy's interrupt (K15)
+// destroys his discs; Başak's evil-eye is the "last drop" → Flame. Close resolves the sun-flash
+// to K5 (settle), not pure black. No frame is reused for two beats.
 const BEATS = [
   { frame: 0,  plate: "title" },                                             // 01 K1  calm hero
   { frame: 1,  plate: "note" },                                              // 02 K2  shatter — "Six were witnessed."
@@ -38,14 +39,15 @@ const BEATS = [
   { frame: 13, plate: "beat", line: "Two discs woke in his hands," },        // 06 K13 Twin Spiral — charge
   { frame: 14, plate: "beat", line: "and he loosed them, spiralling." },     // 07 K14 Twin Spiral — throw
   { frame: 7,  plate: "frag", frag: 5 },                                     // 08 K8  Fragment VI · Federica — pendant catch (a move)
-  { frame: 5,  plate: "beat", line: "Every strike, he turned aside." },      // 09 K6  dodge
-  { frame: 8,  plate: "frag", frag: 2 },                                     // 10 K9  Fragment III · Başak — evil-eye, the damage
-  { frame: 3,  plate: "beat", line: "The fire he carried turned outward." }, // 11 K4  Flame Inside — ignites from the hit
-  { frame: 11, plate: "frag", frag: 4 },                                     // 12 —   Fragment V · Baver — data in the shards
-  { frame: 9,  plate: "frag", frag: 3 },                                     // 13 K10 Fragment IV · Yaşar — constellation, charging
-  { frame: 6,  plate: "beat", line: "Then he called down the sun." },        // 14 K7  ultimate — Ancient Sunlight
-  { frame: 4,  plate: null },                        // 15 eye-blinder flash → resolves to the settle (K5)
-  { frame: 4,  plate: "cta" },                       // 16 CTA over the settle (K5), dust still falling
+  { frame: 5,  plate: "beat", line: "Every strike, he turned aside —" },     // 09 K6  dodge
+  { frame: 15, plate: "beat", line: "— then the blow that broke his discs." }, // 10 K15 spin interrupted — blades destroyed
+  { frame: 8,  plate: "frag", frag: 2 },                                     // 11 K9  Fragment III · Başak — evil-eye, the last drop
+  { frame: 3,  plate: "beat", line: "The fire he carried turned outward." }, // 12 K4  Flame Inside — ignites from the wound
+  { frame: 11, plate: "frag", frag: 4 },                                     // 13 —   Fragment V · Baver — data in the shards
+  { frame: 9,  plate: "frag", frag: 3 },                                     // 14 K10 Fragment IV · Yaşar — constellation, charging
+  { frame: 6,  plate: "beat", line: "Then he called down the sun." },        // 15 K7  ultimate — Ancient Sunlight
+  { frame: 4,  plate: null },                        // 16 eye-blinder flash → resolves to the settle (K5)
+  { frame: 4,  plate: "cta" },                       // 17 CTA over the settle (K5), dust still falling
 ];
 const N = BEATS.length;
 const WIPE_HALF = 0.028; // half-width (scroll progress) of a shard-wipe window

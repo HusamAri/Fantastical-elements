@@ -19,11 +19,18 @@ stage here so a context-window reset never loses it. Read `CANON.md` before any 
 | K12 | Agustín — the disc (vinyl macro) | `567654f3` | k12.jpg | LOCKED |
 | K13 | Twin Spiral (Q) — CHARGE | `c48ed63d` | k13.jpg | LOCKED |
 | K14 | Twin Spiral (Q) — THROW | `98ab701e` | k14.jpg | LOCKED |
+| K15 | Spin interrupted / blades destroyed | `33677d48` | k15.jpg | LOCKED |
 | BAVER | Baver — glass-only interstitial | `ad5ae059` | ../interstitials/baver-glass.jpg | LOCKED |
 
-## Pending (not yet locked)
-- **K15 — Locker Disc (E):** the real kit mechanic is a GROUND-LOCK (a dark smoke/shadow disc he
-  crushes while eyeing a ground spot → that area burns and locks enemies), NOT a defensive parry.
-  Flag + confirm the concept with the director before generating.
+**Sequence = N=17** (all locked): title → shatter → Agustín → action → Najoua → Twin Spiral
+charge → throw → Federica → dodge → **interrupt (K15)** → Başak (last drop) → Flame → Baver → Yaşar
+→ ultimate → flash→settle (K5) → CTA.
+
+## Pending (future, not yet made)
+- **Locker Disc (E):** a GROUND-LOCK (dark smoke/shadow disc he crushes while eyeing a ground spot →
+  that area burns and locks enemies), NOT a defensive parry. Not in the current N=17 intro; make only
+  on a new director instruction.
+- **Sound:** State-7 clips to be generated with audio; site to carry an audio track (director: "i need
+  sound on").
 
 See `CANON.md` for identity/look/disc-form/grade/face-audit rules.
