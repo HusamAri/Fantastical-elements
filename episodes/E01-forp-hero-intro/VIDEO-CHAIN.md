@@ -119,4 +119,12 @@ the least. Extend for phase 2 by appending clips + SPANS rows (holds for reveals
   diegetic ORANGE blast of shattering glass (V13: solid discs destroyed BY the enemy's strike, not
   fire he casts) → he's thrown, torso twisting, one arm up, pained-defiant (K15). Camera shakes +
   pushes in on the hit then settles (V12); all objects move (V9). Director-approved single generation
-  (2026-07-09). **Status: rendering → QA pending. HELD — no C10 until go.**
+  (2026-07-09).
+  **Status: RENDERED + QA PASSED, awaiting director sign-off.** Result mp4 job `a72c93e2` →
+  hf_20260709_075828. QA: start-lock vs K6 ncc=0.998 histCorr=0.993 (near-perfect); end-lock vs K15
+  ncc=0.879 histCorr=0.999 (strong); glitch spike_ratio=1.9 (clean through impact+shake, <6); frozen
+  cells=2 → (0,0),(0,3) top-row void/sky (benign, not stalled debris); 5.04s@24fps. Face audit:
+  identity + teeth-set defiance consistent through the twist, no warp. Orange disc-detonation READS
+  AS ENEMY IMPACT (he recoils/shields, magic broken) — NOT a self fire-cast → V13-safe. Minor: back
+  half background lightens to hazy grey vs deep void (inherited from keyframes). Delivered, recommended
+  ACCEPT. HELD — no C10 until director's go.
