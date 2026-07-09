@@ -103,4 +103,50 @@ the least. Extend for phase 2 by appending clips + SPANS rows (holds for reveals
   flaring, flicking two SOLID glass discs out (one per hand, thin ember-rim only — V13, no flame-cast);
   dark air detonates into black-glass shards; camera pulls back + pans left with the leap (V12), all
   objects move (V9), attack kept dark/not-amber to stay distinct from the fire flagged on C7.
-  Director-approved single generation (2026-07-09). **Status: rendering → QA pending. HELD — no C9 until go.**
+  Director-approved single generation (2026-07-09).
+  **Status: RENDERED + QA PASSED, awaiting director sign-off.** Result mp4 job `6f31f4c3` →
+  hf_20260709_065159. QA: start-lock vs K8 ncc=0.996 histCorr=0.996 (near-perfect); end-lock vs K6
+  ncc=0.929 histCorr=0.994 (excellent); glitch spike_ratio=1.8 (clean, <6); frozen cells=2 →
+  (0,3) hovering disc-gate portal + (3,5) standing hooded-attacker silhouette (both meant to be
+  low-motion, NOT stalled shards — benign); 5.04s@24fps. Face audit: Husam identity + costume
+  consistent across the whole leap, no warp. Fire: incoming attack is DARK with only a small fire
+  tip — no plume (cleaner than C7 on V13). Disc reads as a glowing amber ring at his hand rather than
+  two distinct solid discs, but faithful to K6's fire-sigil disc keyframe. Delivered to director,
+  recommended ACCEPT. **DIRECTOR ACCEPTED 2026-07-09** — C8 locked into the chain.
+- **C9 K6→K15 (Kling v3.0, std, sound on)** · job `a72c93e2-985d-4400-ab23-f0a8f0c2668f` · 10 cr ·
+  connecting logic (continuous combat, NO scene gap): he lands from the dodge → whips his two glass
+  discs back to counter → the enemy's DARK strike catches him mid-cast → the discs DETONATE in a
+  diegetic ORANGE blast of shattering glass (V13: solid discs destroyed BY the enemy's strike, not
+  fire he casts) → he's thrown, torso twisting, one arm up, pained-defiant (K15). Camera shakes +
+  pushes in on the hit then settles (V12); all objects move (V9). Director-approved single generation
+  (2026-07-09).
+  **Status: RENDERED + QA PASSED, awaiting director sign-off.** Result mp4 job `a72c93e2` →
+  hf_20260709_075828. QA: start-lock vs K6 ncc=0.998 histCorr=0.993 (near-perfect); end-lock vs K15
+  ncc=0.879 histCorr=0.999 (strong); glitch spike_ratio=1.9 (clean through impact+shake, <6); frozen
+  cells=2 → (0,0),(0,3) top-row void/sky (benign, not stalled debris); 5.04s@24fps. Face audit:
+  identity + teeth-set defiance consistent through the twist, no warp. Orange disc-detonation READS
+  AS ENEMY IMPACT (he recoils/shields, magic broken) — NOT a self fire-cast → V13-safe. Minor: back
+  half background lightens to hazy grey vs deep void (inherited from keyframes). Delivered, recommended
+  ACCEPT. **DIRECTOR ACCEPTED 2026-07-09** — C9 locked into the chain.
+- **C10 K15→K9 (Kling v3.0, std, sound on)** · job `2231b2d3-f7f3-457d-9eb8-998071fdc44c` · 10 cr ·
+  connecting logic (continuous, warm→cold tonal shift): the orange embers die → ANOTHER dark strike
+  lands, he recoils/twists again → warm amber bleeds out and cold BLUE SMOKE floods in → a glowing
+  blue nazar (evil-eye amulet) resolves upper-right (Başak's motif, K9). No discs in play (already
+  destroyed C9) → no fire-cast risk; strike is DARK. Camera settles/drifts with recoil (V12), all
+  objects move (V9). Director-approved single generation (2026-07-09).
+  **Status: RENDERED + QA PASSED, awaiting director sign-off.** Result mp4 job `2231b2d3` →
+  hf_20260709_081121. QA (cleanest so far): start-lock vs K15 ncc=0.998 histCorr=0.999; end-lock vs
+  K9 ncc=0.967 histCorr=0.998; glitch spike_ratio=1.6 (clean); frozen cells=0; 5.04s@24fps. Face
+  audit: identity + pained-defiant expression consistent, no warp. Tonal shift warm-orange→cold-blue
+  LANDS (frame cools amber→blue); nazar evil-eye amulet resolves upper-right golden point (Başak
+  motif). Minor: small orange impact-ember lingers on hand/chest through the blue section (faithful
+  to K9); groundplane/light panel bg vs pure void (inherited). Delivered, recommended ACCEPT.
+  **DIRECTOR ACCEPTED 2026-07-09** — C10 locked into the chain.
+- **C11 K9→K4 (Kling v3.0, std, sound on)** · job `693fe5a6-e08e-40af-985a-549cec25c379` · 10 cr ·
+  connecting logic (THE HERO TURN, cold→warm shift): pain hardens to resolve → he plants and RISES
+  into a power stance → cold blue drains as his INNER FIRE ignites (molten seams through the robe,
+  embers off shoulders, amber in eyes, heat-haze), frame warming blue→gold → both hands lower, each
+  starting to spin a small SOLID glass disc (ember-rim). V13 key distinction: fire glows from WITHIN
+  = transformation, NOT flame thrown from hands; discs stay solid glass. Camera push-in + slight rise
+  to the hero stance (V12); all objects move (V9). Director-approved single generation (2026-07-09).
+  **Status: rendering → QA pending. HELD — no C12 until go.**
