@@ -95,4 +95,12 @@ the least. Extend for phase 2 by appending clips + SPANS rows (holds for reveals
   Face audit: Husam identity + locked costume consistent across the lunge, no warp. FLAG: mid-clip
   burst (~1.1–2.5s) renders fire-heavy and hand briefly fire-wreathed (~2.5s) — inherited from K14's
   locked glass-AND-fire disc; brushes the "flame-cast" look. Delivered to director with accept(A) /
-  re-roll-with-suppressed-fire(B) choice. HELD — no C8 until director's go.
+  re-roll-with-suppressed-fire(B) choice.
+  **DIRECTOR ACCEPTED (A) 2026-07-09** — C7 locked into the chain as-is.
+- **C8 K8→K6 (Kling v3.0, std, sound on)** · job `6f31f4c3-3f05-4bcb-a6f6-933e86d1ffb3` · 10 cr ·
+  connecting logic (continuous combat, NO scene gap): he closes his hand on the lapis pendant → a
+  DARK force-bolt streaks in from the right → he reverses momentum and leaps BACKWARD to dodge, cape
+  flaring, flicking two SOLID glass discs out (one per hand, thin ember-rim only — V13, no flame-cast);
+  dark air detonates into black-glass shards; camera pulls back + pans left with the leap (V12), all
+  objects move (V9), attack kept dark/not-amber to stay distinct from the fire flagged on C7.
+  Director-approved single generation (2026-07-09). **Status: rendering → QA pending. HELD — no C9 until go.**
