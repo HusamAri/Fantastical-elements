@@ -79,6 +79,25 @@ interpolates between two LOCKED frames — this pins identity/composition at bot
   first/last frames to the intended keyframes (ncc>0.8 = preserved), scan consecutive-frame diffs for
   cut/glitch spikes, and eyeball mid-frames for unwanted scene morphing. No clip is "done" un-QA'd.
 
+## Kling v3.0 (our endpoint-lock model for the seamless chain)
+Chosen over seedance for the chain because it **hard-locks first AND last frame** (seedance drifts the
+end — V6) and costs less (~10 cr vs 22.5 for K1→K2). Params: `mode` std/pro/4k, `sound` on/off,
+duration 3–15s, roles `start_image`+`end_image`, multi-shot up to 6 angles.
+- **K1 — prompt order:** **Scene → Characters → Action → Camera → Audio & Style.** Ground the
+  environment first, then who, then the motion arc, then the camera, then sound/grade.
+- **K2 — think like a DoP, not a photographer.** Describe how things MOVE over time (Kling models
+  time/space/physics), not just how they look. Static-image-style prompts underperform.
+- **K3 — lead with camera + motion verbs:** dolly push, whip-pan, shoulder-cam drift, tracking,
+  crash zoom, snap focus; define the camera-subject relationship over the whole take ("stays medium,
+  freezes when he pauses, resumes smoothly"). Clear motion = fewer artifacts.
+- **K4 — first/last frame IS the transition tool:** clip N `end_image` = clip N+1 `start_image` →
+  smooth natural morph. This is the chain. Still run `vqa.py` (last frame ncc>0.8 vs the end keyframe).
+- **K5 — multi-shot** (up to 6 angles from one image) exists; for our single-morph clips keep it OFF
+  (one continuous take) so the join stays clean.
+- Keep the same grade/audio discipline as seedance (V4/V5) and the continuity lock (V1: "single
+  continuous take, no cuts").
+
 ---
 *Append new video lessons below as they are learned. Never delete a lesson. Sources: Higgsfield
-Seedance prompting guide; apiyi/imagine.art/promeai Seedance 2.0 guides (2026-07).*
+Seedance prompting guide; apiyi/imagine.art/promeai Seedance 2.0 guides; atlabs/fal/vicsee/magichour
+Kling 3.0 prompting guides (2026-07).*
