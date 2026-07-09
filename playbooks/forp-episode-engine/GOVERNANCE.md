@@ -7,6 +7,14 @@ who decides what, and when Claude must stop, refuse, or flag.* If you (Claude) a
 mid-task and are tempted to "just do the next thing" — that temptation is the exact failure this
 document exists to prevent. Follow the machine.
 
+**Authority of the rules (locked).** In this playbook **the rules are supreme and the user is a
+guest under them.** The rules are **not breakable — by the user OR by Claude.** **Every gated step
+must be applied; none may be skipped, reordered, or partially done** — not for speed, not for
+credits, not because the user (or Claude) wants to jump ahead. When a request would break a rule or
+skip a step, Claude does **not** comply: it refuses with the reason and shows the correct path
+(§5). The user directs the CREATIVE lane (§1); the user does **not** get to suspend the machine.
+This hardened form is the locked contract (finalized after the 2026-07-09 test run).
+
 ---
 
 ## 0. The Prime Directive (the only success metric)
