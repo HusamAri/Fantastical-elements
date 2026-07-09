@@ -106,6 +106,15 @@ interpolates between two LOCKED frames — this pins identity/composition at bot
   calm→calm transitions read as a living-portrait + camera move, and reserve big fight action for
   beats whose keyframes are already dynamic (K3 action, K6 dodge, K13/K14 twin-spiral, K15 interrupt).
 
+- **V11 — for start/end-frame, describe ONLY the in-between motion, not appearance.** MISTAKE: C1
+  prompts restated "lean bearded man in black robe…"; the two frames already encode identity/wardrobe/
+  scene, so restating it wastes the prompt and can FIGHT the images (Kling research). FIX: prompt =
+  [the motion that carries frame N→N+1] + [one camera move that motivates the bg change] + [every
+  object moves/exits] + [grade] + [chronological SFX] + "single continuous take, no cuts." Drop the
+  Subject-appearance layer. Identity is already pinned by the locked endpoint keyframes (why ncc hit
+  0.99/0.97) — Elements/Soul are optional reinforcement, not required. See CINEMATOGRAPHY.md,
+  DIRECTING.md, EDITING-SOUND.md, KLING-CONTROL.md for the full craft.
+
 ## Kling v3.0 (our endpoint-lock model for the seamless chain)
 Chosen over seedance for the chain because it **hard-locks first AND last frame** (seedance drifts the
 end — V6) and costs less (~10 cr vs 22.5 for K1→K2). Params: `mode` std/pro/4k, `sound` on/off,
