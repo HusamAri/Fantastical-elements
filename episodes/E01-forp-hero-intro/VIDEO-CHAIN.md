@@ -127,4 +127,11 @@ the least. Extend for phase 2 by appending clips + SPANS rows (holds for reveals
   identity + teeth-set defiance consistent through the twist, no warp. Orange disc-detonation READS
   AS ENEMY IMPACT (he recoils/shields, magic broken) — NOT a self fire-cast → V13-safe. Minor: back
   half background lightens to hazy grey vs deep void (inherited from keyframes). Delivered, recommended
-  ACCEPT. HELD — no C10 until director's go.
+  ACCEPT. **DIRECTOR ACCEPTED 2026-07-09** — C9 locked into the chain.
+- **C10 K15→K9 (Kling v3.0, std, sound on)** · job `2231b2d3-f7f3-457d-9eb8-998071fdc44c` · 10 cr ·
+  connecting logic (continuous, warm→cold tonal shift): the orange embers die → ANOTHER dark strike
+  lands, he recoils/twists again → warm amber bleeds out and cold BLUE SMOKE floods in → a glowing
+  blue nazar (evil-eye amulet) resolves upper-right (Başak's motif, K9). No discs in play (already
+  destroyed C9) → no fire-cast risk; strike is DARK. Camera settles/drifts with recoil (V12), all
+  objects move (V9). Director-approved single generation (2026-07-09). **Status: rendering → QA
+  pending. HELD — no C11 until go.**
