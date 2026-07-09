@@ -95,5 +95,16 @@ Format per lesson: **MISTAKE → FIX** (+ a NEG token to add when relevant).
   far better than extreme up-angles or airborne twists). Keep to **2 identity elements**; a 3rd prop
   element dilutes the face — describe props in text instead.
 
----
-*Append new lessons below as they are learned. Never delete a lesson.*
+## Environment & ability continuity (2026-07-09)
+- **L25 — Action frames drift to a bright studio seamless backdrop.** MISTAKE: a character
+  action prompt (casting/throwing) rendered on a beige/tan/grey studio cyclorama, breaking the
+  set's deep-void grade — the "totally different from the rest of the imagery" failure. FIX: for
+  this set, always pin the environment: "DEEP BLACK VOID, crushed premium blacks, black-glass
+  shards in 3D depth, single faint warm-gold rim light, dark gold-and-black Curated Chaos grade";
+  NEG: `beige/tan/grey studio backdrop, bright flat background, seamless cyclorama`.
+- **L26 — Never invent an ability's mechanic; confirm it, then lock the exact motion.** MISTAKE:
+  guessed "Twin Spiral" = two discs spinning above the palms (static). The real kit: two discs
+  hurled FORWARD, spiralling around each other like a drill, detonating on impact (three discs for
+  a bigger burst when Flame Inside is active). FIX: the ability's verb + trajectory + payoff must
+  come from HERO-KIT, not the prompt author's guess; describe the specific motion (launch /
+  in-flight braid / impact), not a vague pose. When unsure of a kit mechanic, ask before spending.

@@ -20,9 +20,12 @@ dual-wielded) — NOT a static shield or any franchise look. Role: **APC (Abilit
 ## Abilities
 - **Basic attack — Razor Throw.** Throws the disc in hand, one at a time, alternating LEFT then
   RIGHT hand, spun off the first three fingers like a bowling ball. Ranged single-target.
-- **Skill 1 (Q) — Twin Spiral.** Spins a disc from BOTH hands at once; the two discs empower each
-  other, spiralling around one another along a linear path, and **explode when they reach their
-  range**. Target **burns 5s**.
+- **Skill 1 (Q) — Twin Spiral.** Throws a disc from BOTH hands at once with a low **stone-skipping
+  sidearm flick** (taş sektirme — the skimming-a-stone motion, both wrists snapped); the two discs
+  **converge and merge**, then travel **spiralling around one another** along a linear path, and
+  **explode when they reach their range**. Target **burns 5s**. (Keyframe pose = the bilateral
+  skimming throw follow-through, discs merged into one spiralling drilling projectile with a
+  detonation bloom at the tip — K13. Under Flame Inside this becomes **3 discs** for a bigger burst.)
 - **Skill 2 (W) — Cheeky Jump.** Spins two discs from each hand in TWO different directions. He
   **jumps to one disc and holds it**; kinetic force from the touched disc erupts into the air,
   **damaging everything in between**, and **teleports the enemy to the second disc's location**.
