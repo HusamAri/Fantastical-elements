@@ -23,7 +23,12 @@ vinyl LP** (that read wrong — v7 rejected) and **NOT a plain clear glass plate
 ## Grade / environment
 Gold + black **color-block** (including the gold vertical panel seen in K1), **deep black void**,
 black-glass shards suspended in 3D depth, warm amber fire accent, heavy 35mm analog grain — **never
-clean CG**, never a beige/tan/grey studio backdrop.
+clean CG**.
+- **Persistent** flat beige/tan/grey studio cyclorama = WRONG (breaks the set; the L25 problem).
+- **Momentary** bright warm/orange environmental wash IS allowed when **diegetic** — e.g. his spinner
+  blades exploding in orange light when destroyed briefly floods the scene (director: "spinner blades
+  explode orange light when destroyed; these environmental changes are momental"). Judge by cause: a
+  lit-by-the-blast frame is fine; a plain empty studio wall is not.
 
 ## Face-audit (mandatory, L22–L24)
 After every character frame: crop the face, compare side-by-side vs the @Husam real photo + K1; anchor
