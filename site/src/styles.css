@@ -131,21 +131,34 @@ body {
 }
 .cta__btn:hover { color: #0b0b0b; background: var(--amber); border-color: var(--amber); }
 
-/* ---- Reduced-motion / no-scrub static tier: film plays through, key plates over it ---- */
-body.is-static .hero { height: 100vh; }
+/* ---- Reduced-motion / no-scrub static tier: dimmed film behind, ALL content stacked & scrollable
+   (every fragment card, name, slogan, link + beat caption stays accessible — no motion needed) ---- */
+body.is-static { overflow-y: auto; }
+body.is-static .hero { height: auto; }
 body.is-static .rail { display: none; }
-body.is-static .hero__pin { position: fixed; inset: 0; }
-body.is-static .plate[data-plate="note"],
-body.is-static .plate[data-plate="fragA"],
-body.is-static .plate[data-plate="beatAction"],
-body.is-static .plate[data-plate="fragN"],
-body.is-static .plate[data-plate="beatCharge"],
-body.is-static .plate[data-plate="beatThrow"] { display: none; }
-body.is-static .plate[data-plate="cta"] { top: auto; bottom: 0; height: 60vh; align-content: end; }
+body.is-static .stage { position: fixed; }
+body.is-static .film { opacity: 0.4; }
+body.is-static .scrim { opacity: 0.5; }
+body.is-static .vignette { opacity: 0.85; }
+body.is-static .hero__pin { position: static; height: auto; overflow: visible; }
+body.is-static .plate {
+  position: relative; inset: auto; opacity: 1 !important; transform: none !important; filter: none !important;
+  min-height: 100vh; display: grid; place-items: center; text-align: center; padding: 12vh 8vw;
+}
+body.is-static .plate--right { place-items: center; }
+/* fragment card reflows to a normal block: cutout above, panel below */
+body.is-static .plate--frag { min-height: 112vh; }
+body.is-static .fcard { position: relative; left: auto; right: auto; bottom: auto; width: min(520px, 88vw); height: auto; margin: 0 auto; }
+body.is-static .fcard__ghost { display: none; }
+body.is-static .fcard__cut { position: relative; left: auto; bottom: auto; transform: none; height: 46vh; margin: 0 auto 1.2rem; display: block; }
+body.is-static .fcard__panel { position: relative; transform: none; clip-path: none; text-align: left; }
 @media (prefers-reduced-motion: reduce) { .grain { opacity: 0.05; } }
 
 @media (max-width: 720px) {
   .plate--right { place-items: end center; text-align: center; padding-bottom: 14vh; }
   .plate--right > * { max-width: 90vw; }
-  .frame { object-position: 50% 40%; }
+  .film { object-position: 50% 40%; }
+  /* narrow screens: cards centre and shrink so the cutout + panel stay on-canvas */
+  .fcard { width: min(440px, 90vw); right: 5vw; left: auto; }
+  .fcard--left { left: 5vw; right: auto; }
 }
