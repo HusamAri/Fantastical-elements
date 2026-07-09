@@ -221,4 +221,12 @@ the least. Extend for phase 2 by appending clips + SPANS rows (holds for reveals
 - **C16 K5→K5 "Settle hold" (FINAL clip, Kling v3.0, 5s, sound on)** · job `4fdad644-acfb-423b-9016-6d4ca7452e02`
   · story agreed (story-first): a quiet LIVING HOLD on K5 — Husam still, centered, rim-lit; only the last
   embers drift, thin haze, an imperceptible breath; near-black, for the CTA overlay. Director set 5s.
-  **Status: rendering, QA pending. On accept the chain is 16/16 COMPLETE.**
+  QA: K5 both ends ncc=0.992, glitch 2.0 (no cut), frozen 0; living-hold motion >0 everywhere (min
+  0.02 = alive, not a dead freeze); 5.04s. **DIRECTOR ACCEPTED (locked) 2026-07-09.**
+
+## ✅ CHAIN COMPLETE — 16/16 (2026-07-09)
+All sixteen clips locked: C1–C6 (phase-1, K1→K2→K12→K3→K11→K13→K14) + C7 K14→K8 · C8 K8→K6 · C9
+K6→K15 · C10 K15→K9 · C11 K9→K4 · C12b K4→BAVER · C13b BAVER→K10 · C14(A) K10→K7 · C15b K7→K5 (8s)
+· C16 K5→K5 (5s settle-hold). Every clip: endpoints locked (ncc>0.8), single-take, director-approved
+one-at-a-time under the story-first rule. Next: assemble the phase-2 continuation film into the site
+(+ new fragment routes: Federica/Başak/Baver/Yaşar), then the Higgsfield app (contest, closes Jul 22).
