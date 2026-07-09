@@ -23,29 +23,29 @@ const FRAGMENTS = [
 ];
 
 // Each beat: which keyframe is on stage, which plate shows, and its payload.
-// frame indices: 0 K1 calm hero · 1 K2 shatter · 2 K3 action · 3 K4 flame · 4 K5 settle ·
+// frame indices: 0 K1 calm · 1 K2 shatter · 2 K3 action · 3 K4 flame · 4 K5 settle/close ·
 // 5 K6 dodge · 6 K7 ultimate · 7 K8 pendant · 8 K9 evil-eye · 9 K10 constellation ·
-// 10 K11 lotus · 11 Baver glass interstitial · 12 K12 the disc (vinyl macro).
-// Each fragment reveals ON its own motif frame — no frame is reused for two beats.
-// Fragments are WOVEN through the fight (director note): a battle move, then a fragment
-// surfaces, then the next move — the fight's momentum carries the reveals instead of a
-// six-block parade. Two fragments double as battle moves (Federica's pendant-catch, Başak's
-// evil-eye damage). No frame is reused for two beats.
+// 10 K11 lotus · 11 Baver glass · 12 K12 Agustín disc · 13 K13 Twin Spiral charge ·
+// 14 K14 Twin Spiral throw. Fragments are WOVEN through the fight — a battle move, then a
+// fragment surfaces. His Twin Spiral (Q) is two beats: charge (K13) then throw (K14). No frame
+// is reused for two beats; the close resolves the sun-flash to K5 (settle), not to pure black.
 const BEATS = [
   { frame: 0,  plate: "title" },                                             // 01 K1  calm hero
   { frame: 1,  plate: "note" },                                              // 02 K2  shatter — "Six were witnessed."
   { frame: 12, plate: "frag", frag: 0 },                                     // 03 K12 Fragment I  · Agustín — the disc coalesces
-  { frame: 2,  plate: "beat", line: "He fought to keep them whole." },       // 04 K3  action — he throws it
-  { frame: 10, plate: "frag", frag: 1 },                                     // 05 K11 Fragment II · Najoua — lotus, glimpsed
-  { frame: 5,  plate: "beat", line: "Every strike, he turned aside." },      // 06 K6  dodge — two discs
-  { frame: 7,  plate: "frag", frag: 5 },                                     // 07 K8  Fragment VI · Federica — pendant catch (a move)
-  { frame: 8,  plate: "frag", frag: 2 },                                     // 08 K9  Fragment III · Başak — evil-eye, the damage
-  { frame: 3,  plate: "beat", line: "The fire he carried turned outward." }, // 09 K4  Flame Inside — ignites from the hit
-  { frame: 11, plate: "frag", frag: 4 },                                     // 10 —   Fragment V · Baver — data in the shards
-  { frame: 9,  plate: "frag", frag: 3 },                                     // 11 K10 Fragment IV · Yaşar — constellation, charging
-  { frame: 6,  plate: "beat", line: "Then he called down the sun." },        // 12 K7  ultimate — Ancient Sunlight
-  { frame: 6,  plate: null },                        // 13 eye-blinder flash → fade to black
-  { frame: 6,  plate: "cta" },                       // 14 CTA over black
+  { frame: 2,  plate: "beat", line: "He fought to keep them whole." },       // 04 K3  action
+  { frame: 10, plate: "frag", frag: 1 },                                     // 05 K11 Fragment II · Najoua — lotus
+  { frame: 13, plate: "beat", line: "Two discs woke in his hands," },        // 06 K13 Twin Spiral — charge
+  { frame: 14, plate: "beat", line: "and he loosed them, spiralling." },     // 07 K14 Twin Spiral — throw
+  { frame: 7,  plate: "frag", frag: 5 },                                     // 08 K8  Fragment VI · Federica — pendant catch (a move)
+  { frame: 5,  plate: "beat", line: "Every strike, he turned aside." },      // 09 K6  dodge
+  { frame: 8,  plate: "frag", frag: 2 },                                     // 10 K9  Fragment III · Başak — evil-eye, the damage
+  { frame: 3,  plate: "beat", line: "The fire he carried turned outward." }, // 11 K4  Flame Inside — ignites from the hit
+  { frame: 11, plate: "frag", frag: 4 },                                     // 12 —   Fragment V · Baver — data in the shards
+  { frame: 9,  plate: "frag", frag: 3 },                                     // 13 K10 Fragment IV · Yaşar — constellation, charging
+  { frame: 6,  plate: "beat", line: "Then he called down the sun." },        // 14 K7  ultimate — Ancient Sunlight
+  { frame: 4,  plate: null },                        // 15 eye-blinder flash → resolves to the settle (K5)
+  { frame: 4,  plate: "cta" },                       // 16 CTA over the settle (K5), dust still falling
 ];
 const N = BEATS.length;
 const WIPE_HALF = 0.028; // half-width (scroll progress) of a shard-wipe window
@@ -152,14 +152,14 @@ function onScroll(p) {
   setBeat(seg);
   parallax(fp - seg);
   updateWipe(p);
-  // Ultimate → eye-blinder sun flash → fade to black → CTA.
-  const fpk = (N - 2) / N;                          // boundary: ultimate → close
+  // Ultimate → eye-blinder sun flash → the flash FALLS TO REVEAL the settle (K5) → CTA.
+  const fpk = (N - 2) / N;                          // boundary: ultimate → close (K5)
   const flash = p <= fpk
     ? smooth(inv(p, fpk - 0.5 / N, fpk))            // rise into the blinder
-    : 1 - smooth(inv(p, fpk, fpk + 0.5 / N));       // fall out of the flash
+    : 1 - smooth(inv(p, fpk, fpk + 0.5 / N));       // fall out of the flash, uncovering K5
   els.flash.style.opacity = String(clamp(flash, 0, 1));
-  // Black rises as the white flash falls, so the whiteout resolves straight to black (no bright gap).
-  els.black.style.opacity = String(inv(p, fpk, fpk + 0.5 / N));
+  // No blackout: the whiteout resolves onto the settle frame (K5). A faint scrim only, for CTA legibility.
+  els.black.style.opacity = String(0.22 * inv(p, fpk + 0.5 / N, 1));
   const pc = Math.round(p * 100);
   els.tick.style.top = els.label.style.top = `${p * 100}%`;
   els.label.textContent = String(pc).padStart(2, "0");

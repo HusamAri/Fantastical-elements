@@ -27,6 +27,7 @@ Every paid generation, per GOVERNANCE §8. Model `cinematic_studio_2_5` @2k = 2 
 | 64b1226c | **K11 Najoua lotus** | cinematic_studio_2_5 | 2.00 | ✅ locked |
 | ad5ae059 (+ redo) | **Baver glass interstitial** — glass-only, no character | cinematic_studio_2_5 | ~4 | ✅ locked |
 | faeefc62 / f43d6a53 / **567654f3** / a29d9b12 | **K12 Agustín disc** (vinyl macro) — 4-up concept, variant C locked | cinematic_studio_2_5 | 8.00 | ✅ **567654f3** locked |
+| **c48ed63d** / dbc8768d / 8d93f3cc / d9ea7ed6 / 666f499c / **98ab701e** / b43a3a1b | **K13/K14 Twin Spiral (Q)** — long iterate on mechanic (throw motion, telekinetic no-touch, no metal, discs-on-focus, locked disc form). Two beats locked: CHARGE `c48ed63d` (K13) + THROW `98ab701e` (K14). b43a3a1b studio-bg reject (candidate for a future in-void "spin interrupted" beat) | cinematic_studio_2_5 | 14.00 | ✅ **c48ed63d + 98ab701e** locked |
 
 **Session spend: ~50.8 cr** (live balance **5932.9**; session started ≈5983.7). Reconciled to the live
 balance — the ~18 cr above the itemised locks covers rejected redos (K8/K9/K10/Baver face-audit + motif
