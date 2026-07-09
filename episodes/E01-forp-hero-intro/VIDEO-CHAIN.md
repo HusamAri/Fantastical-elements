@@ -31,5 +31,13 @@ C1 K1→K2 · C2 K2→K12 · C3 K12→K3 · C4 K3→K11 · C5 K11→K13 · C6 K1
 C8 K8→K6 · C9 K6→K15 · C10 K15→K9 · C11 K9→K4 · C12 K4→BAVER · C13 BAVER→K10 · C14 K10→K7 ·
 C15 K7→K5 (flash between) · C16 K5→K5 (settle hold, optional / subtle drift).
 
+## QA (per clip, before accept) — `tools/vqa.py` (OpenCV)
+first frame ≈ start keyframe (ncc>0.8), last frame ≈ end keyframe (ncc>0.8), glitch spike_ratio<6,
+mid-frames free of unwanted morphing. Endpoint preservation is the join-critical check.
+
 ## Log (job id · cost · verdict)
-- _clips appended here as generated_
+- **C1 K1→K2** · job `ddc4c67c` · 22.5 cr · 720p/std/5s/audio · **QA FAIL (endpoint):** first vs K1
+  ncc **0.969 ✓** (start locked); last vs K2 ncc **−0.10 ✗** (end NOT locked — seedance invented its
+  own ending); glitch spike_ratio 2.8 ✓ (no cut inside). ⇒ seedance locks START not END (lesson V6).
+  Pure start→end chain won't join. **DECISION PENDING** on approach (see below). Raw clips tracked by
+  job id, not committed to git (heavy).
