@@ -27,8 +27,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 const FRAG_BASE = "https://curatedchaos.artifactstudio.info/en/works/fragments/";
 const FRAGMENTS = {
-  agustin: { roman: "I",  name: "Agustín", slogan: "A minimalist visual poem about artistic awakening.", slug: "agustin", cut: "/fragments/agustin.png", object: "the record", obj: { x: 47, y: 42 } },
-  najoua:  { roman: "II", name: "Najoua",  slogan: "Kindness mistaken for weakness — until she spoke.",  slug: "najoua",  cut: "/fragments/najoua.png", object: "the lotus",  obj: { x: 73, y: 27 } },
+  // obj = the film object's on-screen position AT this fragment's reveal moment (S[k]); the connector
+  // ring + wire land on it. The record is Husam's glowing disc-sigil at his hand (K12); the lotus is
+  // the glowing bloom in Najoua's hands (K11). Both cards live in the dark right-hand negative space.
+  agustin: { roman: "I",  name: "Agustín", slogan: "A minimalist visual poem about artistic awakening.", slug: "agustin", cut: "/fragments/agustin.png", object: "the record", obj: { x: 20, y: 39 } },
+  najoua:  { roman: "II", name: "Najoua",  slogan: "Kindness mistaken for weakness, until she finally spoke.", slug: "najoua",  cut: "/fragments/najoua.png", object: "the lotus",  obj: { x: 43, y: 57 } },
 };
 
 // Film duration read from the element once metadata loads; this is the fallback.
@@ -84,16 +87,20 @@ function cardHTML(f, side) {
 
 const plateEl = (k) => document.querySelector(`[data-plate="${k}"]`);
 plateEl("fragA").innerHTML = cardHTML(FRAGMENTS.agustin, 1);
-plateEl("fragN").innerHTML = cardHTML(FRAGMENTS.najoua, -1);
+plateEl("fragN").innerHTML = cardHTML(FRAGMENTS.najoua, 1); // right-hand negative space (film subject is centre)
 
 // ---- Plate timeline: window [a,b] in scroll + motion params ----
 // type "text": rises + unblurs. type "card": panel + cutout parallax at different rates.
 const PLATES = [
   { key: "title",      type: "text", a: 0,                   b: S[0] + 0.62 * sz(0), fin: 0.0,  fout: 0.42, y: [0, -70],  blur: 8 },
   { key: "note",       type: "text", a: S[1] - 0.34 * sz(0), b: S[1] + 0.42 * sz(1), fin: 0.30, fout: 0.30, y: [46, -46], blur: 7 },
-  { key: "fragA",      type: "card", a: S[2] - 0.44 * sz(1), b: S[2] + 0.54 * sz(2), fin: 0.20, fout: 0.24, side: 1 },
-  { key: "beatAction", type: "text", a: S[2] + 0.60 * sz(2), b: S[3] + 0.05 * sz(3), fin: 0.30, fout: 0.30, y: [46, -46], blur: 7 },
-  { key: "fragN",      type: "card", a: S[4] - 0.44 * sz(3), b: S[4] + 0.54 * sz(4), fin: 0.20, fout: 0.24, side: -1 },
+  // Fragment reveals are TIMED TO THE OBJECT MOMENT: full-opacity onset (u=fin≈0.26) lands exactly
+  // on the object keyframe — the record at S[2] (K12), the lotus at S[4] (K11) — so the card reveals
+  // as its object is on screen, not during the previous clip. It then holds through that clip and
+  // fades just before the next keyframe.
+  { key: "fragA",      type: "card", a: S[2] - 0.34 * sz(2), b: S[2] + 0.95 * sz(2), fin: 0.26, fout: 0.26, side: 1 },
+  { key: "beatAction", type: "text", a: S[2] + 0.72 * sz(2), b: S[3] + 0.08 * sz(3), fin: 0.30, fout: 0.30, y: [46, -46], blur: 7 },
+  { key: "fragN",      type: "card", a: S[4] - 0.34 * sz(4), b: S[4] + 0.95 * sz(4), fin: 0.26, fout: 0.26, side: 1 },
   { key: "beatCharge", type: "text", a: S[5] - 0.34 * sz(4), b: S[5] + 0.40 * sz(5), fin: 0.30, fout: 0.32, y: [46, -46], blur: 7 },
   { key: "beatThrow",  type: "text", a: S[5] + 0.44 * sz(5), b: OUT0 + 0.12 * (1 - OUT0), fin: 0.34, fout: 0.30, y: [40, -40], blur: 6 },
   { key: "cta",        type: "text", a: OUT0 - 0.10 * sz(5), b: 1.0, fin: 0.16, fout: 0.0, y: [40, 0], blur: 6 },
@@ -133,8 +140,9 @@ function applyPlate(pl, p) {
     pl.panel.style.transform = `translate3d(${(pl.side * lerp(52, -6, u)).toFixed(1)}px, ${lerp(30, -20, u).toFixed(1)}px, 0)`;
     pl.panel.style.clipPath = `inset(0 0 ${clamp((1 - o) * 42, 0, 42).toFixed(1)}% 0 round 18px)`;
     pl.ghost.style.transform = `translate3d(${(pl.side * lerp(30, -30, u)).toFixed(1)}px, ${lerp(-10, -40, u).toFixed(1)}px, 0)`;
-    // The connector draws itself toward the film's object as the card enters (points to it).
-    pl.wire.style.strokeDashoffset = (1 - smooth(clamp(u / 0.5, 0, 1))).toFixed(3);
+    // The connector draws itself toward the film's object as the card reveals, completing right as
+    // the object keyframe lands (u≈0.4, just past the full-opacity onset) so the wire "arrives" on cue.
+    pl.wire.style.strokeDashoffset = (1 - smooth(clamp(u / 0.4, 0, 1))).toFixed(3);
   } else {
     const blur = (1 - o) * pl.blur;
     el.style.transform = `translate3d(0, ${lerp(pl.y[0], pl.y[1], u).toFixed(1)}px, 0)`;

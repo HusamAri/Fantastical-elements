@@ -157,4 +157,18 @@ the least. Extend for phase 2 by appending clips + SPANS rows (holds for reveals
   ascending"); 5.04s@24fps. Face audit: identity + composed intensity consistent, no warp. Inner fire
   reads as TRANSFORMATION FROM WITHIN (traces up robe/silhouette, grounded stance) — NOT thrown from
   hands → V13-correct for this super-state beat. Blue→gold warming lands. Delivered, recommended
-  ACCEPT (offered re-roll option for more shard drift). HELD — no C12 until director's go.
+  ACCEPT (offered re-roll option for more shard drift).
+  **DIRECTOR ACCEPTED 2026-07-09** — C11 locked into the chain.
+- **C12 K4→BAVER (Kling v3.0, std, sound on)** · job `d60a18c0-ce11-45b1-abe6-9e81c28b9dd0` · 10 cr ·
+  connecting logic (SCENE-GAP → person-less interstitial, push-into-shard bridge like C3): camera
+  pushes past Husam INTO the ascending black-glass shards → he falls away out of frame → the shard
+  cluster fills the view, tumbling → cascading GREEN neon data + swirling PURPLE neon smoke bloom in
+  and wrap/mirror across the turning shards (Baver motif, BAVER frame), warm amber falling behind into
+  black. End is person-less. All objects move (V9), camera push-in (V12). No disc/fire in play (fire
+  falls behind) → no V13 risk. Director-approved single generation (2026-07-09). **Status: RENDERED + QA PASSED, awaiting director sign-off.**
+  Result mp4 job `d60a18c0` → hf_20260709_091132. QA: start-lock vs K4 ncc=0.998 histCorr=1.000
+  (perfect); end-lock vs BAVER ncc=0.806 histCorr=0.998 (pass; abstract shards/data frame = hardest
+  match); glitch spike_ratio=1.3 (very clean); frozen cells=0; 5.04s@24fps. Visual: camera pushes past
+  Husam into the shards, he falls away by ~1.7s and is gone by ~2.4s; green matrix data + purple neon
+  smoke wrap the tumbling shards; final frame person-less = BAVER; no stray face/hands at the end.
+  Delivered, recommended ACCEPT. HELD, no C13 until director's go.
