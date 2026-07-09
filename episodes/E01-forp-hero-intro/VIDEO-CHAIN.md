@@ -103,4 +103,13 @@ the least. Extend for phase 2 by appending clips + SPANS rows (holds for reveals
   flaring, flicking two SOLID glass discs out (one per hand, thin ember-rim only — V13, no flame-cast);
   dark air detonates into black-glass shards; camera pulls back + pans left with the leap (V12), all
   objects move (V9), attack kept dark/not-amber to stay distinct from the fire flagged on C7.
-  Director-approved single generation (2026-07-09). **Status: rendering → QA pending. HELD — no C9 until go.**
+  Director-approved single generation (2026-07-09).
+  **Status: RENDERED + QA PASSED, awaiting director sign-off.** Result mp4 job `6f31f4c3` →
+  hf_20260709_065159. QA: start-lock vs K8 ncc=0.996 histCorr=0.996 (near-perfect); end-lock vs K6
+  ncc=0.929 histCorr=0.994 (excellent); glitch spike_ratio=1.8 (clean, <6); frozen cells=2 →
+  (0,3) hovering disc-gate portal + (3,5) standing hooded-attacker silhouette (both meant to be
+  low-motion, NOT stalled shards — benign); 5.04s@24fps. Face audit: Husam identity + costume
+  consistent across the whole leap, no warp. Fire: incoming attack is DARK with only a small fire
+  tip — no plume (cleaner than C7 on V13). Disc reads as a glowing amber ring at his hand rather than
+  two distinct solid discs, but faithful to K6's fire-sigil disc keyframe. Delivered to director,
+  recommended ACCEPT. HELD — no C9 until director's go.
