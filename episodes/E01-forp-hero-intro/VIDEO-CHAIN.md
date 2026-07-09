@@ -47,5 +47,8 @@ mid-frames free of unwanted morphing. Endpoint preservation is the join-critical
 - **C1 K1→K2 (Kling v3.0, generic prompt, model test)** · job `6d4f71dd` · 10 cr · **QA PASS:** first
   0.990 ✓, last 0.965 ✓ (both endpoints locked), glitch 3.3 ✓. ⇒ Kling adopted for the chain.
 - **C1 K1→K2 (Kling v3.0, choreographed)** · job `c96e30fd` · 10 cr · turn-right + disc-from-back +
-  camera orbit + land defending (director choreo, V8) · **rendering → QA next**.
+  camera orbit + land defending (director choreo, V8) · **QA PASS:** first **0.990** ✓, last **0.971** ✓,
+  glitch 2.7 ✓, motion 12.7 (turn+orbit present), sound on. Delivered to director. ✅ pipeline validated.
+  _Next: deep-research Kling control + add @Husam ELEMENT for extra consistency (kling_element_ids)
+  before running C2..C16._
 - _raw clips tracked by job id, not committed to git (heavy); assembled at picture-lock._

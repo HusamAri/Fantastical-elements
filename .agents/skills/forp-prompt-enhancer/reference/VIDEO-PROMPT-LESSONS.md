@@ -88,6 +88,15 @@ interpolates between two LOCKED frames — this pins identity/composition at bot
   camera orbits around him so the backdrop rotates naturally; he lands defending himself with the
   disc (K2)." Do this per clip — the connection is authored, never left to chance.
 
+- **V9 — Frozen items (the model "forgets" some objects).** MISTAKE: in C1 the left-side glass shards
+  stayed **suspended/frozen** while the rest of the scene moved — the model dropped their motion. FIX:
+  explicitly author the motion AND the exit of EVERY moving element — "all black-glass shards keep
+  tumbling and rotating and drift out of the frame; nothing frozen or suspended mid-air"; add to the
+  avoid list `frozen shards, static suspended debris, objects stuck mid-air, frozen background`. Prefer
+  fewer, purposeful moving objects over a cloud of debris the model can't all track. QA: run the
+  frozen-region map in `vqa.py` (per-cell temporal variance) — flag cells with ~0 motion while global
+  motion is high, and name where (e.g. "left third static"). Re-generate on a frozen-region flag.
+
 ## Kling v3.0 (our endpoint-lock model for the seamless chain)
 Chosen over seedance for the chain because it **hard-locks first AND last frame** (seedance drifts the
 end — V6) and costs less (~10 cr vs 22.5 for K1→K2). Params: `mode` std/pro/4k, `sound` on/off,
