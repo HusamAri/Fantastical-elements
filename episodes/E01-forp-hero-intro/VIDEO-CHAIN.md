@@ -84,3 +84,9 @@ the least. Extend for phase 2 by appending clips + SPANS rows (holds for reveals
 - **PROCESS RULE (corrected 2026-07-09): ONE clip at a time.** Generate one → QA → deliver → WAIT for
   the director's go → next. NO parallel batching (GOVERNANCE §10). C4/C5/C6 were wrongly batched;
   they'll be QA'd one-by-one, and no further clip starts without director approval.
+- **C7 K14→K8 (Kling v3.0, std, sound on)** · job `3b762485-5c47-4fdc-a630-e5fef0eec5f8` · 10 cr ·
+  connecting logic: the twin glass discs streak forward and SHATTER into black-glass shards (V13 solid
+  disc, not flame); the shards sweep R→L as a shard-wipe and the camera whips with them, clearing on
+  Husam mid-lunge catching the falling lapis pendant from the disc-gate (K8). Motion-only (V11), all
+  objects move (V9), camera↔action synced (V12). Director-approved single generation (2026-07-09).
+  **Status: rendering → QA pending.**
