@@ -22,7 +22,7 @@ Every paid generation, per GOVERNANCE §8. Model `cinematic_studio_2_5` @2k = 2 
 | 402506da | **K6 dodge** — jump-back, two discs both hands | cinematic_studio_2_5 | 2.00 | ✅ keep |
 | b37a91bb | **K7 ultimate** — "Ancient Sunlight" sun-pillar + blinder | cinematic_studio_2_5 | 2.00 | ✅ keep |
 | c6a5f493 (+ redo) | **K8 Federica pendant** — motion disc-gate catch | cinematic_studio_2_5 | ~4 | ✅ locked |
-| e2118e76 (+ redo) | **K9 Başak evil-eye** — damage beat | cinematic_studio_2_5 | ~4 | ✅ locked |
+| e2118e76 / **142f2014** | **K9 Başak evil-eye** — damage beat; user preferred the earlier take `142f2014` ("previous one that was better") → now wired as k9.jpg | cinematic_studio_2_5 | ~4 | ✅ **142f2014** locked |
 | 6025b2b9 (+ redo) | **K10 Yaşar constellation** — sun-mandala was wrong, redone as Ursa | cinematic_studio_2_5 | ~4 | ✅ locked |
 | 64b1226c | **K11 Najoua lotus** | cinematic_studio_2_5 | 2.00 | ✅ locked |
 | ad5ae059 (+ redo) | **Baver glass interstitial** — glass-only, no character | cinematic_studio_2_5 | ~4 | ✅ locked |

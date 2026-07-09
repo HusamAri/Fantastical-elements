@@ -46,7 +46,7 @@ the **site shows the video scenes**, not static images. Keyframe-first → video
 |----------|-------|-------------------|
 | I Agustín | **the disc itself** — razor-glass disc as a vinyl record, gold-and-black, turning in the tumbling glass (his own dedicated frame, no longer the K1 opening) | ✅ K12 `567654f3` (locked) |
 | II Najoua | **lotus / lotus petals** — serene grace-note, petals settle on his palm | K11 `64b1226c` (audit) |
-| III Başak | **blue evil-eye (nazar)** in blue smoke — the damage beat before Flame Inside | ✅ K9 (redo, locked) |
+| III Başak | **blue evil-eye (nazar)** in blue smoke — the damage beat before Flame Inside | ✅ K9 `142f2014` (user-preferred earlier take, locked) |
 | IV Yaşar Efe | **star-constellation** (Ursa Major / Ursa Minor — Büyük/Küçük Ayı) glowing in the SKY beside the SUN, seen while he **charges up an attack**, low heroic angle from below | K10 REDO (sun-mandala was wrong) |
 | V Baver | **purple neon smoke + green neon digital-data pattern** (math-professor / data) | pending |
 | VI Federica | **lapis-leaf pendant** recalled through TWO disc-gates (falls from near gate to hand; far gate shows only the chain); he **lunges forward** to catch it | ✅ K8 (motion disc-gate, locked) |
