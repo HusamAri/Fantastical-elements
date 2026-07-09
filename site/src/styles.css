@@ -8,9 +8,10 @@
   --gray: #8a8f98;
   --amber: #e8a832;
   --gold: #c69749;
-  --font-display: "Chicle", "Cormorant Garamond", Georgia, cursive;
-  --font-serif: "Fraunces", Georgia, serif;
-  --font-sans: "Space Grotesk", system-ui, sans-serif;
+  /* Adobe Fonts (kit iwq4dnt): Bodoni URW display · Adobe Caslon Pro editorial serif · P22 Underground labels */
+  --font-display: "bodoni-urw", "Didot", "Bodoni MT", Georgia, serif;
+  --font-serif: "adobe-caslon-pro", Georgia, "Times New Roman", serif;
+  --font-sans: "p22-underground", system-ui, sans-serif;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: auto !important; }
@@ -78,86 +79,48 @@ body {
 .display { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.7rem, 3.6vw, 2.8rem); line-height: 1.0; letter-spacing: 0.01em; text-shadow: 0 2px 30px rgba(0,0,0,0.6); }
 .display__sub { display: block; margin-top: 1.5rem; font-family: var(--font-sans); font-weight: 400; font-size: clamp(0.6rem,1.4vw,0.8rem); letter-spacing: 0.44em; text-transform: uppercase; color: var(--blush); }
 
-.note { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: clamp(1.15rem, 2.6vw, 1.9rem); color: #e7e3dd; letter-spacing: 0.01em; text-shadow: 0 2px 24px rgba(0,0,0,0.65); }
+.note { font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: clamp(1.15rem, 2.6vw, 1.9rem); color: #e7e3dd; letter-spacing: 0.01em; text-shadow: 0 2px 24px rgba(0,0,0,0.65); }
 
-/* ---- Fragment card: frosted glass panel + real character cutout breaking the edge ---- */
-.fcard {
-  position: absolute; bottom: 8vh; width: min(560px, 82vw); height: 82vh;
-  margin: 0; pointer-events: none;
-}
-.fcard--right { right: 6vw; }
-.fcard--left  { left: 6vw; }
-/* Big translucent roman numeral behind everything (editorial depth) */
-.fcard__ghost {
-  position: absolute; top: 2%; z-index: 0; font-family: var(--font-serif); font-weight: 400;
-  font-size: 34vh; line-height: 0.8; color: rgba(244,241,237,0.06); will-change: transform; user-select: none;
-}
-.fcard--right .fcard__ghost { right: 4%; }
-.fcard--left  .fcard__ghost { left: 4%; }
-/* The cutout — tall, rises ABOVE the panel top edge, casts a soft shadow onto the film */
-.fcard__cut {
-  position: absolute; left: 50%; bottom: 20%; z-index: 2; height: 88%; width: auto; max-width: none;
-  transform: translateX(-50%); object-fit: contain; will-change: transform;
-  filter: drop-shadow(0 30px 60px rgba(0,0,0,0.6)) drop-shadow(0 2px 10px rgba(0,0,0,0.5));
-  /* soft dissolve on the bottom AND the outer edge — no hard straight cut at the screen side */
-  -webkit-mask-composite: source-in; mask-composite: intersect;
-}
-.fcard--right .fcard__cut {
-  -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 97%), linear-gradient(to right, #000 58%, transparent 95%);
-          mask-image: linear-gradient(to bottom, #000 70%, transparent 97%), linear-gradient(to right, #000 58%, transparent 95%);
-}
-.fcard--left .fcard__cut {
-  -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 97%), linear-gradient(to left, #000 58%, transparent 95%);
-          mask-image: linear-gradient(to bottom, #000 70%, transparent 97%), linear-gradient(to left, #000 58%, transparent 95%);
-}
-/* Frosted panel overlaps the cutout's lower body (the cutout breaks its top like the reference) */
-.fcard__panel {
-  position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; display: grid; gap: 0.55rem;
-  padding: 2.2rem 2rem 1.9rem; border-radius: 18px; will-change: transform;
-  background: linear-gradient(155deg, rgba(20,17,25,0.42), rgba(9,8,12,0.62));
-  backdrop-filter: blur(16px) saturate(1.15); -webkit-backdrop-filter: blur(16px) saturate(1.15);
-  border: 1px solid rgba(244,241,237,0.14);
-  box-shadow: 0 24px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(244,241,237,0.08);
-}
-.fcard__idx { font-family: var(--font-sans); font-weight: 500; font-size: 0.72rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--amber); }
-.fcard__arrow { position: absolute; top: 1.7rem; right: 1.7rem; width: 26px; height: 26px; color: rgba(244,241,237,0.55); }
-.fcard__name { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.35rem, 2.6vw, 2rem); line-height: 1.0; letter-spacing: 0.01em; color: var(--ivory); text-shadow: 0 2px 20px rgba(0,0,0,0.55); }
-.fcard__slogan { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: clamp(1rem, 1.7vw, 1.32rem); color: #ded9d3; line-height: 1.4; }
-.fcard__enter {
-  justify-self: start; margin-top: 1rem; pointer-events: auto; font-family: var(--font-sans); font-weight: 400;
-  font-size: 0.66rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ivory);
-  text-decoration: none; padding: 11px 22px; border: 1px solid rgba(244,241,237,0.35); border-radius: 999px;
-  transition: color 0.3s, border-color 0.3s, background 0.3s;
-}
-.fcard__enter:hover { border-color: var(--amber); background: var(--amber); color: #0b0b0b; }
-
-/* Text-only fragment card (no clean cutout available): the panel sits, deliberately placed, in the
-   negative-space column with the big roman numeral behind it — the film's motif carries the subject. */
-.fcard--textonly { height: auto; bottom: 17vh; }
-.fcard--textonly .fcard__panel { position: relative; left: auto; right: auto; bottom: auto; width: 100%; }
-.fcard--textonly .fcard__ghost { top: auto; bottom: 100%; margin-bottom: -3vh; }
-
-/* Connector: hairline wire + marker ring that points from the card to the film's own object */
-.fconn { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
-.fcard__wire { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
-.fcard__wireline {
-  stroke: rgba(230,200,140,0.55); stroke-width: 1; vector-effect: non-scaling-stroke;
+/* ---- Fragment annotation (no photos): marker ring on the film's object + leader line to a glass
+   info-box in the negative space. The object anchor + box position are precomputed (src/fragmap.json)
+   and positioned each frame in viewport px by JS; the ring rides the object, the box "opens" on cue. */
+.plate--anno { padding: 0; }
+.frag__wire { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; overflow: visible; pointer-events: none; }
+.frag__line {
+  stroke: rgba(230,200,140,0.6); stroke-width: 1; vector-effect: non-scaling-stroke; fill: none;
   stroke-dasharray: 1; stroke-dashoffset: 1;
 }
-.fcard__ring {
-  position: absolute; width: 30px; height: 30px; margin: -15px 0 0 -15px;
-  border: 1px solid rgba(230,200,140,0.8); border-radius: 50%;
+.frag__ring {
+  position: absolute; left: 0; top: 0; z-index: 2; width: 30px; height: 30px; margin: -15px 0 0 -15px;
+  border: 1px solid rgba(230,200,140,0.85); border-radius: 50%; pointer-events: none; will-change: transform;
 }
-.fcard__ring i { position: absolute; inset: 11px; border-radius: 50%; background: var(--amber); box-shadow: 0 0 10px rgba(232,168,50,0.8); }
-.fcard__ring::after { content: ""; position: absolute; inset: -1px; border-radius: 50%; border: 1px solid rgba(230,200,140,0.5); animation: ringpulse 2.6s ease-out infinite; }
+.frag__ring i { position: absolute; inset: 11px; border-radius: 50%; background: var(--amber); box-shadow: 0 0 10px rgba(232,168,50,0.85); }
+.frag__ring::after { content: ""; position: absolute; inset: -1px; border-radius: 50%; border: 1px solid rgba(230,200,140,0.5); animation: ringpulse 2.6s ease-out infinite; }
 @keyframes ringpulse { 0% { transform: scale(1); opacity: 0.7; } 100% { transform: scale(2.6); opacity: 0; } }
-.fcard__tag {
-  position: absolute; font-family: var(--font-sans); font-weight: 400; font-size: 0.6rem;
-  letter-spacing: 0.28em; text-transform: uppercase; color: var(--blush); white-space: nowrap;
-  text-shadow: 0 1px 8px rgba(0,0,0,0.8);
+.frag__tag {
+  position: absolute; left: 0; top: 0; z-index: 2; margin: -7px 0 0 22px; will-change: transform;
+  font-family: var(--font-sans); font-weight: 500; font-size: 0.56rem; letter-spacing: 0.28em;
+  text-transform: uppercase; color: var(--blush); white-space: nowrap; text-shadow: 0 1px 8px rgba(0,0,0,0.85); pointer-events: none;
 }
-.fcard__tag--right { transform: translate(22px, -6px); }         /* object on the left → label to its right */
-.fcard__tag--left  { transform: translate(-22px, -6px) translateX(-100%); text-align: right; }
+.frag__box {
+  position: absolute; left: 0; top: 0; z-index: 3; width: min(340px, 78vw);
+  display: grid; gap: 0.5rem; padding: 1.5rem 1.6rem 1.4rem; border-radius: 14px; will-change: transform, clip-path;
+  background: linear-gradient(155deg, rgba(20,17,25,0.5), rgba(9,8,12,0.66));
+  backdrop-filter: blur(16px) saturate(1.15); -webkit-backdrop-filter: blur(16px) saturate(1.15);
+  border: 1px solid rgba(244,241,237,0.14);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(244,241,237,0.08); pointer-events: none;
+}
+.frag__idx { font-family: var(--font-sans); font-weight: 500; font-size: 0.64rem; letter-spacing: 0.36em; text-transform: uppercase; color: var(--amber); }
+.frag__arrow { position: absolute; top: 1.3rem; right: 1.3rem; width: 22px; height: 22px; color: rgba(244,241,237,0.5); }
+.frag__name { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.4rem, 2.4vw, 1.9rem); line-height: 1.0; letter-spacing: 0.01em; color: var(--ivory); text-shadow: 0 2px 20px rgba(0,0,0,0.55); }
+.frag__slogan { font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: clamp(0.95rem, 1.5vw, 1.18rem); color: #ded9d3; line-height: 1.42; }
+.frag__enter {
+  justify-self: start; margin-top: 0.7rem; pointer-events: auto; font-family: var(--font-sans); font-weight: 500;
+  font-size: 0.62rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ivory);
+  text-decoration: none; padding: 10px 20px; border: 1px solid rgba(244,241,237,0.35); border-radius: 999px;
+  transition: color 0.3s, border-color 0.3s, background 0.3s;
+}
+.frag__enter:hover { border-color: var(--amber); background: var(--amber); color: #0b0b0b; }
 
 /* Beat caption */
 .beat__line { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: clamp(1rem, 2.2vw, 1.6rem); color: #e7e3dd; line-height: 1.4; text-shadow: 0 2px 24px rgba(0,0,0,0.75); }
@@ -190,21 +153,18 @@ body.is-static .plate {
   min-height: 100vh; display: grid; place-items: center; text-align: center; padding: 12vh 8vw;
 }
 body.is-static .plate--right { place-items: center; }
-/* fragment card reflows to a normal block: cutout above, panel below */
-body.is-static .plate--frag { min-height: 112vh; }
-body.is-static .fcard { position: relative; left: auto; right: auto; bottom: auto; width: min(520px, 88vw); height: auto; margin: 0 auto; }
-body.is-static .fcard__ghost { display: none; }
-body.is-static .fcard__cut { position: relative; left: auto; bottom: auto; transform: none; height: 46vh; margin: 0 auto 1.2rem; display: block; }
-body.is-static .fcard__panel { position: relative; transform: none; clip-path: none; text-align: left; }
+/* fragment annotation reflows to a normal centred glass box (no ring / leader in the static tier) */
+body.is-static .plate--anno { min-height: 100vh; }
+body.is-static .frag__wire, body.is-static .frag__ring, body.is-static .frag__tag { display: none; }
+body.is-static .frag__box { position: relative; left: auto; top: auto; transform: none !important; clip-path: none !important; width: min(460px, 88vw); margin: 0 auto; text-align: left; }
 @media (prefers-reduced-motion: reduce) { .grain { opacity: 0.05; } }
 
 @media (max-width: 720px) {
   .plate--right { place-items: end center; text-align: center; padding-bottom: 14vh; }
   .plate--right > * { max-width: 90vw; }
   .film { object-position: 50% 40%; }
-  /* Mobile fragments: text + frosted glass box ONLY. No photo cutout, ghost numeral, or connector. */
-  .fcard__cut, .fcard__ghost, .fconn { display: none !important; }
-  .fcard { left: 5vw; right: 5vw; margin: 0 auto; width: min(460px, 90vw); height: auto; bottom: 10vh; }
-  .fcard--left { left: 5vw; right: 5vw; }
-  .fcard__panel { position: relative; left: auto; right: auto; bottom: auto; transform: none !important; clip-path: none !important; }
+  /* Mobile fragments: text + frosted glass box ONLY. No marker ring, leader line, or object tag
+     (JS centres the box low in the frame; these hide the annotation hardware). */
+  .frag__wire, .frag__ring, .frag__tag { display: none !important; }
+  .frag__box { width: min(440px, 90vw); }
 }

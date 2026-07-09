@@ -18,16 +18,16 @@
     <meta property="og:url" content="https://fantastic-elements.artifactstudio.info" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Chicle&family=Fraunces:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://use.typekit.net" crossorigin />
+    <!-- Adobe Fonts: Bodoni URW (display), Adobe Caslon Pro (editorial serif), P22 Underground (labels) -->
+    <link rel="stylesheet" href="https://use.typekit.net/iwq4dnt.css" />
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <body>
-    <!-- STAGE: two scrubbed films sharing one fixed frame. film = phase 1 (C1–C6,
-         K1→K2→K12→K3→K11→K13→K14); film2 = phase 2 (C7–C16, the climax + resolution).
-         The two share the same seam frame (K14), so the crossfade at the join is invisible.
-         The clip morphs ARE the scene changes — no cuts, no wipes needed inside the take. -->
+    <!-- STAGE: two films in one fixed frame. film = phase 1 (C1–C6), scroll-SCRUBBED.
+         film2 = phase 2 (C7–C16, climax + resolution), which PLAYS THROUGH (no scrubbing —
+         seeking a long film over the network stalls). They share the seam frame (K14), so the
+         crossfade at the join is invisible. -->
     <div class="stage" aria-hidden="true">
       <video
         class="film"
@@ -47,8 +47,8 @@
         playsinline
         preload="auto"
       >
-        <source src="/hero/phase2-scrub.webm" type="video/webm" />
-        <source src="/hero/phase2-scrub.mp4" type="video/mp4" />
+        <source src="/hero/phase2.webm" type="video/webm" />
+        <source src="/hero/phase2.mp4" type="video/mp4" />
       </video>
     </div>
     <div class="scrim" aria-hidden="true"></div>
@@ -99,10 +99,11 @@
         </div>
       </section>
 
-      <!-- PHASE II · the climax reel (C7–C16, K14→…→K5). Same continuous scroll-scrub;
-           film2 crossfades in at the shared seam frame. Four more fragments reveal at the
-           exact moment their motif is on screen (pendant · nazar · data · dipper), and the
-           story lands on the calm resolution (K5) under the CTA. -->
+      <!-- PHASE II · the climax reel (C7–C16, K14→…→K5). film2 crossfades in at the shared
+           seam frame and PLAYS THROUGH. Four fragments reveal at the exact moment their motif
+           is on screen; a leader line is drawn from the detected object to a glass info-box
+           placed in the frame's negative space (pendant · nazar · data · dipper). Lands on the
+           calm resolution (K5) under the CTA. -->
       <section class="reel" id="reel-sec">
         <div class="reel__pin">
           <!-- 00 · the bridge line (2 witnessed + 4 = the six) -->
