@@ -3,8 +3,12 @@
 Copy this folder to `episodes/E<nn>-<slug>/` at Phase 0. These artifacts ARE the episode's state —
 every session resumes from them, never from chat memory.
 
+Governed by `playbooks/forp-episode-engine/GOVERNANCE.md`. `STATE.md` is the source of truth for
+the current state and its Definition-of-Done ledger — read and update it every session.
+
 | File | Created at | Locked at | Owner |
 |---|---|---|---|
+| `STATE.md` | Phase 0 (scaffold) | never (advance-only) | GOVERNANCE state machine — current state + DoD ledger; resume from here |
 | `BLUEPRINT.md` | Phase 0 | Loop 1 clean ×2 + director | Loop 1 (structure) |
 | `ASSET-PLAN.md` | Phase 1 | director | Loop 4 (continuity-guard) |
 | `BUDGET.md` | Phase 1 | director (episode cap + funnel allowance) | generation protocol (updated from the ledger) |

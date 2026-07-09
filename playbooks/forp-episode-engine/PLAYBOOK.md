@@ -11,6 +11,13 @@ the Netflix QC taxonomy is primary-source-authoritative for the stated "Netflix 
 [RESEARCH-SOURCES.md](RESEARCH-SOURCES.md) for every citation, the 65-entry pitfall register, and
 the 10 practices that were researched and REJECTED (worth reading: what we deliberately don't do).
 
+> **This playbook is governed by [GOVERNANCE.md](GOVERNANCE.md) — the binding operating contract.**
+> The PLAYBOOK describes *what* each phase does; GOVERNANCE makes the sequence non-negotiable (no
+> phase advances until the prior phase's Definition of Done is letter-perfect and logged in
+> `STATE.md`), keeps the user to direction + the three gates, stops for options at real forks,
+> refuses-and-redirects wrong asks, flags every inconsistency, and forbids any generation without a
+> locked reference. If GOVERNANCE and any habit conflict, GOVERNANCE wins. Read it first.
+
 ## The Five Hard Rules
 
 1. **Keyframe first, always.** No text-to-video for narrative shots, ever. A shot exists as an

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curated Chaos — Fragments of Real People</title>
+    <meta name="description" content="Six were witnessed. Fragments of Real People — an interactive intro from Curated Chaos." />
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#07080c" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Curated Chaos — Fragments of Real People" />
+    <meta property="og:description" content="Six were witnessed. Create your own fragment." />
+    <meta property="og:image" content="https://fantastic-elements.artifactstudio.info/og.png" />
+    <meta property="og:url" content="https://fantastic-elements.artifactstudio.info" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <!-- STAGE: the five locked keyframes; one shown at a time, cross-faded under the shard-wipe -->
+    <div class="stage" aria-hidden="true">
+      <img class="frame" data-frame="0" src="/frames/k1.jpg" alt="" />
+      <img class="frame" data-frame="1" src="/frames/k2.jpg" alt="" />
+      <img class="frame" data-frame="2" src="/frames/k3.jpg" alt="" />
+      <img class="frame" data-frame="3" src="/frames/k4.jpg" alt="" />
+      <img class="frame" data-frame="4" src="/frames/k5.jpg" alt="" />
+      <img class="frame" data-frame="5" src="/frames/k6.jpg" alt="" />
+      <img class="frame" data-frame="6" src="/frames/k7.jpg" alt="" />
+      <img class="frame" data-frame="7" src="/frames/k8.jpg" alt="" />
+      <img class="frame" data-frame="8" src="/frames/k9.jpg" alt="" />
+      <img class="frame" data-frame="9" src="/frames/k10.jpg" alt="" />
+      <img class="frame" data-frame="10" src="/frames/k11.jpg" alt="" />
+      <img class="frame" data-frame="11" src="/interstitials/baver-glass.jpg" alt="" />
+      <img class="frame" data-frame="12" src="/frames/k12.jpg" alt="" />
+      <img class="frame" data-frame="13" src="/frames/k13.jpg" alt="" />
+      <img class="frame" data-frame="14" src="/frames/k14.jpg" alt="" />
+      <img class="frame" data-frame="15" src="/frames/k15.jpg" alt="" />
+    </div>
+    <div class="scrim" aria-hidden="true"></div>
+    <div class="flash" aria-hidden="true"></div>
+    <div class="blackout" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="wipe" aria-hidden="true"></div>
+
+    <aside class="rail" aria-hidden="true">
+      <span class="rail__tick" id="railTick"></span>
+      <span class="rail__label" id="railLabel">00</span>
+    </aside>
+
+    <main id="app">
+      <section class="hero" id="hero-sec">
+        <div class="hero__pin">
+          <!-- Title -->
+          <div class="plate plate--center" data-plate="title">
+            <h1 class="display">Curated&nbsp;Chaos</h1>
+            <span class="display__sub">Fragments of Real People</span>
+          </div>
+
+          <!-- Interstitial -->
+          <div class="plate plate--center" data-plate="note">
+            <p class="note">Six were witnessed.</p>
+          </div>
+
+          <!-- Fragment plate (populated from JS; sits low so it never clashes with the motif) -->
+          <div class="plate plate--frag" data-plate="frag"></div>
+
+          <!-- Beat captions for action / flame -->
+          <div class="plate plate--right" data-plate="beat"></div>
+
+          <!-- Final CTA (over the fade-to-black) -->
+          <div class="plate plate--center" data-plate="cta">
+            <h2 class="cta__title">Dark<br />&amp; fantastical&nbsp;elements.</h2>
+            <a class="cta__btn" href="/create">Create your own fragment →</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="/src/hero.js"></script>
+  </body>
+</html>
