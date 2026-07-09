@@ -17,10 +17,24 @@ continuity. Grade: Curated Chaos × gold-and-black; grainy analog; his signature
 | K7 | **ULTIMATE — Ancient Sunlight** — a sudden burst of sun from the sky strikes down; **eye-blinder white flash** | The climax + closer | pending |
 | — | **Close** — the sun-flash whites out → **fade to black and stays** → CTA | Ending, right after the ultimate | site effect |
 
-**Revised order (per user):** title → shatter → 6 fragments → K3 action → **K6 dodge (mid)** →
-K4 Flame Inside → **K7 ultimate (sun burst + blinder flash)** → close to black → CTA. The **ultimate
-is the closer** (supersedes the earlier calm-silhouette ending; K5 kept only as a brief settle beat).
-The eye-blinder flash is a white full-screen bloom in the site, resolving to black.
+**Woven order (per user — fragments threaded THROUGH the fight, not a six-block parade):**
+title (K1) → shatter (K2) → **Fragment I Agustín / the disc (K12)** → K3 action → **Fragment II
+Najoua / lotus (K11)** → K6 dodge → **Fragment VI Federica / pendant-catch (K8)** → **Fragment III
+Başak / evil-eye damage (K9)** → K4 Flame Inside → **Fragment V Baver / glass data** → **Fragment IV
+Yaşar / constellation (K10)** → **K7 ultimate (sun burst + blinder flash)** → close to black → CTA.
+The **ultimate is the closer** (K5 settle kept only as an optional beat, not in the mainline). The
+eye-blinder flash is a white full-screen bloom in the site, resolving to black.
+
+**Structure rationale:** a battle move, then a fragment surfaces — the fight's momentum carries the
+reveals (matches the tempo rule below). Two fragments double as battle moves (Federica's pendant-catch,
+Başak's evil-eye damage). **Cadence caveat:** 4 battle beats vs 6 fragments, so the interleave leaves
+two short fragment-pairs (07–08, 10–11); a tighter 1-move-1-fragment cadence would need 2–3 more
+battle keyframes (paid) — flagged to the user, pending decision.
+
+**NO-REUSE RULE:** every beat is a distinct scene — **no keyframe is used for two beats** (director:
+"don't use same frame 2 times"). Agustín previously borrowed the K1 opening shot; fixed with his own
+dedicated frame **K12** (the razor-glass disc as a vinyl macro, `567654f3`). The only shared frame is
+K7 across the ultimate → its own flash → CTA-over-black, which is one continuous shot, not a reused scene.
 
 ## These keyframes ARE the video's scene frames (director directive)
 The keyframes are not standalone stills — each is a **frame from the hero VIDEO's scenes**. Next
@@ -30,7 +44,7 @@ the **site shows the video scenes**, not static images. Keyframe-first → video
 ## Fragment motifs woven into the fight (each fragment's signature, per director)
 | Fragment | Motif | Keyframe / status |
 |----------|-------|-------------------|
-| I Agustín | **the disc itself** — vinyl-record shape + colour (already his disc-magic) | ✅ inherent in disc-magic |
+| I Agustín | **the disc itself** — razor-glass disc as a vinyl record, gold-and-black, turning in the tumbling glass (his own dedicated frame, no longer the K1 opening) | ✅ K12 `567654f3` (locked) |
 | II Najoua | **lotus / lotus petals** — serene grace-note, petals settle on his palm | K11 `64b1226c` (audit) |
 | III Başak | **blue evil-eye (nazar)** in blue smoke — the damage beat before Flame Inside | ✅ K9 (redo, locked) |
 | IV Yaşar Efe | **star-constellation** (Ursa Major / Ursa Minor — Büyük/Küçük Ayı) glowing in the SKY beside the SUN, seen while he **charges up an attack**, low heroic angle from below | K10 REDO (sun-mandala was wrong) |
@@ -52,10 +66,12 @@ full action scenes (they're dynamic).
   object element where one exists). Identity face-audit mandatory on every character frame.
 - CTA "dark & fantastical elements / create your own fragment" → launches playbook Phase 0.
 
-## Locked keyframes (user-approved)
+## Locked keyframes (user-approved) — all 12 locked
 K1 title, K2 shatter, K3 action, K4 Flame Inside, K5 settle, K6 dodge, K7 ultimate, K8 pendant
-(motion disc-gate), K9 Başak evil-eye. Pending: K10 (Yaşar constellation redo), K11 (Najoua lotus),
-Baver (purple smoke + green data). Then: animate to video → site from video scenes.
+(motion disc-gate), K9 Başak evil-eye, K10 Yaşar constellation, K11 Najoua lotus, **K12 Agustín disc
+(vinyl macro `567654f3`)**, plus the Baver glass-only interstitial (`ad5ae059`). All wired into the
+scroll site in the woven order above (QA-verified: correct frame per beat, shard-wipes, flash peaks
+1.00 → clean blackout). Next: animate to video → site from video scenes.
 
 Generation discipline: one image at a time, `get_cost` preflight, report spend after each, QA
 (face/hands/wardrobe/continuity) before it's accepted. No video until the full set is approved

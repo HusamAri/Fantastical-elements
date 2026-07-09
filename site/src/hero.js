@@ -23,25 +23,29 @@ const FRAGMENTS = [
 ];
 
 // Each beat: which keyframe is on stage, which plate shows, and its payload.
-// frame 0=K1 calm, 1=K2 shatter, 2=K3 action, 3=K4 flame, 4=K5 final.
-// frame indices: 0 K1 calm/disc · 1 K2 shatter · 2 K3 action · 3 K4 flame · 4 K5 settle ·
+// frame indices: 0 K1 calm hero · 1 K2 shatter · 2 K3 action · 3 K4 flame · 4 K5 settle ·
 // 5 K6 dodge · 6 K7 ultimate · 7 K8 pendant · 8 K9 evil-eye · 9 K10 constellation ·
-// 10 K11 lotus · 11 Baver glass interstitial. Each fragment reveals ON its motif frame.
+// 10 K11 lotus · 11 Baver glass interstitial · 12 K12 the disc (vinyl macro).
+// Each fragment reveals ON its own motif frame — no frame is reused for two beats.
+// Fragments are WOVEN through the fight (director note): a battle move, then a fragment
+// surfaces, then the next move — the fight's momentum carries the reveals instead of a
+// six-block parade. Two fragments double as battle moves (Federica's pendant-catch, Başak's
+// evil-eye damage). No frame is reused for two beats.
 const BEATS = [
-  { frame: 0,  plate: "title" },                                            // K1 calm, the disc
-  { frame: 1,  plate: "note" },                                             // K2 shatter — "Six were witnessed."
-  { frame: 0,  plate: "frag", frag: 0 },                                    // I  Agustín — the disc (vinyl)
-  { frame: 10, plate: "frag", frag: 1 },                                    // II Najoua — lotus
-  { frame: 8,  plate: "frag", frag: 2 },                                    // III Başak — evil-eye
-  { frame: 9,  plate: "frag", frag: 3 },                                    // IV Yaşar Efe — constellation
-  { frame: 11, plate: "frag", frag: 4 },                                    // V  Baver — data in the glass
-  { frame: 7,  plate: "frag", frag: 5 },                                    // VI Federica — pendant / disc-gate
-  { frame: 2,  plate: "beat", line: "He fought to keep them whole." },      // K3 action
-  { frame: 5,  plate: "beat", line: "Every strike, he turned aside." },     // K6 dodge
-  { frame: 3,  plate: "beat", line: "The fire he carried turned outward." },// K4 Flame Inside
-  { frame: 6,  plate: "beat", line: "Then he called down the sun." },       // K7 ultimate
-  { frame: 6,  plate: null },                       // eye-blinder flash → fade to black
-  { frame: 6,  plate: "cta" },                      // CTA over black
+  { frame: 0,  plate: "title" },                                             // 01 K1  calm hero
+  { frame: 1,  plate: "note" },                                              // 02 K2  shatter — "Six were witnessed."
+  { frame: 12, plate: "frag", frag: 0 },                                     // 03 K12 Fragment I  · Agustín — the disc coalesces
+  { frame: 2,  plate: "beat", line: "He fought to keep them whole." },       // 04 K3  action — he throws it
+  { frame: 10, plate: "frag", frag: 1 },                                     // 05 K11 Fragment II · Najoua — lotus, glimpsed
+  { frame: 5,  plate: "beat", line: "Every strike, he turned aside." },      // 06 K6  dodge — two discs
+  { frame: 7,  plate: "frag", frag: 5 },                                     // 07 K8  Fragment VI · Federica — pendant catch (a move)
+  { frame: 8,  plate: "frag", frag: 2 },                                     // 08 K9  Fragment III · Başak — evil-eye, the damage
+  { frame: 3,  plate: "beat", line: "The fire he carried turned outward." }, // 09 K4  Flame Inside — ignites from the hit
+  { frame: 11, plate: "frag", frag: 4 },                                     // 10 —   Fragment V · Baver — data in the shards
+  { frame: 9,  plate: "frag", frag: 3 },                                     // 11 K10 Fragment IV · Yaşar — constellation, charging
+  { frame: 6,  plate: "beat", line: "Then he called down the sun." },        // 12 K7  ultimate — Ancient Sunlight
+  { frame: 6,  plate: null },                        // 13 eye-blinder flash → fade to black
+  { frame: 6,  plate: "cta" },                       // 14 CTA over black
 ];
 const N = BEATS.length;
 const WIPE_HALF = 0.028; // half-width (scroll progress) of a shard-wipe window

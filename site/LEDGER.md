@@ -21,6 +21,14 @@ Every paid generation, per GOVERNANCE §8. Model `cinematic_studio_2_5` @2k = 2 
 | c1b64585 | **K5 settle** — centered, calm (now optional pre-close beat) | cinematic_studio_2_5 | 2.00 | ✅ keep |
 | 402506da | **K6 dodge** — jump-back, two discs both hands | cinematic_studio_2_5 | 2.00 | ✅ keep |
 | b37a91bb | **K7 ultimate** — "Ancient Sunlight" sun-pillar + blinder | cinematic_studio_2_5 | 2.00 | ✅ keep |
+| c6a5f493 (+ redo) | **K8 Federica pendant** — motion disc-gate catch | cinematic_studio_2_5 | ~4 | ✅ locked |
+| e2118e76 (+ redo) | **K9 Başak evil-eye** — damage beat | cinematic_studio_2_5 | ~4 | ✅ locked |
+| 6025b2b9 (+ redo) | **K10 Yaşar constellation** — sun-mandala was wrong, redone as Ursa | cinematic_studio_2_5 | ~4 | ✅ locked |
+| 64b1226c | **K11 Najoua lotus** | cinematic_studio_2_5 | 2.00 | ✅ locked |
+| ad5ae059 (+ redo) | **Baver glass interstitial** — glass-only, no character | cinematic_studio_2_5 | ~4 | ✅ locked |
+| faeefc62 / f43d6a53 / **567654f3** / a29d9b12 | **K12 Agustín disc** (vinyl macro) — 4-up concept, variant C locked | cinematic_studio_2_5 | 8.00 | ✅ **567654f3** locked |
 
-**Session spend: 16.84 cr** (balance 5966.9 as of the K-set completion). Zero video credits yet
-(cheap-truth-first — video is gated on keyframe approval).
+**Session spend: ~50.8 cr** (live balance **5932.9**; session started ≈5983.7). Reconciled to the live
+balance — the ~18 cr above the itemised locks covers rejected redos (K8/K9/K10/Baver face-audit + motif
+corrections). Still **zero video credits** — video remains gated on the full still set (now complete: 12
+keyframes + Baver interstitial, all wired in the woven order).
