@@ -1,10 +1,23 @@
 /*
- * FORP HERO — "The Fragments"
- * Scroll-driven intro built on five LOCKED keyframes (K1 calm → K2 shatter → K3 action →
- * K4 Flame Inside → K5 final). The motion's job is to REVEAL the six fragments. Scene changes
- * happen only through a glass-shard wipe passing in front of the frame — never a hard cut — and
- * everything is scrubbed by scroll. Text lives in the frame's negative space (integrated
- * composition), and the finale fades to black and stays before the CTA.
+ * FORP HERO — "The Fragments" · PHASE I (continuous video-scrub + motion typography)
+ * ---------------------------------------------------------------------------------
+ * The intro is driven by the FILM itself: phase1 = clips C1–C6, the six locked keyframes
+ * morphed one into the next by Kling (K1→K2→K12→K3→K11→K13→K14). Scroll scrubs the video's
+ * playhead.
+ *
+ * FREEZE = 0 ON CONNECTIONS (director's rule): the scrub is CONTINUOUS — the film never
+ * dead-stops at a join. There are no "hold" frames; every clip is scrubbed edge-to-edge and
+ * the playhead always advances with scroll. Lingering on a reveal is achieved by SLOWING the
+ * motion (a heavier scroll weight on that clip), never by freezing it. Only the very last
+ * frame parks under the CTA (the finale — not a scene connection).
+ *
+ * MOTION UI (director's rule + reference): text does not just fade — it REVEALS WITH MOTION as
+ * the scroll continues (rises + unblurs through its window). Fragment reveals are frosted-glass
+ * cards with the real character CUTOUT breaking the card edge and parallaxing over it.
+ *
+ * PACING ("tailor seconds between frames, then the length"): each clip is a fixed ~5.05s of
+ * film; its DWELL is tailored by a scroll weight. Page length = Σ(weights). Calm/reveal beats
+ * are weighted heavy (slow, they breathe); action beats light (they snap past).
  */
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -13,176 +26,162 @@ import Lenis from "lenis";
 gsap.registerPlugin(ScrollTrigger);
 
 const FRAG_BASE = "https://curatedchaos.artifactstudio.info/en/works/fragments/";
-const FRAGMENTS = [
-  { roman: "I",   name: "Agustín",           slogan: "A minimalist visual poem about artistic awakening.", slug: "agustin" },
-  { roman: "II",  name: "Najoua",            slogan: "Kindness mistaken for weakness — until she spoke.",   slug: "najoua" },
-  { roman: "III", name: "Başak",             slogan: "From protective invisibility to deliberate presence.", slug: "basak" },
-  { roman: "IV",  name: "Yaşar Efe",         slogan: "The figure who returns the blade to himself.",        slug: "yasar-efe" },
-  { roman: "V",   name: "Baver",             slogan: "A year of surviving panic without yielding.",         slug: "baver" },
-  { roman: "VI",  name: "Federica · Espera", slogan: "Foglia d'Oro — the gold leaf beneath her skin.",      slug: "federica" },
-];
+const FRAGMENTS = {
+  agustin: { roman: "I",  name: "Agustín", slogan: "A minimalist visual poem about artistic awakening.", slug: "agustin", cut: "/fragments/agustin.png" },
+  najoua:  { roman: "II", name: "Najoua",  slogan: "Kindness mistaken for weakness — until she spoke.",  slug: "najoua",  cut: "/fragments/najoua.png" },
+};
 
-// Each beat: which keyframe is on stage, which plate shows, and its payload.
-// frame indices: 0 K1 calm · 1 K2 shatter · 2 K3 action · 3 K4 flame · 4 K5 settle/close ·
-// 5 K6 dodge · 6 K7 ultimate · 7 K8 pendant · 8 K9 evil-eye · 9 K10 constellation ·
-// 10 K11 lotus · 11 Baver glass · 12 K12 Agustín disc · 13 K13 Twin Spiral charge ·
-// 14 K14 Twin Spiral throw · 15 K15 spin interrupted / blades destroyed. Fragments are WOVEN
-// through the fight; Twin Spiral (Q) is two beats (charge→throw). The enemy's interrupt (K15)
-// destroys his discs; Başak's evil-eye is the "last drop" → Flame. Close resolves the sun-flash
-// to K5 (settle), not pure black. No frame is reused for two beats.
-const BEATS = [
-  { frame: 0,  plate: "title" },                                             // 01 K1  calm hero
-  { frame: 1,  plate: "note" },                                              // 02 K2  shatter — "Six were witnessed."
-  { frame: 12, plate: "frag", frag: 0 },                                     // 03 K12 Fragment I  · Agustín — the disc coalesces
-  { frame: 2,  plate: "beat", line: "He fought to keep them whole." },       // 04 K3  action
-  { frame: 10, plate: "frag", frag: 1 },                                     // 05 K11 Fragment II · Najoua — lotus
-  { frame: 13, plate: "beat", line: "Two discs woke in his hands," },        // 06 K13 Twin Spiral — charge
-  { frame: 14, plate: "beat", line: "and he loosed them, spiralling." },     // 07 K14 Twin Spiral — throw
-  { frame: 7,  plate: "frag", frag: 5 },                                     // 08 K8  Fragment VI · Federica — pendant catch (a move)
-  { frame: 5,  plate: "beat", line: "Every strike, he turned aside —" },     // 09 K6  dodge
-  { frame: 15, plate: "beat", line: "— then the blow that broke his discs." }, // 10 K15 spin interrupted — blades destroyed
-  { frame: 8,  plate: "frag", frag: 2 },                                     // 11 K9  Fragment III · Başak — evil-eye, the last drop
-  { frame: 3,  plate: "beat", line: "The fire he carried turned outward." }, // 12 K4  Flame Inside — ignites from the wound
-  { frame: 11, plate: "frag", frag: 4 },                                     // 13 —   Fragment V · Baver — data in the shards
-  { frame: 9,  plate: "frag", frag: 3 },                                     // 14 K10 Fragment IV · Yaşar — constellation, charging
-  { frame: 6,  plate: "beat", line: "Then he called down the sun." },        // 15 K7  ultimate — Ancient Sunlight
-  { frame: 4,  plate: null },                        // 16 eye-blinder flash → resolves to the settle (K5)
-  { frame: 4,  plate: "cta" },                       // 17 CTA over the settle (K5), dust still falling
-];
-const N = BEATS.length;
-const WIPE_HALF = 0.028; // half-width (scroll progress) of a shard-wipe window
+// Film duration read from the element once metadata loads; this is the fallback.
+let DUR = 30.29;
+const anchor = (i) => (i / 6) * DUR; // 7 keyframes at the six equal clip boundaries
+
+// Per-clip scroll weights (pacing) + a final outro zone for the CTA.
+const CLIPW = [1.5, 1.4, 1.15, 1.15, 1.2, 1.35]; // C1 shatter · C2→Agustín · C3 action · C4→Najoua · C5 · C6 throw
+const OUTRO = 1.5;                                 // CTA settle on the last frame
+const WTOTAL = CLIPW.reduce((a, b) => a + b, 0) + OUTRO;
+const S = [0];                                     // S[i] = scroll fraction at keyframe Ki (i=0..6)
+for (let i = 0; i < 6; i++) S.push(S[i] + CLIPW[i] / WTOTAL);
+const OUT0 = S[6];                                 // outro spans [OUT0, 1]
+const sz = (i) => S[i + 1] - S[i];
 
 const prefersReduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
 const smooth = (t) => t * t * (3 - 2 * t);
-const inv = (v, a, b) => clamp((v - a) / (b - a), 0, 1);
+const inv = (v, a, b) => (b === a ? 0 : clamp((v - a) / (b - a), 0, 1));
+const lerp = (a, b, t) => a + (b - a) * t;
 
 const els = {
-  frames: [...document.querySelectorAll(".frame")],
+  film: document.getElementById("film"),
   scrim: document.querySelector(".scrim"),
-  flash: document.querySelector(".flash"),
-  black: document.querySelector(".blackout"),
-  wipe: document.querySelector(".wipe"),
-  title: document.querySelector('[data-plate="title"]'),
-  note: document.querySelector('[data-plate="note"]'),
-  frag: document.querySelector('[data-plate="frag"]'),
-  beat: document.querySelector('[data-plate="beat"]'),
-  cta: document.querySelector('[data-plate="cta"]'),
   tick: document.getElementById("railTick"),
   label: document.getElementById("railLabel"),
 };
 
-function buildShards() {
-  const conf = [
-    { x: 6,  s: 1.08, r: -7, delay: 0.0 },
-    { x: 40, s: 1.28, r: 6,  delay: 0.08 },
-    { x: 73, s: 1.02, r: -3, delay: 0.04 },
-  ];
-  return conf.map((c) => {
-    const img = document.createElement("img");
-    img.className = "shard"; img.src = "/shard.png"; img.alt = "";
-    img.style.left = c.x + "%";
-    img.dataset.s = c.s; img.dataset.r = c.r; img.dataset.delay = c.delay;
-    els.wipe.appendChild(img);
-    return img;
-  });
+// ---- Fragment card markup (frosted panel + cutout that breaks the edge) ----
+function cardHTML(f, side) {
+  return `<figure class="fcard fcard--${side}">
+    <span class="fcard__ghost">${f.roman}</span>
+    <img class="fcard__cut" src="${f.cut}" alt="${f.name}" draggable="false" />
+    <figcaption class="fcard__panel">
+      <span class="fcard__idx">Fragment ${f.roman}</span>
+      <svg class="fcard__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="fcard__name">${f.name}</span>
+      <span class="fcard__slogan">“${f.slogan}”</span>
+      <a class="fcard__enter" href="${FRAG_BASE}${f.slug}" target="_blank" rel="noopener">Enter the fragment →</a>
+    </figcaption>
+  </figure>`;
 }
 
-function fragHTML(f) {
-  return `<div class="frag">
-    <div class="frag__idx">Fragment ${f.roman}</div>
-    <div class="frag__name">${f.name}</div>
-    <p class="frag__slogan">“${f.slogan}”</p>
-    <a class="frag__enter" href="${FRAG_BASE}${f.slug}" target="_blank" rel="noopener">Enter the fragment →</a>
-  </div>`;
-}
+const plateEl = (k) => document.querySelector(`[data-plate="${k}"]`);
+plateEl("fragA").innerHTML = cardHTML(FRAGMENTS.agustin, "right");
+plateEl("fragN").innerHTML = cardHTML(FRAGMENTS.najoua, "left");
 
-let shards, curBeat = -1, curFrame = -1;
-
-function show(el, on) { el.style.opacity = on ? "1" : "0"; el.classList.toggle("is-live", on); }
-
-function setBeat(idx) {
-  if (idx === curBeat) return;
-  curBeat = idx;
-  const b = BEATS[idx];
-  // Frame swap (cross-fade)
-  if (b.frame !== curFrame) {
-    curFrame = b.frame;
-    els.frames.forEach((f, i) => f.classList.toggle("is-active", i === b.frame));
+// ---- Plate timeline: window [a,b] in scroll + motion params ----
+// type "text": rises + unblurs. type "card": panel + cutout parallax at different rates.
+const PLATES = [
+  { key: "title",      type: "text", a: 0,                   b: S[0] + 0.62 * sz(0), fin: 0.0,  fout: 0.42, y: [0, -70],  blur: 8 },
+  { key: "note",       type: "text", a: S[1] - 0.34 * sz(0), b: S[1] + 0.42 * sz(1), fin: 0.30, fout: 0.30, y: [46, -46], blur: 7 },
+  { key: "fragA",      type: "card", a: S[2] - 0.44 * sz(1), b: S[2] + 0.54 * sz(2), fin: 0.20, fout: 0.24, side: 1 },
+  { key: "beatAction", type: "text", a: S[2] + 0.60 * sz(2), b: S[3] + 0.05 * sz(3), fin: 0.30, fout: 0.30, y: [46, -46], blur: 7 },
+  { key: "fragN",      type: "card", a: S[4] - 0.44 * sz(3), b: S[4] + 0.54 * sz(4), fin: 0.20, fout: 0.24, side: -1 },
+  { key: "beatCharge", type: "text", a: S[5] - 0.34 * sz(4), b: S[5] + 0.40 * sz(5), fin: 0.30, fout: 0.32, y: [46, -46], blur: 7 },
+  { key: "beatThrow",  type: "text", a: S[5] + 0.44 * sz(5), b: OUT0 + 0.12 * (1 - OUT0), fin: 0.34, fout: 0.30, y: [40, -40], blur: 6 },
+  { key: "cta",        type: "text", a: OUT0 - 0.10 * sz(5), b: 1.0, fin: 0.16, fout: 0.0, y: [40, 0], blur: 6 },
+];
+for (const pl of PLATES) {
+  pl.el = plateEl(pl.key);
+  if (pl.type === "card") {
+    pl.cut = pl.el.querySelector(".fcard__cut");
+    pl.panel = pl.el.querySelector(".fcard__panel");
+    pl.ghost = pl.el.querySelector(".fcard__ghost");
   }
-  // Plates
-  show(els.title, b.plate === "title");
-  show(els.note, b.plate === "note");
-  show(els.frag, b.plate === "frag");
-  show(els.beat, b.plate === "beat");
-  show(els.cta, b.plate === "cta");
-  if (b.plate === "frag") els.frag.innerHTML = fragHTML(FRAGMENTS[b.frag]);
-  if (b.plate === "beat") els.beat.innerHTML = `<p class="beat__line">${b.line}</p>`;
-  // Mood: darken slightly on fragment/beat plates so text reads
-  els.scrim.style.opacity =
-    b.plate === "frag" || b.plate === "beat" ? "0.34" : b.plate === "note" ? "0.28" : "0.12";
 }
 
-function parallax(localT) {
-  // Subtle Ken-Burns within a beat on the active frame.
-  const f = els.frames[curFrame];
-  if (!f) return;
-  const s = 1.06 + localT * 0.06;
-  const x = (localT - 0.5) * 3.2;
-  f.style.transform = `scale(${s}) translateX(${x}%)`;
+function envelope(u, fin, fout) {
+  if (u < 0 || u > 1) return 0;
+  let o = 1;
+  if (fin > 0 && u < fin) o = smooth(u / fin);
+  if (fout > 0 && u > 1 - fout) o = Math.min(o, smooth((1 - u) / fout));
+  return o;
 }
 
-function updateWipe(p) {
-  const k = Math.round(p * N);
-  if (k <= 0 || k >= N) { shards.forEach((s) => (s.style.opacity = "0")); return; }
-  const boundary = k / N;
-  if (Math.abs(p - boundary) > WIPE_HALF) { shards.forEach((s) => (s.style.opacity = "0")); return; }
-  const t = inv(p, boundary - WIPE_HALF, boundary + WIPE_HALF);
-  shards.forEach((s) => {
-    const d = +s.dataset.delay;
-    const lt = clamp((t - d) / (1 - d), 0, 1);
-    const x = -175 + smooth(lt) * 350; // sweep across
-    s.style.opacity = lt > 0 && lt < 1 ? "1" : "0";
-    s.style.transform = `translateX(${x}%) scale(${s.dataset.s}) rotate(${s.dataset.r}deg)`;
-  });
-  setBeat(t < 0.5 ? k - 1 : k); // swap under cover of the curtain
+function applyPlate(pl, p) {
+  const u = inv(p, pl.a, pl.b);
+  const o = envelope(u, pl.fin, pl.fout);
+  const el = pl.el;
+  if (o <= 0.001) {
+    if (el.style.opacity !== "0") { el.style.opacity = "0"; el.classList.remove("is-live"); }
+    return 0;
+  }
+  el.style.opacity = o.toFixed(3);
+  el.classList.toggle("is-live", o > 0.6);
+  if (pl.type === "card") {
+    // whole card drifts gently; cutout + panel move at DIFFERENT rates → depth (reference look)
+    el.style.transform = `translate3d(0, ${lerp(24, -22, u).toFixed(1)}px, 0)`;
+    pl.cut.style.transform = `translate3d(${(pl.side * lerp(-10, 18, u)).toFixed(1)}px, ${lerp(54, -78, u).toFixed(1)}px, 0) scale(${lerp(1.05, 1.0, u).toFixed(3)})`;
+    pl.panel.style.transform = `translate3d(${(pl.side * lerp(52, -6, u)).toFixed(1)}px, ${lerp(30, -20, u).toFixed(1)}px, 0)`;
+    pl.panel.style.clipPath = `inset(0 0 ${clamp((1 - o) * 42, 0, 42).toFixed(1)}% 0 round 18px)`;
+    pl.ghost.style.transform = `translate3d(${(pl.side * lerp(30, -30, u)).toFixed(1)}px, ${lerp(-10, -40, u).toFixed(1)}px, 0)`;
+  } else {
+    const blur = (1 - o) * pl.blur;
+    el.style.transform = `translate3d(0, ${lerp(pl.y[0], pl.y[1], u).toFixed(1)}px, 0)`;
+    el.style.filter = blur > 0.25 ? `blur(${blur.toFixed(2)}px)` : "";
+  }
+  return o;
 }
 
+// ---- Video-time target from scroll (continuous, monotonic — never a dead hold) ----
+function timeAt(p) {
+  if (p >= OUT0) return DUR - 0.02;                 // finale parks on the last frame
+  for (let i = 0; i < 6; i++) {
+    if (p < S[i + 1] || i === 5) return lerp(anchor(i), anchor(i + 1), inv(p, S[i], S[i + 1]));
+  }
+  return 0;
+}
+
+let targetTime = 0, ready = false;
 function onScroll(p) {
-  const fp = p * N;
-  const seg = clamp(Math.floor(fp), 0, N - 1);
-  setBeat(seg);
-  parallax(fp - seg);
-  updateWipe(p);
-  // Ultimate → eye-blinder sun flash → the flash FALLS TO REVEAL the settle (K5) → CTA.
-  const fpk = (N - 2) / N;                          // boundary: ultimate → close (K5)
-  const flash = p <= fpk
-    ? smooth(inv(p, fpk - 0.5 / N, fpk))            // rise into the blinder
-    : 1 - smooth(inv(p, fpk, fpk + 0.5 / N));       // fall out of the flash, uncovering K5
-  els.flash.style.opacity = String(clamp(flash, 0, 1));
-  // No blackout: the whiteout resolves onto the settle frame (K5). A faint scrim only, for CTA legibility.
-  els.black.style.opacity = String(0.22 * inv(p, fpk + 0.5 / N, 1));
+  targetTime = timeAt(p);
+  let strongest = 0;
+  for (const pl of PLATES) strongest = Math.max(strongest, applyPlate(pl, p));
+  els.scrim.style.opacity = (0.12 + 0.42 * strongest).toFixed(3);
   const pc = Math.round(p * 100);
   els.tick.style.top = els.label.style.top = `${p * 100}%`;
   els.label.textContent = String(pc).padStart(2, "0");
 }
 
+// Ease the playhead toward the scroll target every frame — a weighty, filmic scrub.
+function scrubTick() {
+  if (ready && els.film.readyState >= 2) {
+    const cur = els.film.currentTime;
+    const next = lerp(cur, clamp(targetTime, 0, DUR - 0.02), 0.2);
+    if (Math.abs(next - cur) > 0.003) { try { els.film.currentTime = next; } catch (_) {} }
+  }
+}
+
 function initStatic() {
   document.body.classList.add("is-static");
-  els.title.style.opacity = els.note.style.opacity = els.cta.style.opacity = "1";
-  els.frag.style.opacity = els.beat.style.opacity = "1";
-  els.frag.innerHTML = FRAGMENTS.map(fragHTML).join("");
-  els.beat.innerHTML = BEATS.filter((b) => b.plate === "beat").map((b) => `<p class="beat__line">${b.line}</p>`).join("");
+  const f = els.film;
+  f.setAttribute("loop", ""); f.muted = true;
+  f.play?.().catch(() => {});
+  plateEl("title").style.opacity = plateEl("cta").style.opacity = "1";
 }
 
 function boot() {
-  if (prefersReduced) return initStatic();
-  shards = buildShards();
-  els.frames[0].classList.add("is-active");
+  const f = els.film;
+  const onMeta = () => { if (f.duration && isFinite(f.duration)) DUR = f.duration; ready = true; ScrollTrigger.refresh(); };
+  if (f.readyState >= 1) onMeta();
+  f.addEventListener("loadedmetadata", onMeta, { once: true });
+  f.play?.().then(() => f.pause()).catch(() => {});
 
-  const lenis = new Lenis({ lerp: 0.085 });
+  if (prefersReduced) return initStatic();
+
+  // Page length from the tailored pacing weights.
+  document.getElementById("hero-sec").style.height = `${Math.round(WTOTAL * 92)}vh`;
+
+  const lenis = new Lenis({ lerp: 0.08 });
   lenis.on("scroll", ScrollTrigger.update);
-  gsap.ticker.add((time) => lenis.raf(time * 1000));
+  gsap.ticker.add((time) => { lenis.raf(time * 1000); scrubTick(); });
   gsap.ticker.lagSmoothing(0);
 
   ScrollTrigger.create({
@@ -195,6 +194,18 @@ function boot() {
   const refresh = () => ScrollTrigger.refresh();
   if (document.fonts?.ready) document.fonts.ready.then(refresh);
   addEventListener("load", refresh);
+
+  // Deterministic seek for offline animatic capture (?capture): jump scroll + film exactly.
+  if (location.search.includes("capture")) {
+    window.__seek = (p) => {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      lenis.scrollTo(p * max, { immediate: true });
+      ScrollTrigger.update();
+      onScroll(p);
+      try { els.film.currentTime = clamp(timeAt(p), 0, DUR - 0.02); } catch (_) {}
+    };
+    window.__ready = () => ready && els.film.readyState >= 2;
+  }
 }
 
 boot();

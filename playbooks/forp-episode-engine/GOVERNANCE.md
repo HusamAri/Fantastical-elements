@@ -84,7 +84,7 @@ memory or optimism.** Before doing any work, read `STATE.md`; after any work, up
 | 1 | Asset Plan & Budget | State 0 LOCKED | every character/object/**location**/wardrobe enumerated & mapped to an existing asset or a creation route with cost; registry refreshed same-day; budget ≤40% credits with funnel allowance → **director LOCK** |
 | 1.5 | Character Grounding | State 1 LOCKED | per character: DNA card + verbatim wardrobe string + anchor pack (Soul/Element) minted & id-recorded; **one outfit = one pack**; continuity-guard spot-check clean |
 | 2 | World & Visual Bible | State 1.5 done | VISUAL-BIBLE + PROMPT-BLOCKS locked; **per-location 4-view map + named anchor object**; **per-hero-object reference lock**; palette/grade/forbidden list set → **director LOCK** |
-| 3 | Shotlist | State 2 LOCKED | SHOTLIST full schema; every row states WHO / WHERE-relative / WHAT-CHANGED; 180° axis authored per scene; model routing per row |
+| 3 | Shotlist | State 2 LOCKED | SHOTLIST full schema; every row states WHO / WHERE-relative / WHAT-CHANGED; 180° axis authored per scene; model routing per row; **per-beat CONNECTING LOGIC authored — the motivated character-motion + camera move that bridges each frame N→N+1 (how each scene connects to the next), never left to the model (V8/V12)** |
 | 4 | **HUMAN GATE 1** | State 3 drafted | Loops 2+3+4 each clean ×2; approval package delivered → **director approval → rows LOCKED** |
 | 5 | Keyframes | Gate 1 passed | anchor-scene-first + master-first; every keyframe passes static continuity review vs Bibles; drift = triage, not re-roll |
 | 6 | Animatic → **HUMAN GATE 2** | State 5 stills approved | animatic cut at target rhythm w/ temp sound; logic/axis/rhythm fixed on stills → **director approves keyframes + animatic** |
@@ -221,6 +221,9 @@ No Bible entry + no reference asset ⇒ **no generation**. This is the rule whos
 ### 8.1 Pre-generation gate — no careless generation (run this checklist EVERY paid job)
 Before spending a single credit, ALL must be true, or do not generate:
 1. **One at a time** — exactly one output in flight; the previous is QA'd + director-cleared.
+   **VIDEO gate (absolute): each clip requires the DIRECTOR's explicit approval before the next is
+   generated — Claude's own QA is NOT approval and Claude may NEVER self-advance video.** Sequence:
+   generate one clip → QA → deliver → **wait for the user's "go"** → only then the next. No exceptions.
 2. **`get_cost` preflighted** and reported.
 3. **Prompt applies every relevant lesson** — read `PROMPT-LESSONS` / `VIDEO-PROMPT-LESSONS` /
    `KLING-CONTROL` / `CINEMATOGRAPHY` / `DIRECTING` first; a prompt that ignores a known lesson is

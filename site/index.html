@@ -24,32 +24,27 @@
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <body>
-    <!-- STAGE: the five locked keyframes; one shown at a time, cross-faded under the shard-wipe -->
+    <!-- STAGE: the phase-1 film (C1–C6, K1→K2→K12→K3→K11→K13→K14) scrubbed by scroll.
+         The clip morphs ARE the scene changes — no cuts, no wipes needed inside the take. -->
     <div class="stage" aria-hidden="true">
-      <img class="frame" data-frame="0" src="/frames/k1.jpg" alt="" />
-      <img class="frame" data-frame="1" src="/frames/k2.jpg" alt="" />
-      <img class="frame" data-frame="2" src="/frames/k3.jpg" alt="" />
-      <img class="frame" data-frame="3" src="/frames/k4.jpg" alt="" />
-      <img class="frame" data-frame="4" src="/frames/k5.jpg" alt="" />
-      <img class="frame" data-frame="5" src="/frames/k6.jpg" alt="" />
-      <img class="frame" data-frame="6" src="/frames/k7.jpg" alt="" />
-      <img class="frame" data-frame="7" src="/frames/k8.jpg" alt="" />
-      <img class="frame" data-frame="8" src="/frames/k9.jpg" alt="" />
-      <img class="frame" data-frame="9" src="/frames/k10.jpg" alt="" />
-      <img class="frame" data-frame="10" src="/frames/k11.jpg" alt="" />
-      <img class="frame" data-frame="11" src="/interstitials/baver-glass.jpg" alt="" />
-      <img class="frame" data-frame="12" src="/frames/k12.jpg" alt="" />
-      <img class="frame" data-frame="13" src="/frames/k13.jpg" alt="" />
-      <img class="frame" data-frame="14" src="/frames/k14.jpg" alt="" />
-      <img class="frame" data-frame="15" src="/frames/k15.jpg" alt="" />
+      <video
+        class="film"
+        id="film"
+        muted
+        playsinline
+        preload="auto"
+        poster="/hero-poster.jpg"
+      >
+        <source src="/hero/phase1-scrub.webm" type="video/webm" />
+        <source src="/hero/phase1-scrub.mp4" type="video/mp4" />
+      </video>
     </div>
     <div class="scrim" aria-hidden="true"></div>
-    <div class="flash" aria-hidden="true"></div>
-    <div class="blackout" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
     <div class="grain" aria-hidden="true"></div>
-    <div class="wipe" aria-hidden="true"></div>
 
     <aside class="rail" aria-hidden="true">
+      <span class="rail__phase">PHASE&nbsp;I</span>
       <span class="rail__tick" id="railTick"></span>
       <span class="rail__label" id="railLabel">00</span>
     </aside>
@@ -57,25 +52,41 @@
     <main id="app">
       <section class="hero" id="hero-sec">
         <div class="hero__pin">
-          <!-- Title -->
+          <!-- 01 · Title over the calm hero (K1) -->
           <div class="plate plate--center" data-plate="title">
             <h1 class="display">Curated&nbsp;Chaos</h1>
             <span class="display__sub">Fragments of Real People</span>
           </div>
 
-          <!-- Interstitial -->
+          <!-- 02 · The shatter lands (K2) -->
           <div class="plate plate--center" data-plate="note">
             <p class="note">Six were witnessed.</p>
           </div>
 
-          <!-- Fragment plate (populated from JS; sits low so it never clashes with the motif) -->
-          <div class="plate plate--frag" data-plate="frag"></div>
+          <!-- 03 · Fragment I — Agustín (K12) -->
+          <div class="plate plate--frag" data-plate="fragA"></div>
 
-          <!-- Beat captions for action / flame -->
-          <div class="plate plate--right" data-plate="beat"></div>
+          <!-- 04 · Action (K3) -->
+          <div class="plate plate--right" data-plate="beatAction">
+            <p class="beat__line">He fought to keep them whole.</p>
+          </div>
 
-          <!-- Final CTA (over the fade-to-black) -->
+          <!-- 05 · Fragment II — Najoua (K11) -->
+          <div class="plate plate--frag" data-plate="fragN"></div>
+
+          <!-- 06 · Twin Spiral charge (K13) -->
+          <div class="plate plate--right" data-plate="beatCharge">
+            <p class="beat__line">Two discs woke in his hands,</p>
+          </div>
+
+          <!-- 07 · Twin Spiral throw (K14) -->
+          <div class="plate plate--right" data-plate="beatThrow">
+            <p class="beat__line">and he loosed them, spiralling.</p>
+          </div>
+
+          <!-- 08 · CTA over the last frame -->
           <div class="plate plate--center" data-plate="cta">
+            <span class="cta__kicker">The story is still shattering.</span>
             <h2 class="cta__title">Dark<br />&amp; fantastical&nbsp;elements.</h2>
             <a class="cta__btn" href="/create">Create your own fragment →</a>
           </div>
