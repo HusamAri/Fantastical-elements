@@ -178,9 +178,10 @@ const TEXT1 = [
   { key: "beatCharge", a: S[5] - 0.34 * sz(4), b: S[5] + 0.40 * sz(5), fin: 0.30, fout: 0.32, y: [46, -46], blur: 7 },
   { key: "beatThrow",  a: S[5] + 0.44 * sz(5), b: OUT0 + 0.55 * (1 - OUT0), fin: 0.34, fout: 0.34, y: [40, -40], blur: 6 },
 ];
+// windows end soon after the keyframe so the box fades out WITH its object (never lingers after it)
 const FRAG1 = [
-  { key: "agustin", a: S[2] - 0.34 * sz(2), b: S[2] + 0.95 * sz(2), fin: 0.26, fout: 0.26 },
-  { key: "najoua",  a: S[4] - 0.34 * sz(4), b: S[4] + 0.95 * sz(4), fin: 0.26, fout: 0.26 },
+  { key: "agustin", a: S[2] - 0.30 * sz(2), b: S[2] + 0.55 * sz(2), fin: 0.30, fout: 0.34 },
+  { key: "najoua",  a: S[4] - 0.30 * sz(4), b: S[4] + 0.55 * sz(4), fin: 0.30, fout: 0.34 },
 ];
 TEXT1.forEach((p) => (p.el = textEl(p.key)));
 
@@ -189,11 +190,13 @@ const TEXT2 = [
   { key: "reelIntro", ta: 0.3,  tb: 4.6,   fin: 0.28, fout: 0.34, y: [46, -46], blur: 7 },
   { key: "cta",       ta: 46.0, tb: 53.46, fin: 0.16, fout: 0.0,  y: [40, 0],   blur: 6 },
 ];
+// tb ends just after each peak so the box vanishes as the object leaves (full-open still lands on
+// the peak, so it holds fully open through the gated dwell)
 const FRAG2 = [
-  { key: "federica", ta: 3.6,  tb: 6.9,   fin: 0.34, fout: 0.30 },
-  { key: "basak",    ta: 18.7, tb: 22.0,  fin: 0.36, fout: 0.30 },
-  { key: "baver",    ta: 29.0, tb: 32.5,  fin: 0.40, fout: 0.30 },
-  { key: "yasar",    ta: 33.2, tb: 37.8,  fin: 0.30, fout: 0.32 },
+  { key: "federica", ta: 3.9,  tb: 7.3,   fin: 0.32, fout: 0.34 },
+  { key: "basak",    ta: 18.8, tb: 22.5,  fin: 0.34, fout: 0.34 },
+  { key: "baver",    ta: 28.9, tb: 32.3,  fin: 0.36, fout: 0.34 },
+  { key: "yasar",    ta: 33.3, tb: 37.3,  fin: 0.30, fout: 0.34 },
 ];
 TEXT2.forEach((p) => (p.el = textEl(p.key)));
 
