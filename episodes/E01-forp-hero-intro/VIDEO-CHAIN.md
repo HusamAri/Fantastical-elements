@@ -230,3 +230,24 @@ K6→K15 · C10 K15→K9 · C11 K9→K4 · C12b K4→BAVER · C13b BAVER→K10 �
 · C16 K5→K5 (5s settle-hold). Every clip: endpoints locked (ncc>0.8), single-take, director-approved
 one-at-a-time under the story-first rule. Next: assemble the phase-2 continuation film into the site
 (+ new fragment routes: Federica/Başak/Baver/Yaşar), then the Higgsfield app (contest, closes Jul 22).
+
+## PHASE 2 — site assembly (2026-07-09)
+The site is now ONE continuous scroll-scrub in two phases. Phase-2 clips C7–C16 were concatenated
+(local imageio-ffmpeg, zero credits; normalized 1280×720@24, silent) into `site/public/hero/`:
+`phase2-scrub.webm` (VP9 `-g4`, dense keyframes for scrub), `phase2-scrub.mp4` (H.264 `-g4`, Safari),
+`phase2.mp4` (source). 53.46s / 1283 frames.
+- **Second pinned section `#reel-sec`** with its own `film2`; it crossfades in at the SHARED seam
+  frame (phase-1 ends on K14, phase-2 opens on K14 → invisible join). Linear scrub, ~26.5vh/s to
+  match phase-1's cadence. The phase-1 CTA moved to the true finale (over the calm K5 at ~50s).
+- **Four new fragments reveal at their on-screen motif moment** (the object-timing rule): Federica
+  **III** — lapis pendant (K8, ~5s); Başak **IV** — blue nazar (K9, ~20s); Baver **V** — green data
+  in the glass (BAVER, ~30s); Yaşar Efe **VI** — Big-Dipper constellation (K10, ~34.6s). With
+  Agustín I + Najoua II that completes "Six were witnessed." Loglines are the locked HERO-BIBLE lines
+  (Federica's em dash removed per the no-em-dash rule). Routes → `curatedchaos…/fragments/{federica,
+  basak,baver,yasar-efe}`.
+- **Mobile (≤720px): text + glass box only** — no cutout, ghost numeral, or connector (existing CSS).
+  Desktop keeps the cutouts for Federica/Baver/Yaşar. **Başak is text+glass on desktop too** because
+  her only source art is a full poster (title + logo + sky), not a clean cutout; her nazar motif on
+  screen carries the reveal. TODO: swap in a proper Başak cutout when the upload path is available.
+- Verified headless (Playwright + Chromium, range-capable server) at each reveal frame, desktop +
+  mobile; phase-1 unchanged (connector/ring/tag intact), no JS errors. Re-encodes are LOCAL (0 cr).

@@ -24,7 +24,9 @@
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <body>
-    <!-- STAGE: the phase-1 film (C1–C6, K1→K2→K12→K3→K11→K13→K14) scrubbed by scroll.
+    <!-- STAGE: two scrubbed films sharing one fixed frame. film = phase 1 (C1–C6,
+         K1→K2→K12→K3→K11→K13→K14); film2 = phase 2 (C7–C16, the climax + resolution).
+         The two share the same seam frame (K14), so the crossfade at the join is invisible.
          The clip morphs ARE the scene changes — no cuts, no wipes needed inside the take. -->
     <div class="stage" aria-hidden="true">
       <video
@@ -37,6 +39,16 @@
       >
         <source src="/hero/phase1-scrub.webm" type="video/webm" />
         <source src="/hero/phase1-scrub.mp4" type="video/mp4" />
+      </video>
+      <video
+        class="film film--2"
+        id="film2"
+        muted
+        playsinline
+        preload="auto"
+      >
+        <source src="/hero/phase2-scrub.webm" type="video/webm" />
+        <source src="/hero/phase2-scrub.mp4" type="video/mp4" />
       </video>
     </div>
     <div class="scrim" aria-hidden="true"></div>
@@ -79,12 +91,35 @@
             <p class="beat__line">Two discs woke in his hands,</p>
           </div>
 
-          <!-- 07 · Twin Spiral throw (K14) -->
+          <!-- 07 · Twin Spiral throw (K14) — the seam into phase 2 (the discs he looses
+               become C7's streaking, shattering discs) -->
           <div class="plate plate--right" data-plate="beatThrow">
             <p class="beat__line">and he loosed them, spiralling.</p>
           </div>
+        </div>
+      </section>
 
-          <!-- 08 · CTA over the last frame -->
+      <!-- PHASE II · the climax reel (C7–C16, K14→…→K5). Same continuous scroll-scrub;
+           film2 crossfades in at the shared seam frame. Four more fragments reveal at the
+           exact moment their motif is on screen (pendant · nazar · data · dipper), and the
+           story lands on the calm resolution (K5) under the CTA. -->
+      <section class="reel" id="reel-sec">
+        <div class="reel__pin">
+          <!-- 00 · the bridge line (2 witnessed + 4 = the six) -->
+          <div class="plate plate--center" data-plate="reelIntro">
+            <p class="note">Four more were witnessed.</p>
+          </div>
+
+          <!-- III · Federica — the lapis pendant (K8) -->
+          <div class="plate plate--frag" data-plate="fragF"></div>
+          <!-- IV · Başak — the evil-eye nazar (K9) -->
+          <div class="plate plate--frag" data-plate="fragB"></div>
+          <!-- V · Baver — the data in the glass (BAVER) -->
+          <div class="plate plate--frag" data-plate="fragV"></div>
+          <!-- VI · Yaşar Efe — the constellation (K10) -->
+          <div class="plate plate--frag" data-plate="fragY"></div>
+
+          <!-- Finale · CTA over the resolution frame (K5) -->
           <div class="plate plate--center" data-plate="cta">
             <span class="cta__kicker">The story is still shattering.</span>
             <h2 class="cta__title">Dark<br />&amp; fantastical&nbsp;elements.</h2>

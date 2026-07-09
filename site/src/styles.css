@@ -23,7 +23,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ---- Stage: the phase-1 film, scrubbed by scroll ---- */
+/* ---- Stage: two films (phase 1 + phase 2), each scrubbed by scroll, sharing one fixed frame ---- */
 .stage { position: fixed; inset: 0; z-index: 0; background: var(--deep); }
 .film {
   position: absolute; inset: 0;
@@ -31,6 +31,8 @@ body {
   object-fit: cover; object-position: 42% 42%;
   will-change: contents;
 }
+/* Phase-2 film sits on top; JS crossfades it in at the shared seam frame (K14) */
+.film--2 { z-index: 1; opacity: 0; will-change: opacity, contents; }
 
 /* Flat scrim (opacity scroll-driven; never a gradient on chrome) */
 .scrim { position: fixed; inset: 0; z-index: 1; background: var(--deep); opacity: 0.14; pointer-events: none; }
@@ -56,6 +58,9 @@ body {
 #app { position: relative; z-index: 3; }
 .hero { height: 1000vh; } /* JS overrides from the pacing weights; this is the pre-hydrate fallback */
 .hero__pin { position: relative; height: 100vh; width: 100%; overflow: hidden; }
+/* Phase-2 reel: a second scrubbed section, same pinned mechanics */
+.reel { height: 1400vh; } /* JS overrides from the phase-2 duration; pre-hydrate fallback */
+.reel__pin { position: relative; height: 100vh; width: 100%; overflow: hidden; }
 
 /* ---- Plates (integrated composition — text lives in the frame's negative space) ---- */
 .plate {
@@ -126,6 +131,12 @@ body {
 }
 .fcard__enter:hover { border-color: var(--amber); background: var(--amber); color: #0b0b0b; }
 
+/* Text-only fragment card (no clean cutout available): the panel sits, deliberately placed, in the
+   negative-space column with the big roman numeral behind it — the film's motif carries the subject. */
+.fcard--textonly { height: auto; bottom: 17vh; }
+.fcard--textonly .fcard__panel { position: relative; left: auto; right: auto; bottom: auto; width: 100%; }
+.fcard--textonly .fcard__ghost { top: auto; bottom: 100%; margin-bottom: -3vh; }
+
 /* Connector: hairline wire + marker ring that points from the card to the film's own object */
 .fconn { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
 .fcard__wire { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
@@ -165,10 +176,12 @@ body {
 /* ---- Reduced-motion / no-scrub static tier: dimmed film behind, ALL content stacked & scrollable
    (every fragment card, name, slogan, link + beat caption stays accessible — no motion needed) ---- */
 body.is-static { overflow-y: auto; }
-body.is-static .hero { height: auto; }
+body.is-static .hero, body.is-static .reel { height: auto; }
 body.is-static .rail { display: none; }
 body.is-static .stage { position: fixed; }
 body.is-static .film { opacity: 0.4; }
+body.is-static .film--2 { opacity: 0 !important; } /* one dimmed backdrop only; phase-2 plates read over it */
+body.is-static .reel__pin { position: static; height: auto; overflow: visible; }
 body.is-static .scrim { opacity: 0.5; }
 body.is-static .vignette { opacity: 0.85; }
 body.is-static .hero__pin { position: static; height: auto; overflow: visible; }
