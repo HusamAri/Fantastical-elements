@@ -218,6 +218,29 @@ No Bible entry + no reference asset ⇒ **no generation**. This is the rule whos
 - **Report spend after every generation:** state `this gen · session total · balance` so the user
   always sees the running cost (mirror it into `LEDGER.md`).
 
+### 8.1 Pre-generation gate — no careless generation (run this checklist EVERY paid job)
+Before spending a single credit, ALL must be true, or do not generate:
+1. **One at a time** — exactly one output in flight; the previous is QA'd + director-cleared.
+2. **`get_cost` preflighted** and reported.
+3. **Prompt applies every relevant lesson** — read `PROMPT-LESSONS` / `VIDEO-PROMPT-LESSONS` /
+   `KLING-CONTROL` / `CINEMATOGRAPHY` / `DIRECTING` first; a prompt that ignores a known lesson is
+   a careless generation and is forbidden.
+4. **References locked** (Soul/Element/keyframe ids) — never text-only identity.
+5. **It is actually needed** — not exploratory/duplicate/"let's see." If unsure it's needed, don't.
+6. **QA plan ready** (`vqa.py`/`frozen.py`/face-audit) to verify the result.
+A generation that skips this gate is a **careless generation** — a protocol violation (§10).
+
+### 8.2 Every mistake becomes a permanent guard
+When any output reaches the director flawed, append the MISTAKE→FIX to the matching lessons file
+(image/video) AND, if it's a process failure, to §10 here. The loops are read before every run so a
+mistake is made **once**. Improve the method each cycle; never repeat a logged error.
+
+### 8.3 Token efficiency (not only credits)
+Be economical with tokens as with credits: concise replies; no redundant reads or re-verification of
+state the harness already tracks; batch independent read-only calls; don't spawn agents or re-run
+research for something already known/committed; prefer the cheapest tool that answers. Waste of
+tokens is waste — the same discipline as credits.
+
 ---
 
 ## 9. Claude's binding obligations & prohibitions (quick contract)
