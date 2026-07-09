@@ -89,4 +89,10 @@ the least. Extend for phase 2 by appending clips + SPANS rows (holds for reveals
   disc, not flame); the shards sweep R→L as a shard-wipe and the camera whips with them, clearing on
   Husam mid-lunge catching the falling lapis pendant from the disc-gate (K8). Motion-only (V11), all
   objects move (V9), camera↔action synced (V12). Director-approved single generation (2026-07-09).
-  **Status: rendering → QA pending.**
+  **Status: RENDERED + QA PASSED, awaiting director sign-off.** Result mp4 job `3b762485` →
+  hf_20260709_055140. QA: start-lock vs K14 ncc=0.999 histCorr=1.000 (perfect); end-lock vs K8
+  ncc=0.894 histCorr=0.993 (strong); glitch spike_ratio=2.3 (clean, <6); frozen cells=0; 5.04s@24fps.
+  Face audit: Husam identity + locked costume consistent across the lunge, no warp. FLAG: mid-clip
+  burst (~1.1–2.5s) renders fire-heavy and hand briefly fire-wreathed (~2.5s) — inherited from K14's
+  locked glass-AND-fire disc; brushes the "flame-cast" look. Delivered to director with accept(A) /
+  re-roll-with-suppressed-fire(B) choice. HELD — no C8 until director's go.
