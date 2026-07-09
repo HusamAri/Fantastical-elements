@@ -197,6 +197,17 @@ const FRAG2 = [
 ];
 TEXT2.forEach((p) => (p.el = textEl(p.key)));
 
+// ---- PHASE II is scroll-GATED play-through: the film plays at natural speed toward the next
+// fragment peak, then HOLDS there (paused, box open) until scroll unlocks the next peak. ----
+const PPEAK = [5.0, 20.1, 30.2, 34.6];      // the four fragment object-peaks (federica·basak·baver·yasar)
+const PGATE = [0.16, 0.38, 0.58, 0.78];     // scroll fractions that unlock playing PAST each peak
+let reelP = 0, capturing = false;
+function allowedTimeFor(p2) {
+  let idx = 0;
+  for (let k = 0; k < PGATE.length; k++) if (p2 >= PGATE[k]) idx = k + 1;
+  return idx < PPEAK.length ? PPEAK[idx] : DUR2 - 0.05;   // last gate → play to the end (CTA)
+}
+
 function paintChrome(pct, strongest) {
   els.scrim.style.opacity = (0.12 + 0.34 * strongest).toFixed(3);
   els.tick.style.top = els.label.style.top = `${pct}%`;
@@ -240,13 +251,20 @@ function scrubTick() {
 }
 function frameTick() {
   scrubTick();
-  if (film2Vis > 0.5 && ready2) applyPhase2(els.film2.currentTime);
+  if (film2Vis > 0.5 && ready2) {
+    if (!capturing) {
+      // gate: play toward the allowed peak, then hold there until scroll unlocks the next one
+      const v = els.film2, allowed = allowedTimeFor(reelP), ct = v.currentTime;
+      if (ct > allowed + 0.15) { try { v.currentTime = allowed; } catch (_) {} if (!v.paused) v.pause(); }
+      else if (ct < allowed - 0.06) { if (v.paused) v.play?.().catch(() => {}); }
+      else if (!v.paused) v.pause();
+    }
+    applyPhase2(els.film2.currentTime);
+  }
 }
 
-function enterReel() {
-  film2Vis = 1; els.film2.style.opacity = "1";
-  els.film2.play?.().catch(() => {});
-}
+function reelScroll(p2) { reelP = p2; }
+function enterReel() { film2Vis = 1; els.film2.style.opacity = "1"; } // gate logic in frameTick drives play/pause
 function leaveReel() {
   els.film2.pause?.();
   film2Vis = 0; els.film2.style.opacity = "0";
@@ -271,8 +289,8 @@ function boot() {
   f.play?.().then(() => f.pause()).catch(() => {});
 
   document.getElementById("hero-sec").style.height = `${Math.round(WTOTAL * 92)}vh`;
-  // Phase-2 is a played reel: pin it for a comfortable watch span (it plays on its own clock).
-  document.getElementById("reel-sec").style.height = `${Math.round(DUR2 * 15)}vh`;
+  // Phase-2 is a scroll-GATED reel: pin it for a watch span; scroll unlocks each fragment in turn.
+  document.getElementById("reel-sec").style.height = `${Math.round(DUR2 * 12)}vh`;
 
   const lenis = new Lenis({ lerp: 0.08 });
   lenis.on("scroll", ScrollTrigger.update);
@@ -288,6 +306,7 @@ function boot() {
     trigger: "#reel-sec", start: "top top", end: "bottom bottom",
     pin: ".reel__pin", scrub: false, anticipatePin: 1, invalidateOnRefresh: true,
     onEnter: enterReel, onEnterBack: enterReel, onLeave: leaveReel, onLeaveBack: leaveReel,
+    onUpdate: (self) => reelScroll(self.progress),
   });
 
   onScroll(0);
@@ -305,6 +324,7 @@ function boot() {
       onScroll(hp);
     };
     window.__seekReel = async (tt) => {
+      capturing = true; // freeze the gate logic so the deterministic seek holds
       const reel = document.getElementById("reel-sec");
       lenis.scrollTo(reel.offsetTop + 5, { immediate: true }); ScrollTrigger.update();
       film2Vis = 1; els.film2.style.opacity = "1";

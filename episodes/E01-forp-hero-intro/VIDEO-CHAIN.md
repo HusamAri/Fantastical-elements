@@ -269,3 +269,7 @@ glass info-box in the negative space; phase-2 froze + looked bad; switch fonts t
   the real pixel on any viewport. Mobile stays text + glass box only.
 - **Fonts → Adobe (kit iwq4dnt):** Bodoni URW (display), Adobe Caslon Pro (editorial italic serif),
   P22 Underground (labels). Retired Chicle/Fraunces/Space Grotesk.
+- **Scroll-GATED play (2026-07-09):** phase-2 plays at natural speed toward the next fragment peak,
+  then HOLDS there (paused, box centered) until scroll unlocks the next one; scrolling on resumes at
+  normal speed to the following fragment. Peaks 5.0/20.1/30.2/34.6s, gates at scroll 0.16/0.38/0.58/
+  0.78. Başak's box moved to lower-right (was over the nazar).
