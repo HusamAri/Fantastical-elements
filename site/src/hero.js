@@ -217,6 +217,21 @@ function paintChrome(pct, strongest) {
   els.label.textContent = String(Math.round(pct)).padStart(2, "0");
 }
 
+// ---- Mobile focus pan: on a portrait crop the 16:9 film loses its side-objects, so we pan the
+// film's object-position toward the ACTIVE fragment's object (else back to Husam) so the thing the
+// card names is actually on screen. On wide viewports there is no horizontal crop, so it's a no-op. ----
+const VASPECT = 1.78;                 // film ≈ 16:9
+const HUSAM_U1 = 0.36, HUSAM_U2 = 0.44; // where the subject sits when no object is in focus
+let focusWant = 0.4, focusU = 0.4;
+function focusTick() {
+  focusU += (focusWant - focusU) * 0.05;
+  const r = (VASPECT * innerHeight) / innerWidth; // >1 → portrait crop (mobile); horizontal is cropped
+  let px = 42;
+  if (r > 1.05) px = clamp((0.5 - focusU * r) / (1 - r), 0, 1) * 100; // place the focus point at centre
+  const film = film2Vis > 0.5 ? els.film2 : els.film;
+  film.style.objectPosition = `${px.toFixed(1)}% 42%`;
+}
+
 // ---- PHASE I: scroll → film1 scrub + phase-1 plates ----
 let targetTime = 0, ready = false, ready2 = false, film2Vis = 0;
 function timeAt(p) {
@@ -227,18 +242,28 @@ function timeAt(p) {
 function onScroll(p) {
   targetTime = timeAt(p);
   if (film2Vis > 0.5) return; // phase-2 owns the frame while its reel is active
-  let strongest = 0;
+  let strongest = 0, fO = 0, fU = HUSAM_U1;
   for (const t of TEXT1) strongest = Math.max(strongest, applyText(t, envelope(inv(p, t.a, t.b), t.fin, t.fout)));
-  for (const f of FRAG1) { const o = envelope(inv(p, f.a, f.b), f.fin, f.fout); strongest = Math.max(strongest, applyFrag(FRAGS[f.key], o, targetTime)); }
+  for (const f of FRAG1) {
+    const o = envelope(inv(p, f.a, f.b), f.fin, f.fout);
+    strongest = Math.max(strongest, applyFrag(FRAGS[f.key], o, targetTime));
+    if (o > fO) { fO = o; fU = anchorAt(FRAGS[f.key].track, targetTime).u; }
+  }
+  focusWant = fO > 0.45 ? fU : HUSAM_U1;
   els.phase.textContent = "PHASE I";
   paintChrome(p * 100, strongest);
 }
 
 // ---- PHASE II: film2.currentTime → phase-2 plates (play-through, no seeking) ----
 function applyPhase2(tt) {
-  let strongest = 0;
+  let strongest = 0, fO = 0, fU = HUSAM_U2;
   for (const t of TEXT2) strongest = Math.max(strongest, applyText(t, envelope(inv(tt, t.ta, t.tb), t.fin, t.fout)));
-  for (const f of FRAG2) { const o = envelope(inv(tt, f.ta, f.tb), f.fin, f.fout); strongest = Math.max(strongest, applyFrag(FRAGS[f.key], o, tt)); }
+  for (const f of FRAG2) {
+    const o = envelope(inv(tt, f.ta, f.tb), f.fin, f.fout);
+    strongest = Math.max(strongest, applyFrag(FRAGS[f.key], o, tt));
+    if (o > fO) { fO = o; fU = anchorAt(FRAGS[f.key].track, tt).u; }
+  }
+  focusWant = fO > 0.45 ? fU : HUSAM_U2;
   els.phase.textContent = "PHASE II";
   paintChrome((tt / DUR2) * 100, strongest);
 }
@@ -264,6 +289,7 @@ function frameTick() {
     }
     applyPhase2(els.film2.currentTime);
   }
+  focusTick();
 }
 
 function reelScroll(p2) { reelP = p2; }
