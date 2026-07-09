@@ -210,5 +210,15 @@ the least. Extend for phase 2 by appending clips + SPANS rows (holds for reveals
 - **C15 K7→K5 "Flash → settle" (final resolution)** — STORY PROPOSED (K7+K5 frames shown): sun-pillar
   blast peaks → whole frame FLASHES white → light collapses, everything settles (enemies gone, fire to
   embers, shards dark) → Husam revealed centered, calm, single left rim-light, rest near-black (K5).
-  Camera eases from the low angle up to a level centered framing. **Status: awaiting director story
-  sign-off; no C15 generation until agreed.**
+  Camera eases from the low angle up to a level centered framing. First take (job `f041af93`, flash-only,
+  8s) DIRECTOR REJECTED. Re-rolled with a NEW fog story (director revised): full white-out → camera pulls
+  back → white TURNS INTO fog → fog clears → Husam emerges/walks in and stops centered → white smoke
+  disperses → calm rim-lit K5.
+- **C15b K7→K5 "Fog resolution" RE-ROLL (Kling v3.0, 8s, sound on)** · job `aaf96ee1-9e25-49e7-9715-408011917881`
+  · ~16 cr · QA: start-lock vs K7 ncc=1.000, end-lock vs K5 ncc=0.979, glitch 3.6 (white-out, not a cut),
+  frozen 0, 8.04s. Beats all landed (full white-out → pull-back → white-to-fog → fog clears → Husam
+  revealed standing calm → smoke disperses → K5). **DIRECTOR ACCEPTED (locked) 2026-07-09** — final C15.
+- **C16 K5→K5 "Settle hold" (FINAL clip, Kling v3.0, 5s, sound on)** · job `4fdad644-acfb-423b-9016-6d4ca7452e02`
+  · story agreed (story-first): a quiet LIVING HOLD on K5 — Husam still, centered, rim-lit; only the last
+  embers drift, thin haze, an imperceptible breath; near-black, for the CTA overlay. Director set 5s.
+  **Status: rendering, QA pending. On accept the chain is 16/16 COMPLETE.**
