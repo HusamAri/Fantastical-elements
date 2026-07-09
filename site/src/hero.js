@@ -160,11 +160,13 @@ function scrubTick() {
 }
 
 function initStatic() {
+  // Reduced-motion: no scrub. The film loops dimmed behind, and CSS reveals EVERY plate
+  // (all six fragment cards, names, slogans, links + beat captions) in a stacked, scrollable
+  // layout — the full narrative stays accessible without motion.
   document.body.classList.add("is-static");
   const f = els.film;
   f.setAttribute("loop", ""); f.muted = true;
   f.play?.().catch(() => {});
-  plateEl("title").style.opacity = plateEl("cta").style.opacity = "1";
 }
 
 function boot() {
@@ -172,9 +174,11 @@ function boot() {
   const onMeta = () => { if (f.duration && isFinite(f.duration)) DUR = f.duration; ready = true; ScrollTrigger.refresh(); };
   if (f.readyState >= 1) onMeta();
   f.addEventListener("loadedmetadata", onMeta, { once: true });
-  f.play?.().then(() => f.pause()).catch(() => {});
 
   if (prefersReduced) return initStatic();
+  // Prime the pipeline (some browsers need a play/pause to become seekable) — scrub path ONLY,
+  // so it never races initStatic's loop and freezes the film for reduced-motion users.
+  f.play?.().then(() => f.pause()).catch(() => {});
 
   // Page length from the tailored pacing weights.
   document.getElementById("hero-sec").style.height = `${Math.round(WTOTAL * 92)}vh`;
